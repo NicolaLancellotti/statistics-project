@@ -10,7 +10,6 @@ language:
 rmd_files: [
   "index.Rmd", 
   
-  "introduzione.Rmd",
   "dataSet.Rmd", 
   "frequenze.Rmd", 
   "misurePosizione.Rmd",
