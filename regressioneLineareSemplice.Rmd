@@ -1,0 +1,116 @@
+```{r chunk, echo = FALSE}
+```
+
+```{r chunk2, echo = FALSE}
+```
+
+## Regressione lineare
+
+Il modello di regressione lineare è un metodo di stima che mira a trovare la retta
+che meglio interpola la nuvola dei punti.
+
+I valori del coefficiente angolare $\beta$ e dell'intercetta $\alpha$ vengono calcolati tramite il metodo dei minimi quadrati e hanno valori pari a
+$$\beta = \frac{s_y}{s_x} r_{xy} \quad  \alpha=\overline{y}-\beta\overline{x}$$
+
+
+
+Il seguente codice calcola il modello lineare per la variabile indipendente associata
+alla soddisfazione per la famiglia e la variabile dipendente
+associata alla soddisfazione per gli amici.
+L'intercetta, il coefficiente angolare e il coefficiente di determinazione per tale modello
+sono mostrati nella tabella \@ref(tab:modello-lineare-dati)
+
+```{r}
+y <- df$amici
+x <- df$famiglia
+modello <- lm(y~x)
+intercetta <- modello$coefficients[[1]]
+coeffAngolare <- modello$coefficients[[2]]
+coeffDeterminazione <- summary(modello)$r.squared
+```
+
+Poiché il coefficiente angolare è positivo ne consegue che la retta di regressione
+è una retta crescente.
+
+```{r modello-lineare-dati, echo = FALSE}
+value <- matrix(c(intercetta, coeffAngolare, coeffDeterminazione), nrow = 1)
+knitr::kable(head(value, length(value)),
+             col.names = c('Intercetta', 'Coef. Angolare', 'Coef. Determinazione'),
+             caption = 'Dati modello lineare')
+```
+
+Invece il diagramma del modello di regressione è disegnato con il seguente codice ed è mostrato
+in figura  \@ref(fig:modello-lineare-scatterplot)
+```{r modello-lineare-scatterplot, fig.cap='Diagramma di dispersione', fig.align='center'}
+plot(x, y, xlab = "Soddisfazione Famiglia", 
+     ylab = "Soddisfazione Amici", 
+     main = "Regressione lineare semplice")
+abline(modello, col="blue")  
+```
+
+
+La stima dei valori tramite il modello lineare può differire dai valori osservati nel caso in cui i punti 
+non sono tutti sulla retta interpolante.
+Con residuo si definisce la differenza tra il valore osservato e il valore stimato.
+
+Può essere notato che la media campionaria dei residui è nulla, di conseguenza gli scostamenti positivi e negativi si compensano.
+Inoltre la media campionaria dei valori stimati è uguale alla media campionaria dei valori osservati.
+
+Il seguente codice permette di calcolare i valori stimati, i residui, e i residui standardizzati.
+I risultati sono mostrati nella tabella \@ref(tab:modello-lineare-residui). \
+Inoltre vengono calcolate alcune statistiche sui residui: la media campionaria, la varianza campionaria e deviazione standard campionaria. Non può essere calcolato il coefficiente di variazione poiché la media dei residui è zero.
+I risultati sono mostrati nella tabella \@ref(tab:modello-lineare-residui-statistiche).
+```{r}
+osservati <- y
+stime <- fitted(modello)
+residui <-resid(modello)
+residui.standard <- residui / sd(residui)
+
+mediaResidui <- mean(residui)
+varianzaResidui <- var(residui)
+deviazioneStandardResidui <- sd(residui)
+```
+
+
+```{r modello-lineare-residui, echo = FALSE}
+value <- matrix(c(y, stime, residui, residui.standard), 
+                 ncol = 4)
+colnames(value) = c("Osservati", "Stimati", "Residui", 
+                     "Residui standardizzati")
+knitr::kable(head(value, length(value)),
+             #col.names = c('Intercetta', 'Coef. Angolare', 'Coef. Determinazione'),
+             caption = 'Residui')
+```
+
+
+```{r modello-lineare-residui-statistiche, echo = FALSE}
+value <- matrix(c(mediaResidui, varianzaResidui, deviazioneStandardResidui), nrow = 1)
+knitr::kable(head(value, length(value)),
+             col.names = c('Media', 'Varianza', 'Deviazione Standard'),
+             caption = 'Statistiche Residui')
+```
+
+Una visualizzazione grafica dei residui sulla retta di regressione è mostrata in figura 
+\@ref(fig:modello-lineare-regressione-residui-standard) mentre un diagramma mostrante i valori dei residui 
+rispetto ai valori stimati è mostrato in figura
+\@ref(fig:modello-lineare-diagramma-residui-standard). In quest'ultimo grafico la retta orizzontale rappresenta
+la media campionaria dei residui di valore zero.
+
+```{r modello-lineare-regressione-residui-standard, fig.cap='Diagramma di dispersione', fig.align='center', echo = FALSE}
+plot(x, y, main="Retta di regressione e residui", 
+     xlab = "Soddisfazione Famiglia", ylab = "Soddisfazione Amici")
+abline(modello, col="blue")
+segments(x, stime, x, y, col="magenta")
+```
+
+
+```{r modello-lineare-diagramma-residui-standard, fig.cap='Diagramma di dispersione', fig.align='center', echo = FALSE}
+plot(stime, residui.standard, 
+     main = "Diagramma dei residui standardizzati", 
+     xlab = "Valori stimati", ylab = "Residui standard",
+     pch = 1, col = "red")
+abline(h = 0, col = "blue", lty = 2)
+```
+
+Come è possibile notare alcuni residui si discostano in modo maggiore degli altri dal valore medio 
+influenzando l'andamento della retta interpolante

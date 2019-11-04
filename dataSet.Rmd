@@ -1,0 +1,77 @@
+# Data Set
+
+Di seguito il codice che consente di creare un data frame in R con i valori in percentuale ottenuti dal sondaggio. Tali percentuali rappresentano il grado di soddisfazione per le caratteristiche di interesse.
+Inoltre sono state definiti alcuni oggetti che saranno utilizzati successivamente.
+
+Per una migliore visualizzazione i valori sono mostrati anche nella tabella \@ref(tab:dataframe).
+
+```{r chunk}
+```
+
+```{r chunk2}
+```
+
+```{r dataframe, echo = FALSE}
+knitr::kable(head(df, rowCount),
+             col.names = column.names,
+             caption = 'Data Set')
+```
+
+## Boxplot
+
+Un boxplot, detto anche diagramma a scatola con baffi, è una rappresentazione grafica che permette di descrivere la distribuzione di un campione.
+
+É costituito da una scatola i cui estremi sono il primo e il terzo quartile, divisa al suo interno dal secondo quartile detto anche mediana. In basso e in alto, o a sinistra e destra a seconda della rappresentazione verticale o orizzontale, sono presenti altri due segmenti detti baffi calcolati nel seguente modo:
+
+* il baffo inferiore è il valore più piccolo tra le osservazioni maggiore o uguale  a $Q_1 − 1.5(Q_3 − Q_1)$
+
+* il baffo superiore è il valore più grande tra le osservazione minore o uguale a
+$Q_3 + 1.5(Q_3 − Q_1)$
+
+Eventuali valori non appartenenti all’intervallo definito tra il baffo inferiore e superiore sono detti valori anomali.
+
+Il seguente codice permette di mostrare i boxplot per le caratteristiche del dataset.
+I grafici sono mostrati nella figura \@ref(fig:boxplot-singoli).
+```{r boxplot-singoli, fig.cap='Boxplot', fig.align='center'}
+par(mfrow=c(3, 2))
+for (i in 1:colCount) {
+  boxplot(df[i], horizontal = TRUE, col = i + 1, main = column.names[i])
+}
+```
+
+Invece il seguente codice permette di mostrare tutti i boxplot nello stesso 
+grafico.
+Il grafico è mostrato nella figura \@ref(fig:boxplot-multiplo).
+```{r boxplot-multiplo, fig.cap='Boxplot', fig.align='center'}
+  boxplot(df, col = 2:6, names = column.names)
+```
+
+Infine il seguente codice permette di calcolare i baffi i cui valori
+sono mostrati nella tabella \@ref(tab:baffi).
+```{r}
+calcolaBaffi <- function(values) {
+  q <- quantile(values)
+  inferiore <- q[[2]] - 1.5 * (q[[4]] - q[[2]])
+  superiore <- q[[4]] + 1.5 * (q[[4]] - q[[2]])
+  baffoInf <- min(values[values >= inferiore])
+  baffoSup <- max(values[values <= superiore])
+  c(baffoInf, baffoSup)  
+}
+baffi <- sapply(df, calcolaBaffi)
+row.names(baffi) <- c("Inferiore", "Superiore")
+```
+
+```{r baffi, echo = FALSE}
+knitr::kable(head(baffi, rowCount),
+             col.names = column.names,
+             caption = 'Baffi')
+```
+
+Dall'analisi visiva dei baffi si può trarre la conclusione che in ogni caratteristica 
+è presente un valore anomalo e per tutte le caratteristiche l'individuo nel campione che presenta 
+il valore anomale è il "Trentino Alto Adige". 
+Inoltre si può osservare che gli italiani traggono in media il massimo della soddisfazione
+nei rapporti familiari seguiti dai rapporti con gli amici, la salute, il tempo libero e infine dalla situazione economica. 
+
+Si nota inoltre che
+la mediana è più vicina al terzo quartile e che il baffo sinistro è più grande del destro per tutte le caratteristiche eccetto per la soddisfazione economica.

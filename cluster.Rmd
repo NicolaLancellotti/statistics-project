@@ -1,0 +1,537 @@
+```{r chunk, echo = FALSE}
+```
+```{r chunk2, echo = FALSE}
+```
+
+# Analisi dei cluster
+
+In questo capitolo verrà effettuata l'analisi dei cluster che ha come obbiettivo il raggruppamento
+degli individui del campione in gruppi con caratteristiche simili.
+
+Poiché gli individui del nostro campione sono le regioni italiane cercheremo di determinare dei gruppi
+costituiti da regioni aventi un grado di associazione elevato, e aventi un grado di associazione basso
+con le regioni presenti negli altri gruppi.
+
+Per determinare quantitativamente la somiglianza tra gli individui è possibile utilizzare misure di distanza o misure di similarità.
+
+Essendo i metodi di enumerazione completa troppo costosi l'analisi dei cluster sarà effettuata
+prima con metodi gerarchici agglomerativi e poi con un metodo non gerarchico.
+I metodi gerarchici  consentiranno di avere una visione in termini di distanze e consentiranno di
+scegliere il numero di cluster.
+Il metodo non gerarchico k-mean cercherà di migliorare i risultati ottenuti precedentemente
+grazie alla riallocazione degli individui tra i cluster.
+
+Per ogni metodo gerarchico sarà mostrato anche il dendrogramma, un grafico che riporta 
+sull'asse delle ascisse gli individui e sull'asse delle ordinate le distanze di aggregazione.
+
+Con i metodi per cui è possibile verrà effettuata anche un'analisi con lo screeplot.
+Lo screeplot è un grafico in cui sulle ordinate vengono posti i numeri di gruppi che si possono ottenere
+con il metodo gerarchico e sull'asse delle ascisse le distanze di aggregazione.
+Calcolate le differenze tra le distanze di aggregazione per formare $k$ gruppi e $k - 1$ 
+gruppi per $k = 2,..,n$ dove $n$ è il numero di individui,
+la procedura consiglia di scegliere il numero di cluster pari a $l$ se la distanza di aggregazione per formare 
+$l$ gruppi e $l - 1$ gruppi è la distanza più grande tra le distanze possibili.
+Va notato che l'analisi dello screen plot non suggerisce sempre il numero ottimale di cluster e che non è
+consigliabile usare il metodo del centroide e della mediana in quanto le distanze di agglomerazioni potrebbero 
+essere non crescenti.
+
+## Misure di distanza
+
+Dati due individui $I_i$ e $I_j$, e definito con $X_i$ il vettore delle caratteristiche dell'individuo $I_i$
+appartenente a uno spazio euclideo a $p$ dimensioni $E_p$, 
+una funzione di distanza $d(X_i,X_j)$ è una funzione a valori reali tale che:
+
+1. $d(X_i,X_j)=0$ se e sole se $X_i=X_j$ con $X_i$ e $X_j$ in $E_p$ 
+2. $d(X_i,X_j)\ge 0$ per ogni $X_i$ e $X_j$ in $E_p$ 
+3. $d(X_i,X_j)= d(X_j,X_i)$ per ogni $X_i$ e $X_j$ in $E_p$ 
+4. $d(X_i,X_j) \le d(X_i,X_k) + d(X_k,X_j)$ per ogni $X_i$, $X_j$ e $X_k$ in $E_p$  
+ 
+Inoltre le funzioni di distanza godono delle seguenti proprietà:
+
+1. Se $d$ e $d'$ sono misure di distanza anche $d + d'$ è una misura di distanza
+2. Se $d$ è una misura di distanza e $c$ è un numero reale positivo allora $cd$ è una misura di distanza
+3. Se $d$ è una misura di distanza e $c$ è un numero reale positivo allora $\frac{d}{c+d}$ è una misura di distanza
+
+Poiché il prodotto di due misure di distanza (e quindi il quadrato di una misura di distanza) non sempre
+soddisfa la disuguaglianza triangolare, ne consegue che non può essere considerato una misura di distanza.
+
+Esempi di metriche di distanza sono:
+
+- metrica euclidea
+- metrica di Manhattan
+- metrica di Checycev
+- metrica di Minkowski
+- metrica di Camberra
+- metrica di Jaccard
+
+Nel seguito utilizzeremo la metrica euclidea definita nel seguente modo
+$$d_2(X_i, X_j) = \sqrt{\sum_{k=1}^p(x_{i,k}-x_{j,k})^2}$$
+dove $x_{i,k}$ è il valore della $k$-esima caratteristica dell'individuo $I_i$.
+
+Da notare che la distanza euclidea è influenzata dall'unità di misura delle caratteristiche, il problema non si pone
+con il nostro data set in quanto i valori sono espressi in forma percentuale. In caso contrario sarebbe stato necessario scalare e standardizzare i valori.
+
+## Misura di non omogeneità
+
+La misura di non omogeneità statistica è una misura che consente di dire quanto è buona la partizione
+degli individui in cluster.
+
+**Matrice di non omogeneità statistica**
+
+Dato un insieme di individui distinti $I = \{I_1,\dots, I_n\}$ ognuno associato a $p$ caratteristiche,
+possiamo considerare la matrice $W_I$ delle varianze e covarianze tra le caratteristiche dell'insieme
+in modo tale che $W_{I_{ij}}$ sia la covarianza tra la caratteristica $i$-esima e $j$-esima.
+
+Viene definita la matrice statistica di non omogeneità $H_I$ il valore $H_I = (n-1)W_I$ e
+si definisce misura di non omogeneità statistica il valore 
+$$trH_I = (n-1)\sum_{r=1}^{p}s_i^2$$
+
+**Matrice di non omogeneità statistica dell'unione di cluster**
+
+La matrice statistica di non omogeneità $T$ dell'unione di $m$ cluster $G_1,\dots,G_m$ è definita dal valore:
+
+$$T = H_{G_1\cup \dots \cup G_m} = S + B$$
+
+dove $S$ è detta matrice di non omogeneità all'interno dei cluster (within) ed è definita dal valore
+
+$$S = \sum_{i=1}^m H_i$$
+
+e $B$ è detta matrice di non omogeneità tra i cluster (between) ed è definita dal valore
+$$B = \sum_{i<j}^m H_{G_i \cap G_j} + \dots + G_1 \cap \dots \cap G_m$$
+
+Ne consegue che $trT = trS + trB$ che è equivalente a $1 = \frac{trS}{trT} + \frac{trB}{trT}$
+
+Essendo la traccia della matrice di non omogeneità totale $T$ fissata e poiché le matrici $S$ e $B$ dipendono
+dalla partizione dei cluster, si desidera, per avere una buona partizione, massimizzare il rapporto $\frac{trB}{trT}$
+tra la misura di non omogeneità tra cluster e la misura di non omogeneità totale 
+
+Nei seguenti paragrafi verrà utilizzato tale rapporto per analizzare la bontà delle classificazioni 
+generate dai metodi analizzati.
+ 
+## Funzioni utili per l'analisi dei cluster
+In questo paragrafo sono mostrate funzioni e valori che saranno utilizzati 
+nei seguenti paragrafi per l'analisi dei cluster.
+
+Sono definite funzioni e valori per il calcolo della misura di non omogeneità totale e non omogeneità
+tra cluster, per calcolare le distanze di aggregazione, per calcolare il numero di cluster consigliato dallo screeplot,
+e per la visualizzazione del dendrogramma. Inoltre è presente anche il codice per il calcolo delle distanze utilizzando la metrica euclidea. 
+
+```{r}
+nonOmogeneitaTotale <- function(df) {
+  n <- nrow(df)
+  trHI <- (n - 1) * sum(apply(df, 2, var))
+}
+
+nonOmogeneitaCluster <- function(hls, numCluster) {
+  individuiInCluster <- cutree(hls, k = as.integer(numCluster), h = NULL)
+  indici <- list(individuiInCluster)
+  varianze <- aggregate(df, indici, var)
+  frequenzeAssolute <- table(individuiInCluster)
+  
+  
+  agvar <- varianze[, -1]
+  misuraNonOmogCluster <- numeric(0)
+  for (i in 1:numCluster) {
+    misuraNonOmogCluster[i] <- (frequenzeAssolute[[i]]-1) * sum(agvar[i, ])
+    if (is.na(misuraNonOmogCluster[i])) { 
+      misuraNonOmogCluster[i] = 0
+    }
+  }
+  misuraNonOmogCluster
+}
+
+plotCluster <- function(hls, numCluster, tipo) {
+   plot(hls,
+       hang = -1,
+       main = paste("Metodo gerarchico agglomerativo\n", tipo),
+       xlab = "",
+       sub = "")
+  axis(side = 4, at = round(c(0, hls$height),2))
+  rect.hclust(hls, k = numCluster, border = "red") 
+}
+
+calcoloMisure <- function (df, hls, numCluster) {
+  totale <- nonOmogeneitaTotale(df)
+  misuraNonOmogCluster <- nonOmogeneitaCluster(hls, numCluster)
+  within <- sum(misuraNonOmogCluster)
+  between <- totale - within
+  rapporto <- between / totale
+ 
+  list(totale = totale, misuraNonOmogCluster = misuraNonOmogCluster, 
+       within = within, between = between, rapporto = rapporto) 
+}
+
+screeplot <- function(hls, tipo) {
+  plot(rev(c(0,hls$height)),
+     seq(1,rowCount),
+     type = "b",
+     main = paste("Screeplot - Metodo", tipo),
+     xlab = "Distanza di aggregazione",
+     ylab = "Numero di cluster", 
+     col = "red")
+}
+
+distancesCluster <-function(hls) {
+  c(0, rev(diff(c(0, hls$height))))
+}
+
+computeNumCluster <- function(hls) {
+  d <- distancesCluster(hls)
+  which(d == max(d)) 
+}
+
+d2 <- dist(df, method = "euclidean", diag = TRUE, upper = TRUE)
+square.d2 = d2 ^ 2
+
+```
+## Metodi gerarchici
+
+I metodi gerarchici agglomerativi partono da $n$ cluster contenenti i singoli individui ed
+ad ogni passo uniscono i cluster più vicini in modo tale da ottenere in $n-1$ passi un singolo cluster.
+
+
+L'algoritmo è il seguente:
+
+1. Considerare gli individui come singoli cluster.
+2. Calcolare la matrice delle distanza tra i cluster
+3. Raggruppare in un unico cluster i due cluster a distanza minima e calcolare la 
+distanza del nuovo cluster da tutti gli altri cluster.
+4. Ripartire dal passo 2 finché non rimane un singolo cluster.
+
+I metodi si distinguono per la scelta della misura di distanza e per come si individuano i cluster più vicini.
+
+Nel seguito vengono mostrati i metodi non gerarchici del legame completo, del legame singolo, del legame medio,
+del centroide e della mediana.
+
+### Metodo del legame completo
+
+Nel metodo del legame completo la distanza tra due gruppi è pari alla massima distanza tra tutte le distanze
+tra gli individui presi a due a due in cui uno appartiene a un gruppo e uno all'altro gruppo.
+Tale distanza rappresenta il diametro della sfera contenente tutti gli individui dei due gruppi.
+
+Questo metodo riesce ad identificare soprattutto gruppi di forma ellissoidale, cioè punti addensati 
+intorno a un nucleo. Inoltre privilegia l'omogeneità tra gli individui del gruppo.
+
+Il seguente codice è utilizzato per effettuare l'analisi con il metodo del legame completo.
+```{r}
+hls <- hclust(d2, method = "complete")
+numCluster <- 4
+misure <- calcoloMisure(df, hls, numCluster)
+```
+
+Nelle figure \@ref(fig:legame-completo-cluster) e \@ref(fig:legame-completo-screeplot), sono mostrati il dendrogramma e lo screeplot.
+L'analisi dello screeplot suggerisce un numero di cluster pari a `r computeNumCluster(hls)`, tuttavia si è scelto un 
+numero di cluster pari a 4 in quanto la distanza per formare 4 cluster è sensibilmente maggiore rispetto a quelle per formare un numero maggiore di cluster.
+```{r legame-completo-cluster, fig.cap='Cluster', fig.align='center', echo = FALSE}
+tipo = "del legame completo"
+plotCluster(hls, numCluster, tipo)
+```
+```{r legame-completo-screeplot, fig.cap='Screeplot', fig.align='center', echo = FALSE}
+screeplot(hls, tipo)
+```
+
+Nella tabella \@ref(tab:legame-completo-misure-omogeneita) sono mostrate le misure di non omogeneità
+per il metodo considerato.
+```{r legame-completo-misure-omogeneita, echo = FALSE}
+value <- matrix(c(misure["totale"], misure["within"], misure["between"], misure[["rapporto"]]), nrow = 1)
+knitr::kable(head(value, length(value)),
+             col.names = c("Totale", "Within", "Between", "Between / Totale"),
+             caption = 'Misura di non omogeneità')
+```
+
+### Metodo del legame singolo
+
+Nel metodo del legame singolo la distanza tra due gruppi è pari alla minima distanza tra tutte le distanze
+tra gli individui presi a due a due in cui uno appartiene a un gruppo e uno all'altro gruppo.
+
+Questo metodo riesce a individuare cluster di qualsiasi forma e mette in luce valori anomali,
+di contro può provocare la formazione di catene in quanto basa l'unione tra i cluster su un solo legame.
+Di conseguenza ci può essere un'incapacità di individuare cluster distinti ma non ben separati.
+
+Il seguente codice è utilizzato per effettuare l'analisi con il metodo del legame singolo.
+```{r}
+hls <- hclust(d2, method = "single")
+numCluster <- 4
+misure <- calcoloMisure(df, hls, numCluster)
+```
+
+Nelle figure \@ref(fig:legame-singolo-cluster) e \@ref(fig:legame-singolo-screeplot), sono mostrati il dendrogramma e lo screeplot.
+L'analisi dello screeplot suggerisce un numero di cluster pari a `r computeNumCluster(hls)`, tuttavia si è scelto un numero di cluster pari a 4 per permettere un confronto con altri metodi.
+
+```{r legame-singolo-cluster, fig.cap='Cluster', fig.align='center', echo = FALSE}
+tipo = "del legame singolo"
+plotCluster(hls, numCluster, tipo)
+```
+
+```{r legame-singolo-screeplot, fig.cap='Screeplot', fig.align='center', echo = FALSE}
+screeplot(hls, tipo)
+```
+
+Nella tabella \@ref(tab:legame-singolo-misure-omogeneita) sono mostrate le misure di non omogeneità
+per il metodo considerato.
+```{r legame-singolo-misure-omogeneita, echo = FALSE}
+value <- matrix(c(misure["totale"], misure["within"], misure["between"], misure[["rapporto"]]), nrow = 1)
+knitr::kable(head(value, length(value)),
+             col.names = c("Totale", "Within", "Between", "Between / Totale"),
+             caption = 'Misura di non omogeneità')
+```
+
+### Metodo del legame medio
+
+Nel metodo del legame medio la distanza tra due gruppi è pari alla media aritmetica tra tutte le distanze
+tra gli individui presi a due a due in cui uno appartiene a un gruppo e uno all'altro gruppo.
+
+Va notato che se le dimensioni tra i cluster sono molto differenti la distanza calcolata sarà molto più vicina 
+a quella del cluster più numeroso.
+
+Il seguente codice è utilizzato per effettuare l'analisi con il metodo del legame medio.
+```{r}
+hls <- hclust(d2, method = "average")
+numCluster <- 4
+misure <- calcoloMisure(df, hls, numCluster)
+```
+
+Nelle figure \@ref(fig:legame-medio-cluster) e \@ref(fig:legame-medio-screeplot), sono mostrati il dendrogramma
+e lo screeplot.
+L'analisi dello screeplot suggerisce un numero di cluster pari a `r computeNumCluster(hls)`, tuttavia si è scelto un numero di cluster pari a 4 per permettere un confronto con altri metodi.
+
+```{r legame-medio-cluster, fig.cap='Cluster', fig.align='center', echo = FALSE}
+tipo = "del legame medio"
+plotCluster(hls, numCluster, tipo)
+```
+```{r legame-medio-screeplot, fig.cap='Screeplot', fig.align='center', echo = FALSE}
+
+screeplot(hls, tipo)
+```
+
+Nella tabella \@ref(tab:legame-medio-misure-omogeneita) sono mostrate le misure di non omogeneità
+per il metodo considerato.
+```{r legame-medio-misure-omogeneita, echo = FALSE}
+value <- matrix(c(misure["totale"], misure["within"], misure["between"], misure[["rapporto"]]), nrow = 1)
+knitr::kable(head(value, length(value)),
+             col.names = c("Totale", "Within", "Between", "Between / Totale"),
+             caption = 'Misura di non omogeneità')
+```
+
+### Metodo del centroide
+
+Nel metodo della mediana la distanza tra due gruppi è pari alla distanza tra i centroidi, coincidenti con le medie
+campionarie tra gli individui dei due gruppi.
+
+Da notare che a differenza dei metodi precedenti il metodo nel centroide utilizza i quadrati delle distanze euclidee.
+Utilizzando questo metodo gruppi grandi potrebbero attrarre gruppi più piccoli, e
+se le dimensioni dei cluster sono molto differenti il nuovo centroide sarà più vicino al cluster più numeroso.
+Infine le distanze di aggregazione potrebbero essere non crescenti.
+
+
+Il seguente codice è utilizzato per effettuare l'analisi con il metodo del centroide.
+```{r}
+hls <- hclust(square.d2, method = "centroid")
+numCluster <- 4
+misure <- calcoloMisure(df, hls, numCluster)
+```
+
+Nella figura \@ref(fig:legame-centroide-cluster) è mostrato il dendrogramma con 4 cluster.
+```{r legame-centroide-cluster, fig.cap='Cluster', fig.align='center', echo = FALSE}
+tipo = "del centroide"
+plotCluster(hls, numCluster, tipo)
+```
+
+Nella tabella \@ref(tab:legame-centroide-misure-omogeneita) sono mostrate le misure di non omogeneità
+per il metodo considerato.
+```{r legame-centroide-misure-omogeneita, echo = FALSE}
+value <- matrix(c(misure["totale"], misure["within"], misure["between"], misure[["rapporto"]]), nrow = 1)
+knitr::kable(head(value, length(value)),
+             col.names = c("Totale", "Within", "Between", "Between / Totale"),
+             caption = 'Misura di non omogeneità')
+```
+
+### Metodo della mediana
+
+Nel metodo della mediana la distanza tra due gruppi è pari alla distanza tra i centroidi, coincidenti 
+con la media aritmetica dei centroidi dei due gruppi e di conseguenza è indipendente dalla numerosità dei cluster.
+
+In modo simile al metodo del legame singolo, il metodo nel centroide può provocare una formazione di una catena.
+
+Il seguente codice è utilizzato per effettuare l'analisi con il metodo della mediana.
+```{r}
+hls <-hclust(square.d2, method = "median")
+numCluster <- 4
+misure <- calcoloMisure(df, hls, numCluster)
+```
+
+Nella figura \@ref(fig:legame-mediana-cluster) è mostrato il dendrogramma con 4 cluster.
+```{r legame-mediana-cluster, fig.cap='Cluster', fig.align='center', echo = FALSE}
+tipo = "della mediana"
+plotCluster(hls, numCluster, tipo)
+```
+
+Nella tabella \@ref(tab:legame-mediana-misure-omogeneita) sono mostrate le misure di non omogeneità
+per il metodo considerato.
+```{r legame-mediana-misure-omogeneita, echo = FALSE}
+value <- matrix(c(misure["totale"], misure["within"], misure["between"], misure[["rapporto"]]), nrow = 1)
+knitr::kable(head(value, length(value)),
+             col.names = c("Totale", "Within", "Between", "Between / Totale"),
+             caption = 'Misura di non omogeneità')
+```
+
+### Analisi metodi gerarchici
+
+Nonostante l'analisi degli screen plot abbia suggerito un numero di cluster pari a due, e stato scelto empiricamente
+un numero di cluster pari a quattro. Infatti una suddivisione in due cluster avrebbe avuto in un cluster l'individuo 
+anomalo "Trentino Alto-Adige" e nel restante gruppo tutte le rimanenti regioni italiane.
+Con una suddivisione uguale a quattro si ottengono ottimi risultati, infatti per tutti i metodi eccetto il metodo 
+del legame singolo, il rapporto tra la misura di non omogeneità between e quella totale è 
+uguale per tutti i metodi ed ha valore maggiore di 0.9. Con il metodo nel legame singolo si ottiene invece un valore
+inferiore.
+
+Nel seguito vengono analizzati i cluster con il metodo del legame completo, ottenendo informazioni su alcune misure di sintesi.
+
+Il seguente codice permette di calcolare a quale cluster appartiene ogni individuo, il numero di individui per cluster
+e le altezze di aggregazione.
+I risultati ottenuti sono mostrati rispettivamente nelle tabelle:
+\@ref(tab:individui-cluster), \@ref(tab:numero-individui-cluster) e \@ref(tab:altezze).
+```{r}
+individuiInCluster <- cutree(hls, k = as.integer(numCluster), h = NULL)
+frequenzeAssolute <- table(individuiInCluster)
+```
+
+
+
+```{r individui-cluster, echo = FALSE}
+value <- as.matrix(sort(individuiInCluster))
+knitr::kable(head(value, length(value)),
+             col.names = c("Cluster"),
+             caption = 'Individui nei cluster')
+```
+
+
+```{r numero-individui-cluster, echo = FALSE}
+value <- frequenzeAssolute
+knitr::kable(head(value, length(value)),
+             col.names = c("Cluster", "Numero individui"),
+             caption = 'Numero individui nei cluster')
+```
+
+
+
+
+```{r altezze, echo = FALSE}
+value <- cbind(hls$merge, hls$height)
+knitr::kable(head(value, length(value)),
+             col.names = c("Primo individuo/cluster", "Secondo individuo/cluster", "Altezza"),
+             caption = 'Altezze di aggregazione - I numeri negativi indicano gli individui, i numeri positivi i cluster')
+```
+
+
+Invece il seguente codice permette di calcolare le medie campionarie, le varianze campionarie e le deviazioni standard
+campionarie. I risultati sono mostrati rispettivamente nelle tabelle \@ref(tab:misure-sintesi-medie), 
+\@ref(tab:misure-sintesi-varianze) e \@ref(tab:misure-sintesi-sd).
+```{r}
+hls <- hclust(d2, method = "complete")
+individuiInCluster <- cutree(hls, k = as.integer(numCluster), h = NULL)
+indici <- list(individuiInCluster)
+medie <- aggregate(df, indici, mean)
+varianze <- aggregate(df, indici, var)
+deviazioniStandard <- aggregate(df, indici, sd)
+```
+
+Va notato che la varianza e la variazione standard possono essere calcolate solo se sono presenti almeno due individui.
+Di conseguenza per il cluster in cui è presente l'unico individuo "Trentino Alto-Adige" tali valori non sono calcolati.
+
+```{r misure-sintesi-medie, echo = FALSE}
+value <- medie
+knitr::kable(head(value, length(value)),
+             col.names = c("Cluster", column.names),
+             caption = 'Medie')
+```
+
+```{r misure-sintesi-varianze, echo = FALSE}
+value <- varianze
+knitr::kable(head(value, length(value)),
+             col.names = c("Cluster", column.names),
+             caption = 'Varianze')
+```
+
+```{r misure-sintesi-sd, echo = FALSE}
+value <- deviazioniStandard
+knitr::kable(head(value, length(value)),
+             col.names = c("Cluster", column.names),
+             caption = 'Deviazioni standard')
+```
+
+## Metodo non gerarchico
+
+Nei paragrafi precedenti abbiamo utilizzato i metodi non gerarchici per individuare il numero di cluster,
+in questo paragrafo invece utilizzeremo il metodo non gerarchico k-means per cercare di ottenere un migliore
+raggruppamento degli individui per il numero di cluster scelto. Questo è possibile in quanto il metodo 
+k-means al contrario dei metodi gerarchici visti precedentemente consente di riallocare gli individui 
+nei cluster.
+
+Il metodo funziona nel seguente modo:
+
+1. Fissare il numero $k$ di cluster, e i punti di riferimento iniziali.
+2. Associare ogni individuo al cluster più vicino.
+3. Calcolare il baricentro di ogni cluster.
+4. Ricalcolare le distanze di ogni individuo da tutti i cluster e riallocare gli individui nel cluster più vicino se necessario.
+5. Ricalcolare il baricentro di ogni cluster.
+6. Ripetere il procedimento dal punto 4 finché i centroidi non subiscono modifiche rispetto all'iterazione precedente.
+
+Va notato che nel metodo k-means si considera la matrice contenente i quadrati delle distanze euclidee,
+e che la classificazione finale può dipendere dalle scelte iniziali.
+
+I punti di riferimento possono essere scelti in modo casuale o utilizzare i centroidi calcolati con il metodo del
+centroide, inoltre può essere fissato a priori il numero massimo di iterazioni. Nel seguito il numero massimo di 
+iterazioni sarà posto pari a dieci, un numero maggiore non migliora la classificazione.
+
+
+Il seguente codice utilizza il metodo k-means scegliendo per dieci volte i punti di riferimento 
+iniziale in modo casuale.
+```{r}
+numCluster <- 4
+km <- kmeans(df, center = numCluster, iter.max = 10, nstart = 10)
+```
+
+Invece il seguente codice utilizza come centroidi i centroidi calcolati con il metodo del centroide. 
+Tuttavia con tali punti si ottengono gli stessi risultati.
+```{r}
+hls <-  hclust(square.d2, method = "centroid")
+individuiInCluster <- cutree(hls, k = numCluster, h = NULL)
+indici <- list(individuiInCluster)
+centroidiIniziali<-aggregate(df, indici, mean)[,-1]
+
+km <- kmeans(df, center = centroidiIniziali, iter.max = 10)
+```
+
+Nella tabella \@ref(tab:kmeans-misure-omogeneita) vengono mostrate le misure di non omogeneità utilizzando
+il metodo k-means, mentre nella tabella \@ref(tab:kmeans-cluster) viene mostrato 
+il cluster di appartenenza di ogni individuo.
+Come è possibile osservare si ottengono i medesimi risultati del metodo gerarchico del legame completo.
+```{r kmeans-misure-omogeneita, echo = FALSE}
+value <- matrix(c(km$totss, km$tot.withinss, km$betweenss, (km$betweenss / km$totss)), nrow = 1)
+knitr::kable(head(value, length(value)),
+             col.names = c("Totale", "Within", "Between", "Between / Totale"),
+             caption = 'Misura di non omogeneità')
+```
+
+```{r kmeans-cluster, echo = FALSE}
+value <- sort(km$cluster)
+knitr::kable(head(value, length(value)),
+             col.names = 'Cluster',
+             caption = 'Individui nei cluster')
+```
+
+Infine vengono mostrati nella tabella \@ref(tab:kmeans-centri) i centroidi dei cluster calcolati.
+```{r kmeans-centri, echo = FALSE}
+value <- as.matrix(km$centers)
+row.names(value) = c("Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4")
+knitr::kable(head(value, length(value)),
+             col.names = column.names,
+             caption = 'Centroidi')
+```
+
+
+
+
+
+

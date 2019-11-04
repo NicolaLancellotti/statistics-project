@@ -1,0 +1,166 @@
+```{r chunk, echo = FALSE}
+```
+
+```{r chunk2, echo = FALSE}
+```
+
+# Correlazioni
+
+In questo capitolo l'attenzione verrà posta sulle relazioni tra le caratteristiche del data set.
+Le relazioni possono essere descritte visivamente tramite diagrammi di dispersione o tramite una 
+misura quantitativa detta covarianza campionaria.
+
+
+## Diagrammi si dispersione
+
+I diagrammi di dispersione detti anche scatterplot sono rappresentazioni grafiche della correlazione
+tra variabili.
+
+Dato un campione bivariato $(x_i, y_i)$ per $i=1,...n$ rappresentante $n$ osservazioni delle variabili
+$(X, Y)$ il relativo diagramma di dispersione consiste nel riportare i punti del campione su un piano cartesiano dopo aver scelto una variabile indipendente e una dipendente.
+Dalla visione del grafico è possibile intuire un'eventuale regolarità tra i valori.
+
+Il seguente codice permette di creare tutti gli scatterplot tra le caratteristiche considerate.
+I diagrammi ottenuti sono mostrati in figura \@ref(fig:scatterplot).
+```{r scatterplot, fig.cap='Diagrammi si dispersione', fig.align='center'}
+pairs(df)
+```
+
+In ogni diagramma la variabile indipendente è descritta dall'etichetta presente nella stessa colonna
+del diagramma, mentre la variabile dipendente è descritta dall'etichetta presente nella stessa riga
+del diagramma.
+Dalla visualizzazione del grafico si può notare una correlazione positiva tra tutte le caratteristiche
+prese a due a due.
+
+## Covarianza campionaria
+
+La covarianza campionaria consente di dare una misura quantitativa della correlazione tra le variabili.
+Dato un campione bivariato $(x_i, y_i)$ per $i=1,...n$ la covarianza campionaria tra le variabili
+$X$ e $Y$ è definita con il valore
+
+$$C_{xy}=\frac{1}{n-1}\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})$$
+
+Se la covarianza campionaria assume valore zero ne consegue che le variabili non sono correlate,
+altrimenti all'aumentare del valore assoluto della covarianza aumenta la correlazione.
+In particolare la correlazione è positiva se il valore della covarianza è positivo, negativa altrimenti.
+
+Il seguente codice permette di calcolare la covarianza tra le caratteristiche del data set prese a due a due.
+I risultati ottenuti sono mostrati nella tabella \@ref(tab:covarianze).
+Da notare che la correlazione tra le stesse variabili è uguale alla varianza tra le variabili.
+```{r}
+covarianze <- cov(df)
+```
+
+```{r covarianze, echo = FALSE}
+row.names(covarianze) = column.names
+knitr::kable(head(covarianze, length(covarianze)),
+            col.names = column.names,
+            caption = 'Correlazioni')
+```
+
+
+
+
+## Coefficiente di correlazione campionario
+
+Il coefficiente di correlazione campionario è un coefficiente per misurare in modo quantitativo 
+la relazione lineare tra le variabili ed è definito come
+$$r_{xy}=\frac{C_{xy}}{s_x s_y}$$
+
+
+Assume valori compresi tra -1 e 1,
+in particolare assume valore zero nel caso in cui le variabili non sono correlate, mentre all'aumentare
+del valore assoluto del coefficiente aumenta la correlazione tra le variabili.
+La correlazione è positiva se il segno del coefficiente è positivo, negativa altrimenti.
+
+Inoltre il coefficiente di correlazione campionario non fa distinzione tra la variabile indipendente e la variabile dipendente.
+
+Il seguente codice permette di calcolare il coefficiente di correlazione campionario tra le caratteristiche del data set prese a due a due.
+I risultati ottenuti sono mostrati nella tabella \@ref(tab:correlazioni).
+
+```{r}
+correlazioni <- cor(df)
+```
+
+```{r correlazioni, echo = FALSE}
+row.names(correlazioni) = column.names
+knitr::kable(head(correlazioni, length(correlazioni)),
+            col.names = column.names,
+            caption = 'Correlazioni')
+```
+
+Il seguente codice permette di calcolare i valori della tabella \@ref(tab:correlazioni-ordinate) dove è mostrato
+il coefficiente di correlazione campionario per tutte le caratteristiche prese a due a due in ordine 
+non crescente. 
+
+```{r}
+cc <- numeric()
+for (i in 1:colCount) {
+  for (j in 1:colCount) {
+    if (i < j) {
+      value <-array(correlazioni[i, j], c(1, 1))
+      name <- paste(row.names(correlazioni)[i], "-",
+                    row.names(correlazioni)[j])
+      rownames(value) <- c(name)
+      cc <- rbind(cc, value)
+    }
+  }
+}
+lista.corr <- as.matrix(cc[order(cc[,1], decreasing = TRUE),])
+```
+
+Possiamo osservare che la correlazione maggiore si presenta tra la soddisfazione in famiglia e la
+soddisfazione con gli amici.
+Mentre la correlazione minore tra la soddisfazione in famiglia e quella economica.
+Si nota inoltre che tutte le correlazioni sono positive.
+
+```{r correlazioni-ordinate, echo = FALSE}
+value <- lista.corr
+knitr::kable(head(value, length(value)),
+             col.names = c('Coef. Correlazione'),
+             caption = 'Coefficiente di correlazione campionario')
+```
+
+## Coefficiente di determinazione
+
+Per determinare se il modello di regressione spiega i dati è utile considerare il coefficiente di determinazione, anche chiamato r-square, e definito con il valore
+$$D^2=\frac{\sum_{i=1}^n(\hat{y}_i-\bar{y})^2}{\sum_{i=1}^n(y_i-\bar{y})^2}$$
+Dove con $\hat{y}_i$ e $y_i$ sono rispettivamente è l'$i$-esimo valore stimato e osservato, mentre $\bar{y}$ è la media campionaria dei valori osservati. 
+
+Il coefficiente di determinazione può essere anche visto come il rapporto tra la varianza dei valori stimati e quella dei valori osservati.
+
+Se il coefficiente di determinazione assume valore zero vi è una completa incapacità del modello di spiegare i valori,
+altrimenti all'aumentare del valore del coefficiente di determinazione aumenta la capacità del modello
+di spiegare i valori. Nel caso limite in cui il coefficiente assume valore uno il modello di regressione spiega perfettamente i valori.
+
+#### Coefficiente di determinazione nella regressione lineare
+Nella regressione lineare il coefficiente di determinazione è equivalente al quadrato del coefficiente di determinazione
+$$D^2=r_{xy}^2$$
+
+Il seguente codice permette di calcolare il coefficiente di determinazione per il modello lineare 
+per tutte le caratteristiche prese a due a due.
+I risultati sono mostrati nella tabella \@ref(tab:coeff-determinazione).
+```{r}
+coeffDeterminazione <- lista.corr ^ 2
+```
+
+Il coefficiente di determinazione minore è associato alle caratteristiche soddisfazione economica e soddisfazione in famiglia
+con un valore `r coeffDeterminazione[length(coeffDeterminazione)]`. Ne consegue che la regressione lineare non approssima in modo soddisfacente i valori.
+Per tutte le altre caratteristiche prese a due a due il modello lineare approssima i valori con buona soddisfazione, infatti il coefficiente di determinazione è maggiore di `r coeffDeterminazione[length(coeffDeterminazione) -1]`, 
+ottenendo un massimo pari a `r coeffDeterminazione[1]` tra la soddisfazione per la famiglia e quella per gli amici.
+
+```{r coeff-determinazione, echo = FALSE}
+value <- lista.corr
+knitr::kable(head(coeffDeterminazione, length(coeffDeterminazione)),
+             col.names = c('Coef. determinazione'),
+             caption = 'Coefficienti di determinazione')
+```
+
+Nel seguito verrà mostrato il modello di regressione lineare e relativa analisi 
+tra la soddisfazione per la famiglia e quella per gli amici.
+Verrà inoltre anche mostrato come la soddisfazione economica e la soddisfazione 
+per la salute influiscono sulla soddisfazione nel tempo libero tramite una
+regressione lineare multipla.
+Infine verrà mostrato un modello di regressione non lineare per la correlazione tra 
+la soddisfazione economica e quella in famiglia.
+

@@ -1,0 +1,22 @@
+--- 
+title: "Tesina Statistica"
+author: "Nicola Lancellotti"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: ""
+---
+
+
+```{r setup, echo=FALSE}
+knitr::read_chunk("dataSet.R")
+```
+
+```{r chunk, echo=FALSE}
+```
+
+```{r chunk2, echo=FALSE}
+```

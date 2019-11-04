@@ -1,0 +1,193 @@
+# Stima puntuale
+
+Un problema dell'inferenza statistica è lo studio di una popolazione descritta da una variabile aleatoria
+osservabile e avente una funzione di distribuzione nota eccetto per uno o più parametri non noti
+
+Uno stimatore è una funzione misurabile e osservabile che associa a un campione un valore per il 
+parametro da stimare. Il valore assunto dallo stimatore è detto stima.
+
+Nel seguito verranno mostrati due metodi di stima dei parametri, il metodo dei momenti e il metodo della massima verosimiglianza.
+
+## Metodo dei momenti
+
+Si definisce momento campionari r-esimo di un campione $(x_1,...,x_n)$ il valore
+$$M_r(x_1,...,x_n) = \frac{1}{n}\sum_{i=1}^nx_i^r$$
+
+mentre si definisce momento campionario di una variabile aleatoria il valore 
+$$M_r(X) = E(X^r)$$
+
+Il metodo dei momenti consiste nell'uguagliare i momenti campionari e i momenti non osservabili della variabile 
+aleatoria caratterizzante la popolazione. 
+Le soluzioni risultanti sono gli stimatori dei parametri non noti.
+
+Formalmente, se si desidera stimare $k$ parametri $\theta_1,...,\theta_k$ 
+non noti di una distribuzione di probabilità $f_X(x;\theta_1,...,\theta_k)$
+della variabile aleatoria $X$ si calcolano i primi $k$ momenti della variabile aleatoria $X$
+$$\mu_i = E[X^i] = g_i(\theta_1,...,\theta_k) \quad \text{per} \ i = 1,...,k$$
+e dato un campione estratto $(x_1,...,x_n)$ si calcolano i primi $k$ momenti del campione   
+$$\hat{\mu_i} = M_r(x_1,...,x_n) \quad \text{per} \ i = 1,...,k $$
+
+Lo stimatore del metodo dei momenti per $\theta_1,...,\theta_k$ denotato da
+$\hat\theta_1,...,\hat\theta_k$ se esiste è la soluzione del sistema di equazioni
+$$\hat{\mu_i} = g_i(\hat\theta_1,...,\hat\theta_k)  \quad \text{per} \ i = 1,...,k $$
+Essendo gli stimatori dipendenti dal campione ne consegue che al variare dei campioni si potrebbero ottenere stimatori diversi. 
+
+
+### Stima per la popolazione geometrica
+In questo paragrafo verrà stimato il parametro $p$ di una distribuzione geometrica 
+con il metodo dei momenti.
+
+Il momento campionario primo della variabile geometrica è
+$$\mu_1 = E[X^1] = \frac{1}{p}$$
+mentre il momento campionario primo del campione è
+
+$$\hat\mu_1 = \frac{1}{n}\sum_{i=1}^nx_i = \overline{x}$$
+
+Ne consegue che la media campionaria $\overline{x}$ è uno stimatore per $\frac{1}{p}$
+
+Il seguente codice definisce un campione proveniente da una distribuzione geometrica di
+parametro $p$ non noto e stima il parametro $p$ con il metodo dei momenti.
+```{r}
+campione <- c(2, 1, 1, 3, 1, 3, 4, 5, 1, 1, 1, 1, 4, 2, 2, 2, 4, 3, 3, 1, 
+         1, 1, 2, 2, 1, 1, 1, 2, 3, 6, 3, 1, 6, 1, 1, 2, 1, 4, 1, 1, 
+         4, 3, 2, 1, 4, 6, 7, 2, 1, 1, 3, 1, 1, 4, 1, 1, 4, 1, 4, 1, 
+         2, 1, 1, 1, 4, 2, 1, 2, 3, 2, 2, 1, 2, 1, 2, 1, 2, 2, 6, 5, 
+         6, 2, 6, 2, 3, 2, 2, 2, 4, 1, 1, 1, 1, 2, 3, 9, 3, 1, 2, 1)
+
+stima.p <- 1 / mean(campione) 
+```
+
+Il valore calcolato pari a `r stima.p` è il valore stimato del parametro p.
+
+## Metodo della massima verosimiglianza
+
+Se $X_1,..., X_k$ è un campione casuale si definisce funzione di verosimiglianza 
+$$L(\theta_1,...,\theta_k) = L(\theta_1,...,\theta_k; x_1,...,x_k) = f(x_1;\theta_1,...,\theta_k) \cdots f(x_n;\theta_1,...,\theta_k)$$ del campione osservato $(x_1,...,x_k)$ la funzione di
+probabilità congiunta se la popolazione è discreta o la funzione di densità di probabilità congiunta se la popolazione
+è assolutamente continua, del campione casuale $X_1,..., X_k$.
+
+Il metodo della massima verosimiglianza consiste nel massimizzare la funzione di verosimiglianza rispetto ai 
+parametri non noti e quindi trovare i parametri della funzione di probabilità o di densità di probabilità per la quale
+sia più verosimile la provenienza del campione.
+
+I valori $\hat\theta_1,...,\hat\theta_k$ che massimizzano la funzione di verosimiglianza sono detti stime di massima verosimiglianza dei parametri non noti $\theta_1,...,\theta_k$.
+Essendo le stime dipendenti dal campione ne consegue che al variare dei campioni si possono ottenere stimatori diversi dei parametri non noti.
+
+### Stima per la popolazione geometrica
+In questo paragrafo verrà stimato il parametro $p$ di una distribuzione geometrica 
+con il metodo della massima verosimiglianza.
+
+Posto $\theta = 1/p$  viene calcolata la funzione di massima verosimiglianza
+$$L(\theta) = \left(\frac{1}{\theta}\right)^n \left(\frac{\theta-1}{\theta}\right)^{\sum_{i=1}^nx_i-n} = \left(\frac{1}{\theta}\right)^{\sum_{i=1}^nx_i} \left(\theta-1\right)^{\sum_{i=1}^nx_i-n}$$
+per semplificare i calcoli viene preso il logaritmo della funzione di massima verosimiglianza
+$$\log L(\theta) =  -\sum_{i=1}^nx_i \log(\theta) + \left(\sum_{i=1}^nx_i-n\right) \log(\theta - 1) $$
+viene poi calcolata la derivata del logaritmo della funzione di massima verosimiglianza
+$$\frac{d \log L(\theta)}{d \theta} = - \frac{\sum_{i=1}^nx_i}{\theta} + \frac{\sum_{i=1}^nx_i-n}{\theta - 1} = \sum_{i=1}^nx_i \left(-\frac{1}{\theta} + \frac{1}{\theta - 1}  \right) - \frac{n}{\theta - 1} =$$
+
+$$= \frac{1}{\theta (\theta - 1)} \sum_{i=1}^nx_i - \frac{n}{\theta - 1} = \frac{\sum_{i=1}^nx_i - \theta n}{\theta (\theta - 1)} $$
+
+e infine viene calcolato per quale valore la derivata è uguale a zero
+$$\frac{\sum_{i=1}^nx_i - \theta n}{\theta (\theta - 1)} = 0 \Leftrightarrow \theta = \frac{\sum_{i=1}^nx_i}{n}$$
+
+Ne consegue che $\hat\theta = \frac{1}{n} \sum_{i=1}^nx_i = \overline{x}$ è uno stimatore di $\theta = 1 /p$.
+
+Lo stimatore ottenuto con il metodo della massima verosimiglianza è lo stesso di quello ottenuto 
+con il metodo dei momenti, quindi la stima per parametro $p$ utilizzando il nostro campione è `r stima.p`.
+
+## Proprietà degli stimatori
+
+**Stimatore corretto**
+
+Uno stimatore $\hat \Theta$ di un parametro non noto $\theta$ è detto corretto o non distorto se per ogni 
+$\theta \in \Theta$ il valore medio dello stimatore $\hat \Theta$ è uguale al parametro non noto.
+
+$$ E[\hat \Theta] = \theta \quad \forall \ \theta \in \Theta$$
+Da notare che possono esistere diversi stimatori corretti del parametro non noto.
+
+**Errore quadratico medio**
+
+L'errore quadratico medio fornisce una misura di quanto lo stimatore si discosta dal parametro non noto ed è 
+definito con il valore
+$$MSE(\hat \Theta) = E[(\hat \Theta - \theta)^2]$$
+Se $\hat \Theta$ è uno stimatore corretto del parametro $\theta$ allora 
+$$MSE(\hat \Theta) = E[(\hat \Theta - E[\hat \Theta])^2] = Var(\hat \Theta)$$
+**Stimatore corretto con varianza uniformemente minima**
+
+Uno stimatore è corretto con varianza uniformemente minima se per ogni $\theta \in \Theta$:
+
+- $E[\hat \Theta] = \theta$
+
+- $Var(\hat \Theta) \le Var(\hat \Theta^*)$ per ogni stimatore $\hat \Theta^*$ corretto del parametro $\theta$
+
+**Disuguaglianza di Cramer**
+
+Se $\hat{\theta}$ è uno stimatore corretto del parametro non noto $\theta$ di una popolazione
+caratterizzata da una funzione di probabilità (nel caso discreto) o densità di probabilità (nel caso assolutamente
+continuo) $f(x;\theta)$ e se:
+
+- $\frac{\partial}{\partial \theta} \log f(x;\theta) \text{esiste per ogni } x \text{ e per ogni } \theta \in \Theta$
+
+- $E \left[ \left( \frac{\partial}{\partial \theta} \log f(x;\theta) \right)^2\right] \text{esiste finito per ogni } \theta \in \Theta$
+
+Allora
+
+$$Var(\hat{\Theta}) \ge \frac{1}{n E \left[ \left( \frac{\partial}{\partial \theta} \log f(x;\theta) \right)^2\right]}$$
+Di conseguenza se la varianza dello stimatore $\hat\Theta$ è
+$$Var(\hat{\Theta}) = \frac{1}{n E \left[ \left( \frac{\partial}{\partial \theta} \log f(x;\theta) \right)^2\right]}$$
+allora lo stimatore $\hat\Theta$ è corretto con varianza uniformemente minima.
+
+**Stimatore consistente**
+
+Uno stimatore $\hat{\theta}$ è detto consistente se converge in probabilità a $\theta$
+
+$$\lim_{n \to +\infty} P(|\hat{\Theta} - \theta| < \epsilon) = 1 \quad \forall \theta \in \Theta$$
+Una condizione sufficiente alla consistenza di uno stimatore $\hat{\theta}$ è 
+il verificarsi delle seguenti uguaglianze:
+$$\lim_{n \to +\infty} E(\hat \Theta) = \theta \quad \forall \theta \in \Theta$$
+$$\lim_{n \to +\infty} Var(\hat \Theta) = 0 \quad \forall \theta \in \Theta$$
+ 
+### Analisi dello stimatore per la distribuzione geometrica
+
+In questo paragrafo verrà mostrato come la varianza campionaria è uno stimatore corretto con varianza minima
+per il parametro $p$ di una distribuzione geometrica.
+
+Dato che $E(X) = 1/p$ allora il parametro da stimare è $\theta = 1/p$
+
+Inoltre vale la seguente uguaglianza
+$Var(X) = \frac{1-p}{p^2} = \theta^2 -  \theta$
+
+**Stimatore corretto**
+
+Per dimostrare che lo stimatore  $\theta$ è corretto dobbiamo dimostrare che
+$$E[\hat \Theta] = \theta \quad \forall \ \theta \in \Theta$$
+Poiché $$E[\overline{X}] = E[X]$$
+ne consegue che
+
+$$E[\hat \Theta] = E[\overline{X}] = E[X] = \theta$$
+Di conseguenza $\Theta$ è uno stimatore corretto.
+
+**Stimatore corretto con varianza uniformemente minima**
+
+Per dimostrare che la stimatore è corretto con varianza uniformemente minima utilizziamo la disuguaglianza di Cramer.
+
+Poiché la seguente derivata esiste ed è finita
+
+$$\frac{\partial}{\partial \theta} \log f(x; \theta) = \frac{\partial}{\partial \theta} \log(p(1-p)^{x-1})= \frac{\partial}{\partial \theta} \log{(\theta^{-1}(1-\theta^{-1})^{x-1})} =\frac{x - \theta}{\theta^2 -  \theta}$$
+è possibile calcolare il seguente valore
+
+
+$$\frac{1}{n E \left[ \left( \frac{\partial}{\partial \theta} \log f(x;\theta) \right)^2\right]} = \frac{1}{n \frac{E[(X - \theta)^2]}{(\theta^2 -  \theta)^2}} = \frac{(\theta^2 -  \theta)^2 }{n E[(X - \theta)^2]} = \frac{(\theta^2 -  \theta)^2}{nVar(X)} =\frac{\theta^2 -  \theta}{n} $$
+
+che risulta essere uguale al valore della varianza dello stimatore
+$$Var(\overline{X}) = \frac{Var(X)}{n} =  \frac{(\theta^2 -  \theta)}{n}$$
+
+Ne consegue che $\overline{X}$ è uno stimatore con varianza uniformemente minima.
+
+**Stimatore consistente**
+
+Inoltre essendo verificati i due limiti:
+
+- $\lim_{n \to +\infty} E[\overline{X_n}] = \theta$
+- $\lim_{n \to +\infty} Var(\overline{X_n}) = \lim_{n \to +\infty} \frac{1-p}{np^2} = 0$
+
+Ne consegue che  $\overline{X}$ è uno stimatore consistente.

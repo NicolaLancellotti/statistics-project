@@ -1,0 +1,253 @@
+# Indici di posizione 
+
+Gli indici di posizione sono indici di sintesi che danno un'idea dell'ordine di grandezza dei valori.
+Si dividono in indici di posizione centrali e non centrali.
+
+I più importanti indici di posizione centrali sono la media campionaria, la mediana campionaria e la moda campionaria.
+Nel seguito verranno analizzate le prime due statistiche tralasciando la moda campionaria in quanto poco significativa essendo i dati in forma percentuale.
+Successivamente verrano analizzati i quantili, che sono indici di posizione non centrali che ripartiscono
+il campione in parti di uguale numerosità.
+
+## Media campionaria
+Dati $n$ valori la media campionaria $\overline{x}$ è definita come la media aritmetica degli $n$ valori.
+
+$$\overline{x} = \frac{1}{n} \sum_{i=1}^{n}x_i$$
+
+Va notato che il valore della media campionaria è fortemente influenzato dai valori molto 
+grandi o piccoli.
+
+Il seguente codice permette di computare le medie campionarie per le caratteristiche del data set. 
+I risultati sono mostrati nella tabella \@ref(tab:media-campionaria).
+
+```{r}
+medie <- sapply(df, mean)
+```
+
+Come già osservato in forma visiva tramite l'analisi dei boxplot possiamo dire che in media gli italiani
+traggono il massimo della soddisfazione nei rapporti familiari seguiti dai rapporti con gli amici, la salute, il tempo libero e infine dalla situazione economica.
+
+```{r media-campionaria, echo = FALSE}
+value <- cbind(column.names, as.vector(medie))
+knitr::kable(head(value, length(value)),
+             col.names = c("Caratteristica", "Media campionaria"),
+             caption = 'Medie campionarie')
+```
+
+### Scarto dalla media campionaria
+Per valutare quanto i valori si discostano dalla media campionaria è utile computare lo scarto dalla media campionaria. Tale quantità è definita per ogni valore di ogni caratteristica come la differenza tra il valore è la media campionaria della caratteristica considerata.
+
+$$s_i = x_i - \overline{x}$$
+
+Va notato che la somma degli scarti dalla media è sempre nulla, infatti
+
+$$\sum_{i=1}^{n}s_i = \sum_{i=1}^{n}(x_i - \overline{x}) = \sum_{i=1}^{n} x_i - n\overline{x} = n\overline{x} - n\overline{x} = 0$$
+
+Il seguente codice permette di computare gli scarti dalla media campionaria per ogni valore di ogni caratteristica. I risultati sono mostrati nella tabella \@ref(tab:scarto-media-campionaria).
+
+```{r}
+scarti <- matrix(0, nrow = rowCount, ncol = 0)
+for (i in 1:colCount) { 
+  scarti <- cbind(scarti, df[i] - medie[i])
+}
+```
+
+Dai risultati ottenuti si può osservare che gli scarti maggiori derivano dai dati del "Trentino Alto Adige" il quale rappresenta un valore anomalo come già riscontrato nell'analisi dei boxplot.
+
+```{r scarto-media-campionaria, echo = FALSE}
+knitr::kable(head(scarti, rowCount),
+             col.names = column.names,
+             caption = 'Scarti dalle medie campionarie')
+```
+
+## Mediana campionaria
+
+La mediana campionaria è la statistica che bipartisce il campione in due parti di uguale numerosità.
+
+La mediana campionaria di un campione di ampiezza $n$ è definita come il valore in posizione $(n+1)/2$
+del campione ordinato in modo non decrescente se $n$ è dispari, altrimenti è definito come 
+la media aritmetica dei valori in posizione $n/2$ e $n/2 + 1$ del medesimo campione ordinato.
+Di conseguenza, al contrario della media campionaria, la mediana campionaria dipende da al più due valori.
+
+Il seguente codice permette di computare le mediane campionarie per le caratteristiche del data set.
+I risultati sono mostrati nella tabella \@ref(tab:mediana-campionaria).
+
+```{r}
+mediane <- sapply(df, median)
+```
+
+Si può infine notare che per tutte le caratteriste eccetto per la soddisfazione economica la mediana campionaria è leggermente maggiore della media campionaria.
+
+```{r mediana-campionaria, echo = FALSE}
+value <- cbind(column.names, as.vector(mediane))
+knitr::kable(head(value, length(value)),
+             col.names = c("Caratteristica", "Mediana campionaria"),
+             caption = 'Mediane campionarie')
+```
+
+## Quantili
+
+I quantili sono indici che dividono il campione in un numero fissato di parti di uguale numerosità.
+In numero di parti può essere uguale a qualsiasi numero naturale positivo, in genere il campione 
+è diviso in cento quantili detti anche percentili o quattro quantili detti anche quartili.
+
+In R esistono nove algoritmi per il calcolo dei quantili, tuttavia, i valori tendono a coincidere con 
+qualsiasi algoritmo quando il campione ha un'ampiezza elevata.
+
+Il seguente codice consente di calcolare i quartili per la soddisfazione economica utilizzando tutti gli algoritmi. I risultati sono esposti nella tabella \@ref(tab:quantili). 
+Come è possibile osservare i quantili ottenuti non presentano significative differenze con i differenti algoritmi.
+
+```{r}
+tipiquartili <- function(x) {
+  y <- numeric(0)
+  for(i in 1:9) {
+    y <- rbind(y, c(quantile(x, 0, type = i),
+                    quantile(x, 0.25, type = i),
+                    quantile(x, 0.5, type = i),
+                    quantile(x, 0.75, type = i),
+                    quantile(x, 1, type = i)))
+  }
+  rownames(y) <- paste("type", 1:9)
+  return (y)
+}
+
+quartili <- tipiquartili(as.matrix(df[1]))
+```
+
+```{r quantili, echo = FALSE}
+knitr::kable(head(quartili, rowCount),
+             caption = 'Quartili - Soddisfazione Economica')
+```
+
+La seguente funzione consente di calcolare i quartili per un dato tipo di algoritmo. Tale funzione verrà
+utilizzata nel seguito per calcolare i quartili di tutte le caratteristiche con alcuni tipi di algoritmi.
+```{r}
+
+dataframe.quantile <- function(df, type) {
+  y <- numeric(0)
+  for (x in 1:colCount) {
+    value <- df[[x]]
+    row <- c(quantile(value, probs = 0, type = type),
+             quantile(value, probs = 0.25, type = type),
+             quantile(value, probs = 0.5, type = type),
+             quantile(value, probs = 0.75, type = type),
+             quantile(value, probs = 1, type = type))
+    y <- rbind(y, row)
+  }
+  # colnames(y) <- colnames(df)
+  row.names(y) <- column.names
+  return (y)
+}
+```
+
+### Quantili con il tipo 2
+Il percentile $k$-esimo con l'algoritmo di tipo 2 si calcola nel seguente modo:
+
+1. Si ordina il campione $v$ in modo non decrescente.
+2. Si calcola l'indice $h = np = \frac{nk}{100}$.
+3. Se $h$ è un intero il percentile $k$-esimo è pari a $(v[h] + v[h+1])/2$ altrimenti è pari a $v[ceiling(h)]$.
+
+Il seguente codice permette di calcolare i quartili con l'algoritmo di tipo 2.
+I risultati sono mostrati nella tabella  \@ref(tab:quartili2).
+
+```{r}
+quartili2 <- dataframe.quantile(df, 2)
+```
+
+```{r quartili2, echo = FALSE}
+knitr::kable(head(quartili2, rowCount),
+             caption = 'Quartili tipo 2')
+```
+
+### Quantili con il tipo 7
+
+Il percentile $k$-esimo con l'algoritmo di tipo 7 (default in R) si basa su una tecnica di interpolazione lineare
+e si calcola nel seguente modo:
+
+1. Si ordina il campione $v$ in modo non decrescente.
+2. Si calcola l'indice $h = (n -1)p + 1 = (n -1)\frac{k}{100} + 1$.
+3. Calcolare $h^* = floor(h)$.
+4. Il percentile $k$-esimo è pari a $v[h^*] + (h - h^*) * [v(h^*+1) - v(h^*)]$.
+
+Il seguente codice permette di calcolare i quartili con l'algoritmo di tipo 7.
+I risultati sono mostrati nella tabella  \@ref(tab:quartili7).
+
+
+```{r}
+quartili7 <- dataframe.quantile(df, 7)
+```
+
+```{r quartili7, echo = FALSE}
+knitr::kable(head(quartili7, rowCount),
+             caption = 'Quartili tipo 7')
+```
+
+### Quantili con il tipo 1
+Se un campione può assumere $k$ modalità distinte $z_1 < z_2 < ... <z_k$ allora
+il percentile $k$-esimo con l'algoritmo di tipo 1 è definito come la modalità $i$-esima che soddisfa la doppia disuguaglianza
+$F_{i-1} < k / 100$ e $F_i \geq k / 100$ dove $F_1,...,F_k$ sono le frequenze relative cumulate.
+
+Il seguente codice permette di calcolare i quartili con l'algoritmo di tipo 1.
+I risultati sono mostrati nella tabella  \@ref(tab:quartili1).
+```{r}
+quartili1 <- dataframe.quantile(df, 1)
+```
+
+```{r quartili1, echo = FALSE}
+knitr::kable(head(quartili1, rowCount),
+             caption = 'Quartili tipo 1')
+```
+
+### Rappresentazione grafica dei quartili
+
+Una rappresentazione grafica dei quartili sul diagramma della funzione di distribuzione empirica
+per ognuna delle caratteristiche è mostrata nelle figure \@ref(fig:distribuzione-quartili-1),
+\@ref(fig:distribuzione-quartili-2), \@ref(fig:distribuzione-quartili-3),
+\@ref(fig:distribuzione-quartili-4), \@ref(fig:distribuzione-quartili-5).
+Nei grafici la linea blu rappresenta il primo quartile, la linea gialla il secondo e la linea verde il terzo.
+
+```{r chunk3, echo = FALSE}
+```
+```{r chunk4, echo = FALSE}
+```
+
+
+```{r, echo = FALSE, distribuzione-quartili-1, fig.cap='Distribuzione empirica continua e quartili - Soddisfazione Economica', fig.align='center'}
+distribuzioneEmpiricaContinua(1, 12)
+abline(h = 0.25, lty = 1, col = "blue")
+abline(h = 0.5, lty = 1, col = "orange")
+abline(h = 0.75, lty = 1, col = "green")
+```
+
+```{r, echo = FALSE, distribuzione-quartili-2, fig.cap='Distribuzione empirica continua e quartili - Soddisfazione Salute', fig.align='center'}
+distribuzioneEmpiricaContinua(2, 30)
+abline(h = 0.25, lty = 1, col = "blue")
+abline(h = 0.5, lty = 1, col = "orange")
+abline(h = 0.75, lty = 1, col = "green")
+```
+
+```{r, echo = FALSE, distribuzione-quartili-3, fig.cap='Distribuzione empirica continua e quartili - Soddisfazione Famiglia', fig.align='center'}
+distribuzioneEmpiricaContinua(3, 47)
+abline(h = 0.25, lty = 1, col = "blue")
+abline(h = 0.5, lty = 1, col = "orange")
+abline(h = 0.75, lty = 1, col = "green")
+```
+
+```{r, echo = FALSE, distribuzione-quartili-4, fig.cap='Distribuzione empirica continua e quartili - Soddisfazione Amici', fig.align='center'}
+distribuzioneEmpiricaContinua(4, 36)
+abline(h = 0.25, lty = 1, col = "blue")
+abline(h = 0.5, lty = 1, col = "orange")
+abline(h = 0.75, lty = 1, col = "green")
+```
+
+```{r, echo = FALSE, distribuzione-quartili-5, fig.cap='Distribuzione empirica continua e quartili - Soddisfazione Tempo libero', fig.align='center'}
+distribuzioneEmpiricaContinua(5, 34)
+abline(h = 0.25, lty = 1, col = "blue")
+abline(h = 0.5, lty = 1, col = "orange")
+abline(h = 0.75, lty = 1, col = "green")
+```
+
+
+
+
+
+
