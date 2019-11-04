@@ -1,0 +1,158 @@
+# Criterio del chi-quadrato
+
+Il criterio del chi-quadrato è un test di verifica delle ipotesi
+che consente di verificare se le frequenze dei valori osservati 
+si adattano alle frequenze teoriche (probabilità) di una data distribuzione di 
+probabilità e quindi poter dire, con una certa probabilità di errore,
+se il campione proviene dalla fissata distribuzione di probabilità.
+
+Consideriamo una popolazione descritta da una variabile aleatoria $X$ e avente una 
+distribuzione di probabilità $F_X(x)$ con $k$ parametri non noti da stimare.
+I parametri non noti possono essere stimati utilizzando il campione.
+
+Il test di misura $\alpha$ consiste del verificare l'ipotesi nulla:
+
+<center> *$H_0$ : $X$ ha una funzione di distribuzione $F_X(x)$* </center>
+o l'ipotesi alternativa: 
+
+<center> *$H_1$ : $X$ non ha una funzione di distribuzione $F_X(x)$* </center>
+
+La misura $\alpha$ è la probabilità di rifiutare l'ipotesi nulla.
+
+Il test consiste nel suddividere l'insieme dei valori che può assumere la 
+variabile aleatoria $X$ in $r$ sottoinsiemi $I_1,...,I_r$
+e calcolare le probabilità che la variabile aleatoria assuma un valore
+appartenente all'$i$-esimo sottoinsieme $p_i = P(X \in I_i)$ per $i=1,...,r$
+
+Preso un campione $x_1,...x_n$ si calcolano le frequenze assolute $n_1,...,n_r$
+con cui con i valori osservati si distribuiscono nei sottoinsiemi $I_1,...,I_r$
+
+Si calcola il valore chi-quadrato
+$$\chi^2 = \sum_{i=1}^{r}\left(\frac{n_i - np_i}{\sqrt{np_i}}\right)^2$$
+pari alla somma dei quadrati degli scarti tra le frequenze teoriche e quelle osservate pesati sulle frequenze teoriche.
+
+E si considera la statistica
+
+$$Q = \sum_{i=1}^{r}\left(\frac{N_i - np_i}{\sqrt{np_i}}\right)^2$$
+dove $N_i$ è la variabile aleatoria che descrive il numero di elementi del campione che
+appartengono all'intervallo $i$-esimo.
+
+Se la variabile aleatoria $X$ ha una funzione di distribuzione $F_X(x)$ con $k$ parametri non noti,
+allora per $n$ sufficientemente grande la variabile aleatoria $Q$ converge in distribuzione alla variabile chi-quadrato con $r-k-1$ gradi di libertà.\
+Il significato dei gradi di libertà è il seguente: se $r$ viene sottratto $1$
+perché se conosciamo $r-1$ probabilità possiamo calcolare l'r-esima invece $k$ indica il numero di parametri non noti sostituiti da stime.
+
+Il test del chi-quadrato di misura $\alpha$ per le ipotesi è:
+
+*Accettiamo l'ipotesi $H_0$ se*
+
+$$\chi^2_{1-\frac{\alpha}{2},r-k-1} < \chi^2 < \chi^2_{\frac{\alpha}{2},r-k-1}$$
+*Rifiutiamo l'ipotesi $H_0$ se*
+
+$$\chi^2 > \chi^2_{\frac{\alpha}{2},r-k-1} \quad \text{oppure} \quad \chi^2 < \chi^2_{1-\frac{\alpha}{2},r-k-1}$$
+
+Dove i  valori $\chi^2_{\frac{\alpha}{2},r-k-1} \quad \text{e} \quad \chi^2_{1 - \frac{\alpha}{2},r-k-1}$
+sono tali che
+
+$$P\left(Q < \chi^2_{1 -\frac{\alpha}{2},r-k-1} \right) \backsimeq \alpha / 2 \quad \text{e} \quad P\left(Q > \chi^2_{\frac{\alpha}{2},r-k-1} \right) \backsimeq  \alpha / 2$$
+
+Il test funziona se ogni classe contiene in media almeno 5 elementi.
+
+In figura \@ref(fig:chi-quadrato) è rappresentata una densità chi-quadrato e sono mostrate le regioni di 
+rifiuto e di accettazione.
+```{r, echo = FALSE, chi-quadrato, fig.cap='Densità chi-quadrato con n gradi di libertà', fig.align='center'}
+curve(dchisq (x,df=6) ,from=0, to=12,axes=FALSE ,ylim=c(0,0.15), xlab="",ylab="",main="Densità chi-quadrato con n gradi di libertà")
+text(4,0.02, expression (1- alpha))
+axis(1,c(0,2,4,6,12) ,c("",expression ({chi ^2}[list(1- alpha/2,n)]), expression (n-2) ,expression ({chi ^2}[ list(alpha/2,n)]),""))
+vals<-seq(0,2, length =100)
+x<-c(0,vals ,2,0)
+y<-c(0, dchisq (vals ,df=6) ,0,0)
+polygon (x,y,density =20, angle =45)
+vals<-seq (6,12, length =100)
+x<-c(6,vals ,12 ,6)
+y<-c(0, dchisq (vals ,df=6) ,0,0)
+polygon (x,y,density =20, angle =45)
+abline (h=0)
+text(1.2,0.02, expression (alpha/2))
+text(8.5,0.02, expression (alpha/2))
+text(4,0.10,"Regione di\naccettazione")
+text(0.5,0.07,"Regione di\nrifiuto ")
+text(8.8,0.08,"Regione di\nrifiuto ")
+box ()
+```
+
+## Test per la distribuzione geometrica
+
+In questo paragrafo verrà effettuato il test del chi-quadrato di misura $\alpha = 0.01$ su un campione 
+per verificare la provenienza da una distribuzione geometrica.
+
+Consideriamo il seguente campione
+```{r}
+campione <- c(2, 1, 2, 1, 1, 1, 6, 1, 1, 2, 1, 1, 1, 2, 1, 2, 2, 3, 1, 1, 
+              2, 4, 1, 3, 1, 1, 2, 2, 1, 4, 4, 1, 3, 4, 2, 2, 2, 3, 1, 3, 
+              1, 1, 1, 1, 2, 3, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 2, 1, 1, 
+              2, 1, 1, 1, 1, 4, 1, 1, 2, 3, 2, 1, 1, 2, 1, 1, 2, 4, 2, 3, 
+              1, 1, 1, 1, 2, 1, 3, 1, 3, 6, 5, 1, 1, 1, 1, 1, 2, 2, 1, 1)
+```
+
+Con il seguente codice viene stimato il parametro non noto della distribuzione geometrica
+tramite inferenza sul campione.
+```{r}
+stima.p <- 1 / mean(campione) 
+```
+
+Nel seguente codice consideriamo 4 sottoinsiemi dei valori che può assumere una 
+variabile aleatoria distribuita in modo geometrico. E per ogni sottoinsieme 
+calcoliamo la probabilità che il valore della variabile aleatoria appartenga
+all'insieme.
+```{r}
+r = 4
+p <- numeric(r)
+p[1] <- dgeom(0, prob = stima.p) # {1}
+p[2] <- dgeom(1, prob = stima.p) # {2}
+p[3] <- dgeom(2, prob = stima.p) # {3}
+p[4] <- pgeom(2, prob = stima.p, lower.tail = FALSE) # [4, +infinity)
+```
+
+É possibile effettuare il test del chi-quadrato se ogni classe contiene in media almeno 5 elementi. 
+Il mimino numero di elementi contenuti in media in una classe è calcolato con il seguente codice
+
+```{r}
+n <- length(campione)
+minimo <- min(n * p[1], n * p[2], n * p[3], n * p[4])
+```
+ed il risultato è `r minimo`  di conseguenza è possibile effettuare il test.
+
+Il seguente codice calcola le frequenze dei valori osservati per ogni intervallo.
+```{r}
+nint <- numeric(4)
+nint[1] <- length(which(campione == 1))
+nint[2] <- length(which(campione == 2))
+nint[3] <- length(which(campione == 3))
+nint[4] <- length(which(campione > 3))
+```
+
+Il seguente codice calcola il valore $\chi^2$
+```{r}
+chi2 <- sum(((nint - n * p) / sqrt(n * p)) ^ 2)
+```
+Il valore di $\chi^2$ calcolato è `r chi2`
+
+Mentre il seguente codice calcola l'intervallo $\left( \chi^2_{1 - \frac{\alpha}{2},r-k-1}, \quad \chi^2_{\frac{\alpha}{2},r-k-1} \right)$
+
+```{r}
+k <- 1
+alpha <- 0.01
+df <- r - k - 1
+valori <- c(qchisq(alpha / 2, df = df), qchisq(1 - alpha / 2, df =df))
+```
+L'intervallo calcolato è (`r valori[1]`, `r valori[2]`).
+
+Infine il seguente codice effettua il test del chi-quadrato 
+
+```{r}
+esito <- valori[1] < chi2 && chi2 < valori[2]
+```
+L'esito ottenuto del test è `r if (esito) {"positivo"} else {"negativo"}`,
+di conseguenza possiamo affermare che il campione proviene da una popolazione
+descritta da una distribuzione geometrica.

@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tesina Statistica</title>
+  <meta name="description" content="Tesina Statistica">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Tesina Statistica" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tesina Statistica" />
+  
+  
+  
+
+<meta name="author" content="Nicola Lancellotti">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="indici-di-dispersione.html">
+<link rel="next" href="analisi-dei-cluster.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tesina Statistica</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduzione</a></li>
+<li class="chapter" data-level="2" data-path="data-set.html"><a href="data-set.html"><i class="fa fa-check"></i><b>2</b> Data Set</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-set.html"><a href="data-set.html#boxplot"><i class="fa fa-check"></i><b>2.1</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distribuzione.html"><a href="distribuzione.html"><i class="fa fa-check"></i><b>3</b> Distribuzione</a><ul>
+<li class="chapter" data-level="3.1" data-path="distribuzione.html"><a href="distribuzione.html#frequenze"><i class="fa fa-check"></i><b>3.1</b> Frequenze</a></li>
+<li class="chapter" data-level="3.2" data-path="distribuzione.html"><a href="distribuzione.html#funzione-di-distribuzione-empirica-continua"><i class="fa fa-check"></i><b>3.2</b> Funzione di distribuzione empirica continua</a></li>
+<li class="chapter" data-level="3.3" data-path="distribuzione.html"><a href="distribuzione.html#istogrammi"><i class="fa fa-check"></i><b>3.3</b> Istogrammi</a></li>
+<li class="chapter" data-level="3.4" data-path="distribuzione.html"><a href="distribuzione.html#simmetria"><i class="fa fa-check"></i><b>3.4</b> Simmetria</a></li>
+<li class="chapter" data-level="3.5" data-path="distribuzione.html"><a href="distribuzione.html#curtosi-campionaria"><i class="fa fa-check"></i><b>3.5</b> Curtosi campionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html"><i class="fa fa-check"></i><b>4</b> Indici di posizione</a><ul>
+<li class="chapter" data-level="4.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#media-campionaria"><i class="fa fa-check"></i><b>4.1</b> Media campionaria</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#scarto-dalla-media-campionaria"><i class="fa fa-check"></i><b>4.1.1</b> Scarto dalla media campionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#mediana-campionaria"><i class="fa fa-check"></i><b>4.2</b> Mediana campionaria</a></li>
+<li class="chapter" data-level="4.3" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili"><i class="fa fa-check"></i><b>4.3</b> Quantili</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-2"><i class="fa fa-check"></i><b>4.3.1</b> Quantili con il tipo 2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-7"><i class="fa fa-check"></i><b>4.3.2</b> Quantili con il tipo 7</a></li>
+<li class="chapter" data-level="4.3.3" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-1"><i class="fa fa-check"></i><b>4.3.3</b> Quantili con il tipo 1</a></li>
+<li class="chapter" data-level="4.3.4" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#rappresentazione-grafica-dei-quartili"><i class="fa fa-check"></i><b>4.3.4</b> Rappresentazione grafica dei quartili</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html"><i class="fa fa-check"></i><b>5</b> Indici di dispersione</a><ul>
+<li class="chapter" data-level="5.1" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#varianza-campionaria"><i class="fa fa-check"></i><b>5.1</b> Varianza campionaria</a></li>
+<li class="chapter" data-level="5.2" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#deviazione-standard-campionaria"><i class="fa fa-check"></i><b>5.2</b> Deviazione standard campionaria</a></li>
+<li class="chapter" data-level="5.3" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#coefficiente-di-variazione"><i class="fa fa-check"></i><b>5.3</b> Coefficiente di variazione</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="correlazioni.html"><a href="correlazioni.html"><i class="fa fa-check"></i><b>6</b> Correlazioni</a><ul>
+<li class="chapter" data-level="6.1" data-path="correlazioni.html"><a href="correlazioni.html#diagrammi-si-dispersione"><i class="fa fa-check"></i><b>6.1</b> Diagrammi si dispersione</a></li>
+<li class="chapter" data-level="6.2" data-path="correlazioni.html"><a href="correlazioni.html#covarianza-campionaria"><i class="fa fa-check"></i><b>6.2</b> Covarianza campionaria</a></li>
+<li class="chapter" data-level="6.3" data-path="correlazioni.html"><a href="correlazioni.html#coefficiente-di-correlazione-campionario"><i class="fa fa-check"></i><b>6.3</b> Coefficiente di correlazione campionario</a></li>
+<li class="chapter" data-level="6.4" data-path="correlazioni.html"><a href="correlazioni.html#coefficiente-di-determinazione"><i class="fa fa-check"></i><b>6.4</b> Coefficiente di determinazione</a></li>
+<li class="chapter" data-level="6.5" data-path="correlazioni.html"><a href="correlazioni.html#regressione-lineare"><i class="fa fa-check"></i><b>6.5</b> Regressione lineare</a></li>
+<li class="chapter" data-level="6.6" data-path="correlazioni.html"><a href="correlazioni.html#regressione-lineare-multipla"><i class="fa fa-check"></i><b>6.6</b> Regressione lineare multipla</a></li>
+<li class="chapter" data-level="6.7" data-path="correlazioni.html"><a href="correlazioni.html#regressione-polinomiale"><i class="fa fa-check"></i><b>6.7</b> Regressione polinomiale</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html"><i class="fa fa-check"></i><b>7</b> Analisi dei cluster</a><ul>
+<li class="chapter" data-level="7.1" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#misure-di-distanza"><i class="fa fa-check"></i><b>7.1</b> Misure di distanza</a></li>
+<li class="chapter" data-level="7.2" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#misura-di-non-omogeneita"><i class="fa fa-check"></i><b>7.2</b> Misura di non omogeneità</a></li>
+<li class="chapter" data-level="7.3" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#funzioni-utili-per-lanalisi-dei-cluster"><i class="fa fa-check"></i><b>7.3</b> Funzioni utili per l’analisi dei cluster</a></li>
+<li class="chapter" data-level="7.4" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodi-gerarchici"><i class="fa fa-check"></i><b>7.4</b> Metodi gerarchici</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-completo"><i class="fa fa-check"></i><b>7.4.1</b> Metodo del legame completo</a></li>
+<li class="chapter" data-level="7.4.2" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-singolo"><i class="fa fa-check"></i><b>7.4.2</b> Metodo del legame singolo</a></li>
+<li class="chapter" data-level="7.4.3" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-medio"><i class="fa fa-check"></i><b>7.4.3</b> Metodo del legame medio</a></li>
+<li class="chapter" data-level="7.4.4" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-centroide"><i class="fa fa-check"></i><b>7.4.4</b> Metodo del centroide</a></li>
+<li class="chapter" data-level="7.4.5" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-della-mediana"><i class="fa fa-check"></i><b>7.4.5</b> Metodo della mediana</a></li>
+<li class="chapter" data-level="7.4.6" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#analisi-metodi-gerarchici"><i class="fa fa-check"></i><b>7.4.6</b> Analisi metodi gerarchici</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-non-gerarchico"><i class="fa fa-check"></i><b>7.5</b> Metodo non gerarchico</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html"><i class="fa fa-check"></i><b>8</b> Distribuzione geometrica</a><ul>
+<li class="chapter" data-level="8.1" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#probabilita-teorica-e-frequenze-del-campione"><i class="fa fa-check"></i><b>8.1</b> Probabilità teorica e frequenze del campione</a></li>
+<li class="chapter" data-level="8.2" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#funzione-di-distribuzione"><i class="fa fa-check"></i><b>8.2</b> Funzione di distribuzione</a></li>
+<li class="chapter" data-level="8.3" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#quantili-1"><i class="fa fa-check"></i><b>8.3</b> Quantili</a></li>
+<li class="chapter" data-level="8.4" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#valore-atteso-e-varianza"><i class="fa fa-check"></i><b>8.4</b> Valore atteso e varianza</a></li>
+<li class="chapter" data-level="8.5" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#assenza-di-memoria"><i class="fa fa-check"></i><b>8.5</b> Assenza di memoria</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="stima-puntuale.html"><a href="stima-puntuale.html"><i class="fa fa-check"></i><b>9</b> Stima puntuale</a><ul>
+<li class="chapter" data-level="9.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#metodo-dei-momenti"><i class="fa fa-check"></i><b>9.1</b> Metodo dei momenti</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#stima-per-la-popolazione-geometrica"><i class="fa fa-check"></i><b>9.1.1</b> Stima per la popolazione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="stima-puntuale.html"><a href="stima-puntuale.html#metodo-della-massima-verosimiglianza"><i class="fa fa-check"></i><b>9.2</b> Metodo della massima verosimiglianza</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#stima-per-la-popolazione-geometrica-1"><i class="fa fa-check"></i><b>9.2.1</b> Stima per la popolazione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="stima-puntuale.html"><a href="stima-puntuale.html#proprieta-degli-stimatori"><i class="fa fa-check"></i><b>9.3</b> Proprietà degli stimatori</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#analisi-dello-stimatore-per-la-distribuzione-geometrica"><i class="fa fa-check"></i><b>9.3.1</b> Analisi dello stimatore per la distribuzione geometrica</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html"><i class="fa fa-check"></i><b>10</b> Intervalli di fiducia approssimati</a><ul>
+<li class="chapter" data-level="10.1" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html#intervalli-di-fiducia-approssimati-per-la-popolazione-geometrica"><i class="fa fa-check"></i><b>10.1</b> Intervalli di fiducia approssimati per la popolazione geometrica</a></li>
+<li class="chapter" data-level="10.2" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html#differenza-tra-valori-medi"><i class="fa fa-check"></i><b>10.2</b> Differenza tra valori medi</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html"><i class="fa fa-check"></i><b>11</b> Verifica delle ipotesi</a><ul>
+<li class="chapter" data-level="11.1" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-bilaterale-approssimato"><i class="fa fa-check"></i><b>11.1</b> Test bilaterale approssimato</a></li>
+<li class="chapter" data-level="11.2" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-unilaterale-sinistro-approssimato"><i class="fa fa-check"></i><b>11.2</b> Test unilaterale sinistro approssimato</a></li>
+<li class="chapter" data-level="11.3" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-unilaterale-destro-approssimato"><i class="fa fa-check"></i><b>11.3</b> Test unilaterale destro approssimato</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="criterio-del-chi-quadrato.html"><a href="criterio-del-chi-quadrato.html"><i class="fa fa-check"></i><b>12</b> Criterio del chi-quadrato</a><ul>
+<li class="chapter" data-level="12.1" data-path="criterio-del-chi-quadrato.html"><a href="criterio-del-chi-quadrato.html#test-per-la-distribuzione-geometrica"><i class="fa fa-check"></i><b>12.1</b> Test per la distribuzione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referenze.html"><a href="referenze.html"><i class="fa fa-check"></i>Referenze</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tesina Statistica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="correlazioni" class="section level1">
+<h1><span class="header-section-number">6</span> Correlazioni</h1>
+<p>In questo capitolo l’attenzione verrà posta sulle relazioni tra le caratteristiche del data set. Le relazioni possono essere descritte visivamente tramite diagrammi di dispersione o tramite una misura quantitativa detta covarianza campionaria.</p>
+<div id="diagrammi-si-dispersione" class="section level2">
+<h2><span class="header-section-number">6.1</span> Diagrammi si dispersione</h2>
+<p>I diagrammi di dispersione detti anche scatterplot sono rappresentazioni grafiche della correlazione tra variabili.</p>
+<p>Dato un campione bivariato <span class="math inline">\((x_i, y_i)\)</span> per <span class="math inline">\(i=1,...n\)</span> rappresentante <span class="math inline">\(n\)</span> osservazioni delle variabili <span class="math inline">\((X, Y)\)</span> il relativo diagramma di dispersione consiste nel riportare i punti del campione su un piano cartesiano dopo aver scelto una variabile indipendente e una dipendente. Dalla visione del grafico è possibile intuire un’eventuale regolarità tra i valori.</p>
+<p>Il seguente codice permette di creare tutti gli scatterplot tra le caratteristiche considerate. I diagrammi ottenuti sono mostrati in figura <a href="correlazioni.html#fig:scatterplot">6.1</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(df)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:scatterplot"></span>
+<img src="statistics-project_files/figure-html/scatterplot-1.png" alt="Diagrammi si dispersione" width="672" />
+<p class="caption">
+Figura 6.1: Diagrammi si dispersione
+</p>
+</div>
+<p>In ogni diagramma la variabile indipendente è descritta dall’etichetta presente nella stessa colonna del diagramma, mentre la variabile dipendente è descritta dall’etichetta presente nella stessa riga del diagramma. Dalla visualizzazione del grafico si può notare una correlazione positiva tra tutte le caratteristiche prese a due a due.</p>
+</div>
+<div id="covarianza-campionaria" class="section level2">
+<h2><span class="header-section-number">6.2</span> Covarianza campionaria</h2>
+<p>La covarianza campionaria consente di dare una misura quantitativa della correlazione tra le variabili. Dato un campione bivariato <span class="math inline">\((x_i, y_i)\)</span> per <span class="math inline">\(i=1,...n\)</span> la covarianza campionaria tra le variabili <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> è definita con il valore</p>
+<p><span class="math display">\[C_{xy}=\frac{1}{n-1}\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})\]</span></p>
+<p>Se la covarianza campionaria assume valore zero ne consegue che le variabili non sono correlate, altrimenti all’aumentare del valore assoluto della covarianza aumenta la correlazione. In particolare la correlazione è positiva se il valore della covarianza è positivo, negativa altrimenti.</p>
+<p>Il seguente codice permette di calcolare la covarianza tra le caratteristiche del data set prese a due a due. I risultati ottenuti sono mostrati nella tabella <a href="correlazioni.html#tab:covarianze">6.1</a>. Da notare che la correlazione tra le stesse variabili è uguale alla varianza tra le variabili.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">covarianze &lt;-<span class="st"> </span><span class="kw">cov</span>(df)</code></pre></div>
+<table>
+<caption><span id="tab:covarianze">Tabella 6.1: </span>Correlazioni</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Economica</th>
+<th align="right">Salute</th>
+<th align="right">Famiglia</th>
+<th align="right">Amici</th>
+<th align="right">Tempo libero</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Economica</td>
+<td align="right">4.426737</td>
+<td align="right">7.399053</td>
+<td align="right">9.342211</td>
+<td align="right">7.977474</td>
+<td align="right">6.719579</td>
+</tr>
+<tr class="even">
+<td>Salute</td>
+<td align="right">7.399053</td>
+<td align="right">16.340290</td>
+<td align="right">19.653710</td>
+<td align="right">15.970684</td>
+<td align="right">12.791868</td>
+</tr>
+<tr class="odd">
+<td>Famiglia</td>
+<td align="right">9.342211</td>
+<td align="right">19.653710</td>
+<td align="right">30.304500</td>
+<td align="right">23.511737</td>
+<td align="right">18.007395</td>
+</tr>
+<tr class="even">
+<td>Amici</td>
+<td align="right">7.977474</td>
+<td align="right">15.970684</td>
+<td align="right">23.511737</td>
+<td align="right">19.507263</td>
+<td align="right">14.793316</td>
+</tr>
+<tr class="odd">
+<td>Tempo libero</td>
+<td align="right">6.719579</td>
+<td align="right">12.791868</td>
+<td align="right">18.007395</td>
+<td align="right">14.793316</td>
+<td align="right">12.419237</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="coefficiente-di-correlazione-campionario" class="section level2">
+<h2><span class="header-section-number">6.3</span> Coefficiente di correlazione campionario</h2>
+<p>Il coefficiente di correlazione campionario è un coefficiente per misurare in modo quantitativo la relazione lineare tra le variabili ed è definito come <span class="math display">\[r_{xy}=\frac{C_{xy}}{s_x s_y}\]</span></p>
+<p>Assume valori compresi tra -1 e 1, in particolare assume valore zero nel caso in cui le variabili non sono correlate, mentre all’aumentare del valore assoluto del coefficiente aumenta la correlazione tra le variabili. La correlazione è positiva se il segno del coefficiente è positivo, negativa altrimenti.</p>
+<p>Inoltre il coefficiente di correlazione campionario non fa distinzione tra la variabile indipendente e la variabile dipendente.</p>
+<p>Il seguente codice permette di calcolare il coefficiente di correlazione campionario tra le caratteristiche del data set prese a due a due. I risultati ottenuti sono mostrati nella tabella <a href="correlazioni.html#tab:correlazioni">6.2</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">correlazioni &lt;-<span class="st"> </span><span class="kw">cor</span>(df)</code></pre></div>
+<table>
+<caption><span id="tab:correlazioni">Tabella 6.2: </span>Correlazioni</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Economica</th>
+<th align="right">Salute</th>
+<th align="right">Famiglia</th>
+<th align="right">Amici</th>
+<th align="right">Tempo libero</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Economica</td>
+<td align="right">1.0000000</td>
+<td align="right">0.8699702</td>
+<td align="right">0.8065926</td>
+<td align="right">0.8584705</td>
+<td align="right">0.9062599</td>
+</tr>
+<tr class="even">
+<td>Salute</td>
+<td align="right">0.8699702</td>
+<td align="right">1.0000000</td>
+<td align="right">0.8832042</td>
+<td align="right">0.8945312</td>
+<td align="right">0.8979593</td>
+</tr>
+<tr class="odd">
+<td>Famiglia</td>
+<td align="right">0.8065926</td>
+<td align="right">0.8832042</td>
+<td align="right">1.0000000</td>
+<td align="right">0.9670145</td>
+<td align="right">0.9282177</td>
+</tr>
+<tr class="even">
+<td>Amici</td>
+<td align="right">0.8584705</td>
+<td align="right">0.8945312</td>
+<td align="right">0.9670145</td>
+<td align="right">1.0000000</td>
+<td align="right">0.9504295</td>
+</tr>
+<tr class="odd">
+<td>Tempo libero</td>
+<td align="right">0.9062599</td>
+<td align="right">0.8979593</td>
+<td align="right">0.9282177</td>
+<td align="right">0.9504295</td>
+<td align="right">1.0000000</td>
+</tr>
+</tbody>
+</table>
+<p>Il seguente codice permette di calcolare i valori della tabella <a href="correlazioni.html#tab:correlazioni-ordinate">6.3</a> dove è mostrato il coefficiente di correlazione campionario per tutte le caratteristiche prese a due a due in ordine non crescente.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cc &lt;-<span class="st"> </span><span class="kw">numeric</span>()
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>colCount) {
+  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>colCount) {
+    <span class="cf">if</span> (i <span class="op">&lt;</span><span class="st"> </span>j) {
+      value &lt;-<span class="kw">array</span>(correlazioni[i, j], <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))
+      name &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">row.names</span>(correlazioni)[i], <span class="st">&quot;-&quot;</span>,
+                    <span class="kw">row.names</span>(correlazioni)[j])
+      <span class="kw">rownames</span>(value) &lt;-<span class="st"> </span><span class="kw">c</span>(name)
+      cc &lt;-<span class="st"> </span><span class="kw">rbind</span>(cc, value)
+    }
+  }
+}
+lista.corr &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(cc[<span class="kw">order</span>(cc[,<span class="dv">1</span>], <span class="dt">decreasing =</span> <span class="ot">TRUE</span>),])</code></pre></div>
+<p>Possiamo osservare che la correlazione maggiore si presenta tra la soddisfazione in famiglia e la soddisfazione con gli amici. Mentre la correlazione minore tra la soddisfazione in famiglia e quella economica. Si nota inoltre che tutte le correlazioni sono positive.</p>
+<table>
+<caption><span id="tab:correlazioni-ordinate">Tabella 6.3: </span>Coefficiente di correlazione campionario</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Coef. Correlazione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Famiglia - Amici</td>
+<td align="right">0.9670145</td>
+</tr>
+<tr class="even">
+<td>Amici - Tempo libero</td>
+<td align="right">0.9504295</td>
+</tr>
+<tr class="odd">
+<td>Famiglia - Tempo libero</td>
+<td align="right">0.9282177</td>
+</tr>
+<tr class="even">
+<td>Economica - Tempo libero</td>
+<td align="right">0.9062599</td>
+</tr>
+<tr class="odd">
+<td>Salute - Tempo libero</td>
+<td align="right">0.8979593</td>
+</tr>
+<tr class="even">
+<td>Salute - Amici</td>
+<td align="right">0.8945312</td>
+</tr>
+<tr class="odd">
+<td>Salute - Famiglia</td>
+<td align="right">0.8832042</td>
+</tr>
+<tr class="even">
+<td>Economica - Salute</td>
+<td align="right">0.8699702</td>
+</tr>
+<tr class="odd">
+<td>Economica - Amici</td>
+<td align="right">0.8584705</td>
+</tr>
+<tr class="even">
+<td>Economica - Famiglia</td>
+<td align="right">0.8065926</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="coefficiente-di-determinazione" class="section level2">
+<h2><span class="header-section-number">6.4</span> Coefficiente di determinazione</h2>
+<p>Per determinare se il modello di regressione spiega i dati è utile considerare il coefficiente di determinazione, anche chiamato r-square, e definito con il valore <span class="math display">\[D^2=\frac{\sum_{i=1}^n(\hat{y}_i-\bar{y})^2}{\sum_{i=1}^n(y_i-\bar{y})^2}\]</span> Dove con <span class="math inline">\(\hat{y}_i\)</span> e <span class="math inline">\(y_i\)</span> sono rispettivamente è l’<span class="math inline">\(i\)</span>-esimo valore stimato e osservato, mentre <span class="math inline">\(\bar{y}\)</span> è la media campionaria dei valori osservati.</p>
+<p>Il coefficiente di determinazione può essere anche visto come il rapporto tra la varianza dei valori stimati e quella dei valori osservati.</p>
+<p>Se il coefficiente di determinazione assume valore zero vi è una completa incapacità del modello di spiegare i valori, altrimenti all’aumentare del valore del coefficiente di determinazione aumenta la capacità del modello di spiegare i valori. Nel caso limite in cui il coefficiente assume valore uno il modello di regressione spiega perfettamente i valori.</p>
+<div id="coefficiente-di-determinazione-nella-regressione-lineare" class="section level4">
+<h4><span class="header-section-number">6.4.0.1</span> Coefficiente di determinazione nella regressione lineare</h4>
+<p>Nella regressione lineare il coefficiente di determinazione è equivalente al quadrato del coefficiente di determinazione <span class="math display">\[D^2=r_{xy}^2\]</span></p>
+<p>Il seguente codice permette di calcolare il coefficiente di determinazione per il modello lineare per tutte le caratteristiche prese a due a due. I risultati sono mostrati nella tabella <a href="correlazioni.html#tab:coeff-determinazione">6.4</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coeffDeterminazione &lt;-<span class="st"> </span>lista.corr <span class="op">^</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<p>Il coefficiente di determinazione minore è associato alle caratteristiche soddisfazione economica e soddisfazione in famiglia con un valore 0.6505916. Ne consegue che la regressione lineare non approssima in modo soddisfacente i valori. Per tutte le altre caratteristiche prese a due a due il modello lineare approssima i valori con buona soddisfazione, infatti il coefficiente di determinazione è maggiore di 0.7369715, ottenendo un massimo pari a 0.935117 tra la soddisfazione per la famiglia e quella per gli amici.</p>
+<table>
+<caption><span id="tab:coeff-determinazione">Tabella 6.4: </span>Coefficienti di determinazione</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Coef. determinazione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Famiglia - Amici</td>
+<td align="right">0.9351170</td>
+</tr>
+<tr class="even">
+<td>Amici - Tempo libero</td>
+<td align="right">0.9033162</td>
+</tr>
+<tr class="odd">
+<td>Famiglia - Tempo libero</td>
+<td align="right">0.8615882</td>
+</tr>
+<tr class="even">
+<td>Economica - Tempo libero</td>
+<td align="right">0.8213070</td>
+</tr>
+<tr class="odd">
+<td>Salute - Tempo libero</td>
+<td align="right">0.8063309</td>
+</tr>
+<tr class="even">
+<td>Salute - Amici</td>
+<td align="right">0.8001860</td>
+</tr>
+<tr class="odd">
+<td>Salute - Famiglia</td>
+<td align="right">0.7800496</td>
+</tr>
+<tr class="even">
+<td>Economica - Salute</td>
+<td align="right">0.7568482</td>
+</tr>
+<tr class="odd">
+<td>Economica - Amici</td>
+<td align="right">0.7369715</td>
+</tr>
+<tr class="even">
+<td>Economica - Famiglia</td>
+<td align="right">0.6505916</td>
+</tr>
+</tbody>
+</table>
+<p>Nel seguito verrà mostrato il modello di regressione lineare e relativa analisi tra la soddisfazione per la famiglia e quella per gli amici. Verrà inoltre anche mostrato come la soddisfazione economica e la soddisfazione per la salute influiscono sulla soddisfazione nel tempo libero tramite una regressione lineare multipla. Infine verrà mostrato un modello di regressione non lineare per la correlazione tra la soddisfazione economica e quella in famiglia.</p>
+
+</div>
+</div>
+<div id="regressione-lineare" class="section level2">
+<h2><span class="header-section-number">6.5</span> Regressione lineare</h2>
+<p>Il modello di regressione lineare è un metodo di stima che mira a trovare la retta che meglio interpola la nuvola dei punti.</p>
+<p>I valori del coefficiente angolare <span class="math inline">\(\beta\)</span> e dell’intercetta <span class="math inline">\(\alpha\)</span> vengono calcolati tramite il metodo dei minimi quadrati e hanno valori pari a <span class="math display">\[\beta = \frac{s_y}{s_x} r_{xy} \quad  \alpha=\overline{y}-\beta\overline{x}\]</span></p>
+<p>Il seguente codice calcola il modello lineare per la variabile indipendente associata alla soddisfazione per la famiglia e la variabile dipendente associata alla soddisfazione per gli amici. L’intercetta, il coefficiente angolare e il coefficiente di determinazione per tale modello sono mostrati nella tabella <a href="correlazioni.html#tab:modello-lineare-dati">6.5</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span>df<span class="op">$</span>amici
+x &lt;-<span class="st"> </span>df<span class="op">$</span>famiglia
+modello &lt;-<span class="st"> </span><span class="kw">lm</span>(y<span class="op">~</span>x)
+intercetta &lt;-<span class="st"> </span>modello<span class="op">$</span>coefficients[[<span class="dv">1</span>]]
+coeffAngolare &lt;-<span class="st"> </span>modello<span class="op">$</span>coefficients[[<span class="dv">2</span>]]
+coeffDeterminazione &lt;-<span class="st"> </span><span class="kw">summary</span>(modello)<span class="op">$</span>r.squared</code></pre></div>
+<p>Poiché il coefficiente angolare è positivo ne consegue che la retta di regressione è una retta crescente.</p>
+<table>
+<caption><span id="tab:modello-lineare-dati">Tabella 6.5: </span>Dati modello lineare</caption>
+<thead>
+<tr class="header">
+<th align="right">Intercetta</th>
+<th align="right">Coef. Angolare</th>
+<th align="right">Coef. Determinazione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">-2.524497</td>
+<td align="right">0.7758497</td>
+<td align="right">0.935117</td>
+</tr>
+</tbody>
+</table>
+<p>Invece il diagramma del modello di regressione è disegnato con il seguente codice ed è mostrato in figura <a href="correlazioni.html#fig:modello-lineare-scatterplot">6.2</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x, y, <span class="dt">xlab =</span> <span class="st">&quot;Soddisfazione Famiglia&quot;</span>, 
+     <span class="dt">ylab =</span> <span class="st">&quot;Soddisfazione Amici&quot;</span>, 
+     <span class="dt">main =</span> <span class="st">&quot;Regressione lineare semplice&quot;</span>)
+<span class="kw">abline</span>(modello, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)  </code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:modello-lineare-scatterplot"></span>
+<img src="statistics-project_files/figure-html/modello-lineare-scatterplot-1.png" alt="Diagramma di dispersione" width="672" />
+<p class="caption">
+Figura 6.2: Diagramma di dispersione
+</p>
+</div>
+<p>La stima dei valori tramite il modello lineare può differire dai valori osservati nel caso in cui i punti non sono tutti sulla retta interpolante. Con residuo si definisce la differenza tra il valore osservato e il valore stimato.</p>
+<p>Può essere notato che la media campionaria dei residui è nulla, di conseguenza gli scostamenti positivi e negativi si compensano. Inoltre la media campionaria dei valori stimati è uguale alla media campionaria dei valori osservati.</p>
+<p>Il seguente codice permette di calcolare i valori stimati, i residui, e i residui standardizzati. I risultati sono mostrati nella tabella <a href="correlazioni.html#tab:modello-lineare-residui">6.6</a>.<br />
+Inoltre vengono calcolate alcune statistiche sui residui: la media campionaria, la varianza campionaria e deviazione standard campionaria. Non può essere calcolato il coefficiente di variazione poiché la media dei residui è zero. I risultati sono mostrati nella tabella <a href="correlazioni.html#tab:modello-lineare-residui-statistiche">6.7</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">osservati &lt;-<span class="st"> </span>y
+stime &lt;-<span class="st"> </span><span class="kw">fitted</span>(modello)
+residui &lt;-<span class="kw">resid</span>(modello)
+residui.standard &lt;-<span class="st"> </span>residui <span class="op">/</span><span class="st"> </span><span class="kw">sd</span>(residui)
+
+mediaResidui &lt;-<span class="st"> </span><span class="kw">mean</span>(residui)
+varianzaResidui &lt;-<span class="st"> </span><span class="kw">var</span>(residui)
+deviazioneStandardResidui &lt;-<span class="st"> </span><span class="kw">sd</span>(residui)</code></pre></div>
+<table>
+<caption><span id="tab:modello-lineare-residui">Tabella 6.6: </span>Residui</caption>
+<thead>
+<tr class="header">
+<th align="right">Osservati</th>
+<th align="right">Stimati</th>
+<th align="right">Residui</th>
+<th align="right">Residui standardizzati</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">24.5</td>
+<td align="right">25.56126</td>
+<td align="right">-1.0612620</td>
+<td align="right">-0.9433199</td>
+</tr>
+<tr class="even">
+<td align="right">25.5</td>
+<td align="right">24.86300</td>
+<td align="right">0.6370028</td>
+<td align="right">0.5662102</td>
+</tr>
+<tr class="odd">
+<td align="right">26.5</td>
+<td align="right">28.12157</td>
+<td align="right">-1.6215659</td>
+<td align="right">-1.4413552</td>
+</tr>
+<tr class="even">
+<td align="right">25.5</td>
+<td align="right">24.86300</td>
+<td align="right">0.6370028</td>
+<td align="right">0.5662102</td>
+</tr>
+<tr class="odd">
+<td align="right">35.2</td>
+<td align="right">33.47493</td>
+<td align="right">1.7250712</td>
+<td align="right">1.5333576</td>
+</tr>
+<tr class="even">
+<td align="right">25.1</td>
+<td align="right">27.34572</td>
+<td align="right">-2.2457162</td>
+<td align="right">-1.9961414</td>
+</tr>
+<tr class="odd">
+<td align="right">26.8</td>
+<td align="right">26.41470</td>
+<td align="right">0.3853034</td>
+<td align="right">0.3424832</td>
+</tr>
+<tr class="even">
+<td align="right">28.4</td>
+<td align="right">27.50089</td>
+<td align="right">0.8991138</td>
+<td align="right">0.7991919</td>
+</tr>
+<tr class="odd">
+<td align="right">25.4</td>
+<td align="right">25.09575</td>
+<td align="right">0.3042478</td>
+<td align="right">0.2704356</td>
+</tr>
+<tr class="even">
+<td align="right">26.0</td>
+<td align="right">25.17334</td>
+<td align="right">0.8266629</td>
+<td align="right">0.7347927</td>
+</tr>
+<tr class="odd">
+<td align="right">23.2</td>
+<td align="right">23.62164</td>
+<td align="right">-0.4216377</td>
+<td align="right">-0.3747796</td>
+</tr>
+<tr class="even">
+<td align="right">22.8</td>
+<td align="right">21.60443</td>
+<td align="right">1.1955714</td>
+<td align="right">1.0627031</td>
+</tr>
+<tr class="odd">
+<td align="right">23.8</td>
+<td align="right">23.77681</td>
+<td align="right">0.0231923</td>
+<td align="right">0.0206149</td>
+</tr>
+<tr class="even">
+<td align="right">19.7</td>
+<td align="right">21.21650</td>
+<td align="right">-1.5165037</td>
+<td align="right">-1.3479690</td>
+</tr>
+<tr class="odd">
+<td align="right">16.5</td>
+<td align="right">16.32865</td>
+<td align="right">0.1713493</td>
+<td align="right">0.1523066</td>
+</tr>
+<tr class="even">
+<td align="right">16.2</td>
+<td align="right">14.69937</td>
+<td align="right">1.5006337</td>
+<td align="right">1.3338626</td>
+</tr>
+<tr class="odd">
+<td align="right">21.6</td>
+<td align="right">21.13892</td>
+<td align="right">0.4610813</td>
+<td align="right">0.4098396</td>
+</tr>
+<tr class="even">
+<td align="right">17.8</td>
+<td align="right">19.19929</td>
+<td align="right">-1.3992945</td>
+<td align="right">-1.2437857</td>
+</tr>
+<tr class="odd">
+<td align="right">20.1</td>
+<td align="right">21.13892</td>
+<td align="right">-1.0389187</td>
+<td align="right">-0.9234598</td>
+</tr>
+<tr class="even">
+<td align="right">21.6</td>
+<td align="right">21.06133</td>
+<td align="right">0.5386662</td>
+<td align="right">0.4788022</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:modello-lineare-residui-statistiche">Tabella 6.7: </span>Statistiche Residui</caption>
+<thead>
+<tr class="header">
+<th align="right">Media</th>
+<th align="right">Varianza</th>
+<th align="right">Deviazione Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">1.265689</td>
+<td align="right">1.125029</td>
+</tr>
+</tbody>
+</table>
+<p>Una visualizzazione grafica dei residui sulla retta di regressione è mostrata in figura <a href="correlazioni.html#fig:modello-lineare-regressione-residui-standard">6.3</a> mentre un diagramma mostrante i valori dei residui rispetto ai valori stimati è mostrato in figura <a href="correlazioni.html#fig:modello-lineare-diagramma-residui-standard">6.4</a>. In quest’ultimo grafico la retta orizzontale rappresenta la media campionaria dei residui di valore zero.</p>
+<div class="figure" style="text-align: center"><span id="fig:modello-lineare-regressione-residui-standard"></span>
+<img src="statistics-project_files/figure-html/modello-lineare-regressione-residui-standard-1.png" alt="Diagramma di dispersione" width="672" />
+<p class="caption">
+Figura 6.3: Diagramma di dispersione
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:modello-lineare-diagramma-residui-standard"></span>
+<img src="statistics-project_files/figure-html/modello-lineare-diagramma-residui-standard-1.png" alt="Diagramma di dispersione" width="672" />
+<p class="caption">
+Figura 6.4: Diagramma di dispersione
+</p>
+</div>
+<p>Come è possibile notare alcuni residui si discostano in modo maggiore degli altri dal valore medio influenzando l’andamento della retta interpolante</p>
+
+</div>
+<div id="regressione-lineare-multipla" class="section level2">
+<h2><span class="header-section-number">6.6</span> Regressione lineare multipla</h2>
+<p>In questo paragrafo si desidera analizzare quanto la soddisfazione economica e la soddisfazione per la salute influiscono sulla soddisfazione nel tempo libero. La correlazione tra più variabili viene analizzata per mezzo del modello di regressione lineare multivariato. Il quale è descritto dalla retta <span class="math display">\[Y = \alpha = \beta_1 X_1 +\dots + \beta_p X_p\]</span> dove <span class="math inline">\(\alpha\)</span> è l’intercetta e i <span class="math inline">\(\beta_i\)</span> per <span class="math inline">\(i=1,..,p\)</span> sono i regressori. L’intercetta e i regressori sono calcolati con il metodo dei minimi quadrati.</p>
+<p>Il seguente codice calcola il modello lineare multivariato per le variabili indipendenti associate alla soddisfazione economica e alla soddisfazione per la salute e la variabile dipendente associata alla soddisfazione nel tempo libero. I parametri e il coefficiente di determinazione per tale modello sono mostrati nella tabella <a href="correlazioni.html#tab:modello-lineare-multivariato-dati">6.8</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span>df<span class="op">$</span>tempoLibero
+
+x1 &lt;-<span class="st"> </span>df<span class="op">$</span>economica
+x2 &lt;-<span class="st"> </span>df<span class="op">$</span>salute
+modello &lt;-<span class="st"> </span><span class="kw">lm</span>(y<span class="op">~</span>x1<span class="op">+</span>x2)
+
+alfa &lt;-<span class="st"> </span>modello<span class="op">$</span>coefficients[[<span class="dv">1</span>]]
+beta1 &lt;-<span class="st"> </span>modello<span class="op">$</span>coefficients[[<span class="dv">2</span>]]
+beta2 &lt;-<span class="st"> </span>modello<span class="op">$</span>coefficients[[<span class="dv">3</span>]]
+coeffDeterminazione &lt;-<span class="st"> </span><span class="kw">summary</span>(modello)<span class="op">$</span>r.squared</code></pre></div>
+<p>Poiché entrambi i regressori sono positivi ne consegue che sia la soddisfazione economica sia quella della salute hanno un effetto positivo sulla soddisfazione nel tempo libero.</p>
+<p>Inoltre poiché il valore del coefficiente di determinazione assume valore 0.870655 ne consegue che il modello di regressione lineare multipla spiega in modo soddisfacente i valori.</p>
+<table>
+<caption><span id="tab:modello-lineare-multivariato-dati">Tabella 6.8: </span>Dati modello lineare</caption>
+<thead>
+<tr class="header">
+<th align="right">α</th>
+<th align="right">β1</th>
+<th align="right">β2</th>
+<th align="right">Coef. Determinazione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">4.258195</td>
+<td align="right">0.8614965</td>
+<td align="right">0.3927476</td>
+<td align="right">0.870655</td>
+</tr>
+</tbody>
+</table>
+<p>Il seguente codice permette di calcolare i valori stimati, i residui, e i residui standardizzati. I risultati sono mostrati nella tabella <a href="correlazioni.html#tab:modello-lineare-multivariato-residui">6.9</a>.<br />
+Inoltre vengono calcolate alcune statistiche sui residui: la media campionaria, la varianza campionaria e la deviazione standard campionaria. I risultati sono mostrati nella tabella <a href="correlazioni.html#tab:modello-lineare-multivariato-statistiche">6.10</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">osservati &lt;-<span class="st"> </span>y
+stime &lt;-<span class="st"> </span><span class="kw">fitted</span>(modello)
+residui &lt;-<span class="kw">resid</span>(modello)
+residui.standard &lt;-<span class="st"> </span>residui <span class="op">/</span><span class="st"> </span><span class="kw">sd</span>(residui)
+
+mediaResidui &lt;-<span class="st"> </span><span class="kw">mean</span>(residui)
+varianzaResidui &lt;-<span class="st"> </span><span class="kw">var</span>(residui)
+deviazioneStandardResidui &lt;-<span class="st"> </span><span class="kw">sd</span>(residui)</code></pre></div>
+<table>
+<caption><span id="tab:modello-lineare-multivariato-residui">Tabella 6.9: </span>Residui</caption>
+<thead>
+<tr class="header">
+<th align="right">Osservati</th>
+<th align="right">Stimati</th>
+<th align="right">Residui</th>
+<th align="right">Residui standardizzati</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">15.4</td>
+<td align="right">15.305737</td>
+<td align="right">0.0942627</td>
+<td align="right">0.0743734</td>
+</tr>
+<tr class="even">
+<td align="right">15.0</td>
+<td align="right">16.310407</td>
+<td align="right">-1.3104068</td>
+<td align="right">-1.0339125</td>
+</tr>
+<tr class="odd">
+<td align="right">16.4</td>
+<td align="right">14.766039</td>
+<td align="right">1.6339610</td>
+<td align="right">1.2891971</td>
+</tr>
+<tr class="even">
+<td align="right">16.0</td>
+<td align="right">15.189187</td>
+<td align="right">0.8108128</td>
+<td align="right">0.6397323</td>
+</tr>
+<tr class="odd">
+<td align="right">23.8</td>
+<td align="right">24.834215</td>
+<td align="right">-1.0342154</td>
+<td align="right">-0.8159972</td>
+</tr>
+<tr class="even">
+<td align="right">15.4</td>
+<td align="right">15.651610</td>
+<td align="right">-0.2516101</td>
+<td align="right">-0.1985207</td>
+</tr>
+<tr class="odd">
+<td align="right">16.6</td>
+<td align="right">16.566308</td>
+<td align="right">0.0336925</td>
+<td align="right">0.0265834</td>
+</tr>
+<tr class="even">
+<td align="right">15.5</td>
+<td align="right">15.331086</td>
+<td align="right">0.1689140</td>
+<td align="right">0.1332734</td>
+</tr>
+<tr class="odd">
+<td align="right">15.5</td>
+<td align="right">13.558670</td>
+<td align="right">1.9413302</td>
+<td align="right">1.5317119</td>
+</tr>
+<tr class="even">
+<td align="right">17.3</td>
+<td align="right">14.160443</td>
+<td align="right">3.1395568</td>
+<td align="right">2.4771141</td>
+</tr>
+<tr class="odd">
+<td align="right">13.9</td>
+<td align="right">13.196323</td>
+<td align="right">0.7036774</td>
+<td align="right">0.5552023</td>
+</tr>
+<tr class="even">
+<td align="right">13.0</td>
+<td align="right">12.490651</td>
+<td align="right">0.5093490</td>
+<td align="right">0.4018770</td>
+</tr>
+<tr class="odd">
+<td align="right">11.9</td>
+<td align="right">13.857668</td>
+<td align="right">-1.9576676</td>
+<td align="right">-1.5446021</td>
+</tr>
+<tr class="even">
+<td align="right">12.1</td>
+<td align="right">12.162527</td>
+<td align="right">-0.0625268</td>
+<td align="right">-0.0493337</td>
+</tr>
+<tr class="odd">
+<td align="right">9.3</td>
+<td align="right">11.000758</td>
+<td align="right">-1.7007582</td>
+<td align="right">-1.3419003</td>
+</tr>
+<tr class="even">
+<td align="right">9.3</td>
+<td align="right">10.818311</td>
+<td align="right">-1.5183105</td>
+<td align="right">-1.1979488</td>
+</tr>
+<tr class="odd">
+<td align="right">10.6</td>
+<td align="right">10.905734</td>
+<td align="right">-0.3057343</td>
+<td align="right">-0.2412247</td>
+</tr>
+<tr class="even">
+<td align="right">9.2</td>
+<td align="right">9.728765</td>
+<td align="right">-0.5287655</td>
+<td align="right">-0.4171966</td>
+</tr>
+<tr class="odd">
+<td align="right">11.6</td>
+<td align="right">12.257551</td>
+<td align="right">-0.6575507</td>
+<td align="right">-0.5188083</td>
+</tr>
+<tr class="even">
+<td align="right">10.9</td>
+<td align="right">10.608011</td>
+<td align="right">0.2919894</td>
+<td align="right">0.2303800</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:modello-lineare-multivariato-statistiche">Tabella 6.10: </span>Statistiche Residui</caption>
+<thead>
+<tr class="header">
+<th align="right">Media</th>
+<th align="right">Varianza</th>
+<th align="right">Deviazione Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">1.606367</td>
+<td align="right">1.267425</td>
+</tr>
+</tbody>
+</table>
+Infine una visualizzazione grafica dei residui rispetto ai valori stimati è mostrata in figura <a href="correlazioni.html#fig:modello-lineare-multivariato-diagramma-residui-standard">6.5</a>.
+<div class="figure" style="text-align: center"><span id="fig:modello-lineare-multivariato-diagramma-residui-standard"></span>
+<img src="statistics-project_files/figure-html/modello-lineare-multivariato-diagramma-residui-standard-1.png" alt="Diagramma di dispersione" width="672" />
+<p class="caption">
+Figura 6.5: Diagramma di dispersione
+</p>
+</div>
+
+</div>
+<div id="regressione-polinomiale" class="section level2">
+<h2><span class="header-section-number">6.7</span> Regressione polinomiale</h2>
+<p>Come visto precedentemente il modello lineare non riesce a spiegare la correlazione tra la soddisfazione in famiglia e la soddisfazione economica. Nel seguito verrà utilizzato la regressione polinomiale per modellare la correlazione tra queste due caratteristiche.</p>
+<p>Al modello di regressione polinomiale è associata la curva <span class="math display">\[Y = \alpha + \beta X + \gamma X^2\]</span></p>
+<p>e per stimare i parametri <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> e <span class="math inline">\(\gamma\)</span> si utilizza la regressione lineare multipla <span class="math display">\[Y = \alpha + \beta X_1 + \gamma X_2^2\]</span></p>
+<p>con i regressori <span class="math inline">\(X_1=X\)</span> e <span class="math inline">\(X_2=X^2\)</span>.</p>
+<p>Il seguente codice calcola il modello polinomiale per la variabile indipendente associata alla soddisfazione in famiglia e la variabile dipendente associata alla soddisfazione economica. I parametri <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> e <span class="math inline">\(\gamma\)</span> e il coefficiente di determinazione per tale modello sono mostrati nella tabella <a href="correlazioni.html#tab:modello-polinomiale-dati">6.11</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span>df<span class="op">$</span>economica
+x &lt;-<span class="st"> </span>df<span class="op">$</span>famiglia
+modello &lt;-<span class="st"> </span><span class="kw">lm</span>(y<span class="op">~</span>x <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(x <span class="op">^</span><span class="st"> </span><span class="dv">2</span>))
+alpha &lt;-<span class="st"> </span>modello<span class="op">$</span>coefficients[[<span class="dv">1</span>]]
+beta &lt;-<span class="st"> </span>modello<span class="op">$</span>coefficients[[<span class="dv">2</span>]]
+gamma &lt;-<span class="st"> </span>modello<span class="op">$</span>coefficients[[<span class="dv">3</span>]]
+coeffDeterminazione &lt;-<span class="st"> </span><span class="kw">summary</span>(modello)<span class="op">$</span>r.squared</code></pre></div>
+<table>
+<caption><span id="tab:modello-polinomiale-dati">Tabella 6.11: </span>Dati modello polinomiale</caption>
+<thead>
+<tr class="header">
+<th align="right">α</th>
+<th align="right">β</th>
+<th align="right">ɣ</th>
+<th align="right">Coef. Determinazione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">16.06647</td>
+<td align="right">-1.078837</td>
+<td align="right">0.0206401</td>
+<td align="right">0.8469753</td>
+</tr>
+</tbody>
+</table>
+<p>Essendo il coefficiente di determinazione pari a 0.8469753 ne consegue che il modello spiega i valori in modo soddisfacente.</p>
+<p>Invece il diagramma del modello di regressione è disegnato con il seguente codice ed è mostrato in figura <a href="correlazioni.html#fig:modello-polinomiale-scatterplot">6.6</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x, y, <span class="dt">xlab =</span> <span class="st">&quot;Soddisfazione Famiglia&quot;</span>, 
+     <span class="dt">ylab =</span> <span class="st">&quot;Soddisfazione Economica&quot;</span>,
+     <span class="dt">main =</span> <span class="st">&quot;Regressione polinomiale&quot;</span>)
+<span class="kw">curve</span>(alpha<span class="op">+</span>beta<span class="op">*</span>x<span class="op">+</span>gamma<span class="op">*</span>(x<span class="op">^</span><span class="dv">2</span>) ,<span class="dt">from=</span><span class="dv">20</span>,<span class="dt">to=</span><span class="dv">50</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">add =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:modello-polinomiale-scatterplot"></span>
+<img src="statistics-project_files/figure-html/modello-polinomiale-scatterplot-1.png" alt="Diagramma di dispersione" width="672" />
+<p class="caption">
+Figura 6.6: Diagramma di dispersione
+</p>
+</div>
+<p>Il seguente codice permette di calcolare i valori stimati, i residui, e i residui standardizzati. I risultati sono mostrati nella tabella <a href="correlazioni.html#tab:modello-polinomiale-residui">6.12</a>.<br />
+Inoltre vengono calcolate alcune statistiche sui residui: la media campionaria, la varianza campionaria e deviazione standard campionaria. I risultati sono mostrati nella tabella <a href="correlazioni.html#tab:modello-polinomiale-residui-statistiche">6.13</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">osservati &lt;-<span class="st"> </span>y
+stime &lt;-<span class="st"> </span><span class="kw">fitted</span>(modello)
+residui &lt;-<span class="kw">resid</span>(modello)
+residui.standard &lt;-<span class="st"> </span>residui <span class="op">/</span><span class="st"> </span><span class="kw">sd</span>(residui)
+
+mediaResidui &lt;-<span class="st"> </span><span class="kw">mean</span>(residui)
+varianzaResidui &lt;-<span class="st"> </span><span class="kw">var</span>(residui)
+deviazioneStandardResidui &lt;-<span class="st"> </span><span class="kw">sd</span>(residui)</code></pre></div>
+<table>
+<caption><span id="tab:modello-polinomiale-residui">Tabella 6.12: </span>Residui</caption>
+<thead>
+<tr class="header">
+<th align="right">Osservati</th>
+<th align="right">Stimati</th>
+<th align="right">Residui</th>
+<th align="right">Residui standardizzati</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">4.060237</td>
+<td align="right">0.7397631</td>
+<td align="right">0.8988145</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.702997</td>
+<td align="right">1.3970026</td>
+<td align="right">1.6973626</td>
+</tr>
+<tr class="odd">
+<td align="right">3.9</td>
+<td align="right">5.656187</td>
+<td align="right">-1.7561871</td>
+<td align="right">-2.1337730</td>
+</tr>
+<tr class="even">
+<td align="right">4.3</td>
+<td align="right">3.702997</td>
+<td align="right">0.5970026</td>
+<td align="right">0.7253600</td>
+</tr>
+<tr class="odd">
+<td align="right">10.8</td>
+<td align="right">10.445826</td>
+<td align="right">0.3541737</td>
+<td align="right">0.4303222</td>
+</tr>
+<tr class="even">
+<td align="right">4.7</td>
+<td align="right">5.125094</td>
+<td align="right">-0.4250935</td>
+<td align="right">-0.5164900</td>
+</tr>
+<tr class="odd">
+<td align="right">6.4</td>
+<td align="right">4.542271</td>
+<td align="right">1.8577288</td>
+<td align="right">2.2571464</td>
+</tr>
+<tr class="even">
+<td align="right">4.1</td>
+<td align="right">5.228010</td>
+<td align="right">-1.1280098</td>
+<td align="right">-1.3705356</td>
+</tr>
+<tr class="odd">
+<td align="right">3.0</td>
+<td align="right">3.818362</td>
+<td align="right">-0.8183620</td>
+<td align="right">-0.9943125</td>
+</tr>
+<tr class="even">
+<td align="right">4.2</td>
+<td align="right">3.857642</td>
+<td align="right">0.3423575</td>
+<td align="right">0.4159654</td>
+</tr>
+<tr class="odd">
+<td align="right">3.4</td>
+<td align="right">3.150466</td>
+<td align="right">0.2495344</td>
+<td align="right">0.3031851</td>
+</tr>
+<tr class="even">
+<td align="right">2.9</td>
+<td align="right">2.477992</td>
+<td align="right">0.4220084</td>
+<td align="right">0.5127416</td>
+</tr>
+<tr class="odd">
+<td align="right">2.8</td>
+<td align="right">3.213753</td>
+<td align="right">-0.4137528</td>
+<td align="right">-0.5027110</td>
+</tr>
+<tr class="even">
+<td align="right">2.2</td>
+<td align="right">2.380662</td>
+<td align="right">-0.1806618</td>
+<td align="right">-0.2195047</td>
+</tr>
+<tr class="odd">
+<td align="right">1.9</td>
+<td align="right">2.038530</td>
+<td align="right">-0.1385305</td>
+<td align="right">-0.1683149</td>
+</tr>
+<tr class="even">
+<td align="right">2.6</td>
+<td align="right">2.288579</td>
+<td align="right">0.3114214</td>
+<td align="right">0.3783781</td>
+</tr>
+<tr class="odd">
+<td align="right">2.2</td>
+<td align="right">2.362434</td>
+<td align="right">-0.1624343</td>
+<td align="right">-0.1973582</td>
+</tr>
+<tr class="even">
+<td align="right">1.7</td>
+<td align="right">2.040907</td>
+<td align="right">-0.3409067</td>
+<td align="right">-0.4142027</td>
+</tr>
+<tr class="odd">
+<td align="right">1.9</td>
+<td align="right">2.362434</td>
+<td align="right">-0.4624343</td>
+<td align="right">-0.5618591</td>
+</tr>
+<tr class="even">
+<td align="right">1.9</td>
+<td align="right">2.344620</td>
+<td align="right">-0.4446196</td>
+<td align="right">-0.5402142</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:modello-polinomiale-residui-statistiche">Tabella 6.13: </span>Statistiche Residui</caption>
+<thead>
+<tr class="header">
+<th align="right">Media</th>
+<th align="right">Varianza</th>
+<th align="right">Deviazione Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0.6773999</td>
+<td align="right">0.8230431</td>
+</tr>
+</tbody>
+</table>
+<p>Una visualizzazione grafica dei residui sulla retta di regressione è mostrata in figura <a href="correlazioni.html#fig:modello-polinomiale-regressione-residui-standard">6.7</a> mentre un diagramma mostrante i valori dei residui rispetto ai valori stimati è mostrato in figura <a href="correlazioni.html#fig:modello-polinomiale-diagramma-residui-standard">6.8</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:modello-polinomiale-regressione-residui-standard"></span>
+<img src="statistics-project_files/figure-html/modello-polinomiale-regressione-residui-standard-1.png" alt="Diagramma di dispersione" width="672" />
+<p class="caption">
+Figura 6.7: Diagramma di dispersione
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:modello-polinomiale-diagramma-residui-standard"></span>
+<img src="statistics-project_files/figure-html/modello-polinomiale-diagramma-residui-standard-1.png" alt="Diagramma di dispersione" width="672" />
+<p class="caption">
+Figura 6.8: Diagramma di dispersione
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="indici-di-dispersione.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="analisi-dei-cluster.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["statistics-project.pdf", "statistics-project.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

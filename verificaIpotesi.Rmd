@@ -1,0 +1,263 @@
+# Verifica delle ipotesi
+
+Il test di verifica delle ipotesi è un test che mira a verificare la bontà di un'ipotesi rappresentante un'affermazione su un parametro non noto della distribuzione che descrive la popolazione.
+
+L'ipotesi da verificare tramite il test è detta ipotesi nulla $H_0$, se l'ipotesi nulla
+non può essere accettata allora viene accettata un'ipotesi alternativa $H_1$ espressa in contrapposizione 
+all'ipotesi nulla.
+
+Se $\Theta_0$ e $\Theta_1$ sono due sottoinsiemi disgiunti dello spazio dei parametri $\Theta$
+allora l'ipotesi nulla e alternativa possono essere espresse come
+
+$$H_0: \theta \in \Theta_0 \quad H_1: \theta \in \Theta_1$$
+
+
+Se l'ipotesi specifica completamente la funzione di probabilità o densità di probabilità allora l'ipotesi
+è detta semplice, altrimenti è detta composta.
+
+
+La verifica del test può incorrere in due tipologie di errore:
+
+- Errore di tipo I - rifiuto dell'ipotesi nulla quando l'ipotesi è vera
+
+- Errore di tipo II - accettazione dell'ipotesi nulla quando l'ipotesi è falsa
+
+Se per effettuare il test vengono utilizzati campioni di ampiezza fissa allora, in genere, 
+al diminuire della probabilità di commettere un errore di un dato tipo aumenta
+la probabilità di commettere un errore dell'altro tipo.
+
+Di conseguenza, se l'errore di tipo I è più grave dell'errore di tipo II, 
+si fissa la probabilità di commettere errori di tipo I 
+e si minimizza la probabilità di commettere errori di tipo II, 
+altrimenti il contrario.
+
+In genere le probabilità di errore scelte sono di 0.5 (test statisticamente significativo), 
+0.01 (test statisticamente molto significativo) e 0.001 (test statisticamente estremamente significativo).
+
+Nel seguito verranno mostrati test di verifica delle ipotesi unilaterali e bilaterali
+con una probabilità $\alpha$ di commettere errori di tipo I sul valore medio 
+di una distribuzione geometrica nel caso in cui la varianza sia nota.
+
+In modo analogo a quanto fatto per il calcolo degli intervalli di fiducia approssimati,
+utilizzeremo una variabile pivot che converge in distribuzione alla normale standard.
+
+Infatti se $X_1,\dots,X_n$ è un campione casuale estratto da una popolazione geometrica con 
+valore medio $\mu$ e varianza $\sigma^2$ allora
+la variabile aleatoria 
+
+$$Y_n = \frac{\overline X - \mu}{\sigma / \sqrt{n}} $$
+
+converge in distribuzione alla variabile normale standard $Z \sim \mathcal{N}(0, 1)$.
+
+## Test bilaterale approssimato
+Se $(x_1,\dots,x_n)$ è un campione osservato di ampiezza $n$ estratto da una popolazione geometrica con varianza nota $\sigma^2$ e se consideriamo le ipotesi:
+
+$$H_0 : \mu = \mu_0 \quad H_1 : \mu \neq \mu_0$$
+
+allora il test bilaterale $\Phi$ di misura $\alpha$ per le ipotesi è:
+
+*Accettiamo l'ipotesi $H_0$ se*
+$$-z_{\alpha/2} < \frac{\overline x - \mu_0}{\sigma / \sqrt{n}} < z_{\alpha/2}$$
+
+*Rifiutiamo l'ipotesi $H_0$ se*
+$$\frac{\overline x - \mu_0}{\sigma / \sqrt{n}} > z_{\alpha/2} \quad \text{oppure} \quad \frac{\overline x - \mu_0}{\sigma /  \sqrt{n}} < - z_{\alpha/2} $$
+
+dove $-z_{\alpha/2}$ e $z_{\alpha/2}$ sono tali che
+$$P(Z < -z_{\alpha/2}) = P(Z > z_{\alpha/2}) = \frac{\alpha}{2}$$
+
+
+In figura \@ref(fig:verifica-ipotesi-bilaterale) è rappresentata una densità normale standard e sono mostrate le regioni di rifiuto e accettazione per il test bilaterale.
+
+```{r verifica-ipotesi-bilaterale, fig.cap='Densità normale standard', fig.align='center', echo = FALSE}
+curve(dnorm(x,mean=0,sd=1) ,from = -3, to = 3, axes = FALSE, ylim=c(0,0.5) ,
+      xlab="",ylab="",main="Densità normale standard")
+
+text(0,0.05, expression (1-alpha))
+text(0,0.2,"Regione di\naccettazione")
+axis(1,c(-3,-1,0,1,3) ,c("",expression (-z[alpha/2]) , 0, expression (z[alpha/2]) ,""))
+vals<-seq(-3,-1, length =100)
+x<-c(-3,vals ,-1,-3)
+y<-c(0, dnorm(vals) ,0,0)
+polygon (x,y,density =20, angle =45)
+vals<-seq(1,3, length =100)
+x<-c(1,vals ,3,1)
+y<-c(0, dnorm(vals) ,0,0)
+polygon (x,y,density =20, angle =45)
+abline (h=0)
+text(-1.5,0.05, expression (alpha/2))
+text(-2.2,0.1, "Regione di\nrifiuto")
+text(1.5,0.05, expression (alpha/2))
+text(2.2,0.1, "Regione di\nrifiuto")
+box()
+```
+
+La seguente funzione effettua il test bilaterale approssimato. La funzione prende in input la media e la
+deviazione standard della popolazione, la media campionaria e la misura $\alpha$.
+```{r}
+testBilaterale <- function(media, deviazioneStandard, mediaCampionaria, n, alpha) {
+  zAlphaMezzi <- qnorm(1 - alpha / 2, mean = 0, sd = 1)
+  valore <- (mediaCampionaria - media) / (deviazioneStandard / sqrt(n))
+  -zAlphaMezzi < valore && valore < zAlphaMezzi
+}
+```
+
+Il seguente codice effettua il test bilaterale sul valore medio utilizzando un campione che si ritiene
+estratto da una popolazione geometrica di parametro $p = 0.4$.
+Vengono quindi calcolate la media e la deviazione standard della popolazione e viene poi invocata
+la precedente funzione per ottenere il risultato del test.
+```{r}
+p <- 0.4
+media <- 1 / p
+varianza <- (1 - p) / p^2
+deviazioneStandard <- sqrt(varianza)
+
+#campione <- rgeom(100, prob = 0.4) + 1
+campione <- c(2, 1, 1, 3, 1, 3, 4, 5, 1, 1, 1, 1, 4, 2, 2, 2, 4, 3, 3, 1, 
+              1, 1, 2, 2, 1, 1, 1, 2, 3, 6, 3, 1, 6, 1, 1, 2, 1, 4, 1, 1, 
+              4, 3, 2, 1, 4, 6, 7, 2, 1, 1, 3, 1, 1, 4, 1, 1, 4, 1, 4, 1, 
+              2, 1, 1, 1, 4, 2, 1, 2, 3, 2, 2, 1, 2, 1, 2, 1, 2, 2, 6, 5, 
+              6, 2, 6, 2, 3, 2, 2, 2, 4, 1, 1, 1, 1, 2, 3, 9, 3, 1, 2, 1)
+
+esito <- testBilaterale(media = media, 
+                        deviazioneStandard = deviazioneStandard, 
+                        mediaCampionaria = mean(campione), 
+                        n = length(campione), 
+                        alpha = 0.05)
+```
+
+Il test da esito `r if (esito) {"positivo"} else {"negativo"}`.
+
+## Test unilaterale sinistro approssimato
+Se $(x_1,\dots,x_n)$ è un campione osservato di ampiezza $n$ estratto da una popolazione geometrica con varianza nota $\sigma^2$ e se consideriamo le ipotesi:
+
+$$H_0 : \mu \le \mu_0 \quad H_1 : \mu > \mu_0$$
+allora il test unilaterale sinistro $\Phi$ di misura $\alpha$ per le ipotesi è:
+
+*Accettiamo l'ipotesi $H_0$ se*
+$$\frac{\overline x - \mu_0}{\sigma / \sqrt{n}} < z_{\alpha}$$
+*Rifiutiamo l'ipotesi $H_0$ se*
+$$\frac{\overline x - \mu_0}{\sigma / \sqrt{n}} > z_{\alpha}$$
+dove $z_{\alpha}$ è tale che:
+$$P(Z > z_{\alpha}) = \alpha$$
+
+
+```{r verifica-ipotesi-unilaterale-sinistro, fig.cap='Densità normale standard', fig.align='center', echo = FALSE}
+curve(dnorm(x,mean=0,sd=1),from=-3, to=3,axes=FALSE,ylim=c(0,0.5) ,xlab="",
+      ylab="",main="Densità normale standard")
+
+text(0,0.05,expression(1-alpha))
+text(0,0.2,"Regione di\naccettazione")
+
+axis(1,c(-3,-1,0,1,3),c("","","",expression (z[alpha ]),""))
+vals<-seq(1,3,length=100)
+x<-c(1,vals,3,1)
+y<-c(0,dnorm(vals),0,0)
+polygon(x,y,density=20,angle=45)
+abline(h=0)
+text(1.5,0.05,expression(alpha))
+text(2.2,0.1,"Regione di\nrifiuto")
+box()
+```
+
+La seguente funzione effettua il test unilaterale sinistro approssimato. La funzione prende in input la media e la
+deviazione standard della popolazione, la media campionaria e la misura $\alpha$.
+```{r}
+testUnilateraleSinistro <- function(media, deviazioneStandard, mediaCampionaria, n, alpha) {
+  zAlpha <- qnorm(1 - alpha, mean = 0, sd = 1)
+  valore <- (mediaCampionaria - media) / (deviazioneStandard / sqrt(n))
+  valore < zAlpha
+}
+```
+
+Il seguente codice effettua il test unilaterale sinistro sul valore medio utilizzando un campione che si ritiene
+estratto da una popolazione geometrica di parametro $p = 0.4$.
+Vengono quindi calcolati il valore atteso e la deviazione standard della popolazione e viene poi invocata
+la precedente funzione per ottenere il risultato del test.
+```{r}
+p <- 0.4
+media <- 1 / p
+varianza <- (1 - p) / p^2
+deviazioneStandard <- sqrt(varianza)
+
+#campione <- rgeom(100, prob = 0.7) + 1
+campione <- c(2, 2, 1, 1, 3, 1, 2, 1, 1, 2, 3, 1, 1, 1, 3, 2, 2, 1, 1, 2, 
+              2, 2, 1, 1, 1, 2, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+              2, 1, 2, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 
+              1, 1, 1, 1, 3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 
+              2, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 3, 1, 1, 1, 1, 2)
+
+esito <- testUnilateraleSinistro(media = media, 
+                                 deviazioneStandard = deviazioneStandard, 
+                                 mediaCampionaria = mean(campione), 
+                                 n = length(campione), 
+                                 alpha = 0.05)
+```
+
+Il test da esito `r if (esito) {"positivo"} else {"negativo"}`.
+
+## Test unilaterale destro approssimato
+Se $(x_1,\dots,x_n)$ è un campione osservato di ampiezza $n$ estratto da una popolazione geometrica con varianza nota $\sigma^2$ e se consideriamo le ipotesi:
+
+$$H_0 : \mu \ge \mu_0 \quad H_1 : \mu < \mu_0$$
+allora il test unilaterale destro $\Phi$ di misura $\alpha$ per le ipotesi è:
+
+*Accettiamo l'ipotesi $H_0$ se*
+$$\frac{\overline x - \mu_0}{\sigma / \sqrt{n}} > - z_{\alpha}$$
+
+*Rifiutiamo l'ipotesi $H_0$ se*
+$$\frac{\overline x - \mu_0}{\sigma / \sqrt{n}} < -z_{\alpha}$$
+
+dove $-z_{\alpha}$ è tale che:
+$$P(Z < -z_{\alpha}) = \alpha$$
+
+```{r verifica-ipotesi-unilaterale-destro, fig.cap='Densità normale standard', fig.align='center', echo = FALSE}
+curve(dnorm(x,mean=0,sd=1),from=-3, to=3,axes=FALSE,ylim=c(0,0.5)
+      ,xlab="", ylab="",main="Densità normale standard")
+text(0,0.05,expression(1-alpha))
+text(0,0.2,"Regione di\naccettazione")
+axis(1,c(-3,-1,0,1,3),c("",expression(-z[alpha]),"","",""))
+vals<-seq(-3,-1,length=100)
+x<-c(-3,vals,-1,-3)
+y<-c(0,dnorm(vals),0,0)
+polygon(x,y,density=20,angle=45)
+abline(h=0)
+text(-1.5,0.05,expression(alpha))
+text(-2.2,0.1,"Regione di\nrifiuto")
+box()
+```
+
+La seguente funzione effettua il test unilaterale sinistro approssimato. La funzione prende in input la media e la
+deviazione standard della popolazione, la media campionaria e la misura $\alpha$.
+```{r}
+testUnilateraleDestro <- function(media, deviazioneStandard, mediaCampionaria, n, alpha) {
+  menoAlpha <- qnorm(alpha, mean = 0, sd = 1)
+  valore <- (mediaCampionaria - media) / (deviazioneStandard / sqrt(n))
+  valore > menoAlpha
+}
+```
+
+Il seguente codice effettua il test unilaterale destro sul valore medio utilizzando un campione che si ritiene
+estratto da una popolazione geometrica di parametro $p = 0.4$.
+Vengono quindi calcolati il valore atteso e la deviazione standard della popolazione e viene poi invocata
+la precedente funzione per ottenere il risultato del test.
+```{r}
+p <- 0.4
+media <- 1 / p
+varianza <- (1 - p) / p^2
+deviazioneStandard <- sqrt(varianza)
+
+#campione <- rgeom(100, prob = 0.7) + 1
+campione <- c(2, 2, 1, 1, 3, 1, 2, 1, 1, 2, 3, 1, 1, 1, 3, 2, 2, 1, 1, 2, 
+              2, 2, 1, 1, 1, 2, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+              2, 1, 2, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 
+              1, 1, 1, 1, 3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 
+              2, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 3, 1, 1, 1, 1, 2)
+
+esito <- testUnilateraleDestro(media = media, 
+                               deviazioneStandard = deviazioneStandard, 
+                               mediaCampionaria = mean(campione), 
+                               n = length(campione), 
+                               alpha = 0.05)
+```
+
+Il test da esito `r if (esito) {"positivo"} else {"negativo"}`.

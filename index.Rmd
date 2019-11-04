@@ -1,0 +1,68 @@
+--- 
+title: "Tesina Statistica"
+author: "Nicola Lancellotti"
+--date: "`r Sys.Date()`"
+date: "30/01/2019"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: ""
+---
+
+
+```{r setup, echo=FALSE}
+knitr::read_chunk("dataSet.R")
+```
+
+```{r chunk, echo=FALSE}
+```
+
+```{r chunk2, echo=FALSE}
+```
+
+# Introduzione
+
+Lo scopo della presente tesina è quello di mettere in pratica le nozioni teoriche apprese 
+nel corso di "Statistica e Analisi dei Dati" [@sad] tenuto dalla professoressa Nobile 
+all'Università degli Studi di Salerno. 
+
+La prima parte, composta dai capitoli da 2 a 7, si occuperà della statistica descrittiva, cioè 
+la parte della statistica che si occupa della rilevazione, analisi, sintesi, interpretazione e 
+rappresentazione dei dati di una popolazione o di una sua parte, detta campione. 
+L’oggetto di interesse su cui sarà applicata la statistica descrittiva è la soddisfazione degli 
+italiani per quanto riguarda la situazione economica, di salute, delle relazioni con i membri 
+della famiglia, delle relazioni con gli amici e infine del proprio tempo libero.
+I dati sono stati raccolti dall’ISTAT nel 2017 attraverso sondaggi su un campione casuale.
+Il sondaggio consisteva nell’esprimere una valutazione qualitativa per ognuna delle caratteristiche 
+di interesse. I valori qualitativi possibili erano: “molto”, “abbastanza”, “poco” e “per niente”.
+Infine è stata calcolata le percentuale di persone che hanno espresso un voto pari a “molto” per 
+ ognuna delle caratteristiche e per ognuna delle regioni italiane.
+Dopo una prima analisi visiva mediante i boxplot verranno effettuate analisi numeriche volte 
+a spiegare la distribuzione del campione. Verranno quindi calcolate le frequenze e verra analizzata
+la simmetria e la curtosi.
+In seguito verrano analizzati gli indici di posizione e di dispersione.
+A seguire verranno analizzate le correlazioni tra le caratteristiche del data set e infine l'analisi dei 
+cluster consentirà di scoprire le regioni simili tra loro per quanto riguarda le caratteristiche analizzate.
+
+La seconda parte, composta dai capitoli da 8 a 12, invece 
+si occuperà dell'inferenza statistica
+che ha lo scopo di estendere le misura ricavate dal campione
+alla popolazione da cui il campione è stato estratto.
+Verrà utilizzato un campione estratto da una popolazione
+descritta da una distribuzione geometrica
+e verranno mostrate le tecniche che consentono di stimare
+il parametro non noto $p$ della distribuzione scelta.
+Oltre a una stima puntuale di tale valore sarà mostrato
+anche come ottenere un intervallo di confidenza approssimato 
+per il parametro da stimare.
+Infine gli ultimi capitoli si concluderanno con i test
+di verifica delle ipotesi del valore medio
+e su un particolare test, detto test del chi-quadrato, che consente di 
+verificare se il campione proviene realmente
+da una distribuzione geometrica. 
+
+In entrambe le parti oltre a spiegare e mostrare i risultati ottenuti
+tramite tabelle e grafici verrà anche mostrato il codice in linguaggio R  
+[@rlang] che ha permesso di computare tali risultati.

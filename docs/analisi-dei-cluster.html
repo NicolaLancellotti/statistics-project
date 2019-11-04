@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tesina Statistica</title>
+  <meta name="description" content="Tesina Statistica">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Tesina Statistica" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tesina Statistica" />
+  
+  
+  
+
+<meta name="author" content="Nicola Lancellotti">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="correlazioni.html">
+<link rel="next" href="distribuzione-geometrica.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tesina Statistica</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduzione</a></li>
+<li class="chapter" data-level="2" data-path="data-set.html"><a href="data-set.html"><i class="fa fa-check"></i><b>2</b> Data Set</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-set.html"><a href="data-set.html#boxplot"><i class="fa fa-check"></i><b>2.1</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distribuzione.html"><a href="distribuzione.html"><i class="fa fa-check"></i><b>3</b> Distribuzione</a><ul>
+<li class="chapter" data-level="3.1" data-path="distribuzione.html"><a href="distribuzione.html#frequenze"><i class="fa fa-check"></i><b>3.1</b> Frequenze</a></li>
+<li class="chapter" data-level="3.2" data-path="distribuzione.html"><a href="distribuzione.html#funzione-di-distribuzione-empirica-continua"><i class="fa fa-check"></i><b>3.2</b> Funzione di distribuzione empirica continua</a></li>
+<li class="chapter" data-level="3.3" data-path="distribuzione.html"><a href="distribuzione.html#istogrammi"><i class="fa fa-check"></i><b>3.3</b> Istogrammi</a></li>
+<li class="chapter" data-level="3.4" data-path="distribuzione.html"><a href="distribuzione.html#simmetria"><i class="fa fa-check"></i><b>3.4</b> Simmetria</a></li>
+<li class="chapter" data-level="3.5" data-path="distribuzione.html"><a href="distribuzione.html#curtosi-campionaria"><i class="fa fa-check"></i><b>3.5</b> Curtosi campionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html"><i class="fa fa-check"></i><b>4</b> Indici di posizione</a><ul>
+<li class="chapter" data-level="4.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#media-campionaria"><i class="fa fa-check"></i><b>4.1</b> Media campionaria</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#scarto-dalla-media-campionaria"><i class="fa fa-check"></i><b>4.1.1</b> Scarto dalla media campionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#mediana-campionaria"><i class="fa fa-check"></i><b>4.2</b> Mediana campionaria</a></li>
+<li class="chapter" data-level="4.3" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili"><i class="fa fa-check"></i><b>4.3</b> Quantili</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-2"><i class="fa fa-check"></i><b>4.3.1</b> Quantili con il tipo 2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-7"><i class="fa fa-check"></i><b>4.3.2</b> Quantili con il tipo 7</a></li>
+<li class="chapter" data-level="4.3.3" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-1"><i class="fa fa-check"></i><b>4.3.3</b> Quantili con il tipo 1</a></li>
+<li class="chapter" data-level="4.3.4" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#rappresentazione-grafica-dei-quartili"><i class="fa fa-check"></i><b>4.3.4</b> Rappresentazione grafica dei quartili</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html"><i class="fa fa-check"></i><b>5</b> Indici di dispersione</a><ul>
+<li class="chapter" data-level="5.1" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#varianza-campionaria"><i class="fa fa-check"></i><b>5.1</b> Varianza campionaria</a></li>
+<li class="chapter" data-level="5.2" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#deviazione-standard-campionaria"><i class="fa fa-check"></i><b>5.2</b> Deviazione standard campionaria</a></li>
+<li class="chapter" data-level="5.3" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#coefficiente-di-variazione"><i class="fa fa-check"></i><b>5.3</b> Coefficiente di variazione</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="correlazioni.html"><a href="correlazioni.html"><i class="fa fa-check"></i><b>6</b> Correlazioni</a><ul>
+<li class="chapter" data-level="6.1" data-path="correlazioni.html"><a href="correlazioni.html#diagrammi-si-dispersione"><i class="fa fa-check"></i><b>6.1</b> Diagrammi si dispersione</a></li>
+<li class="chapter" data-level="6.2" data-path="correlazioni.html"><a href="correlazioni.html#covarianza-campionaria"><i class="fa fa-check"></i><b>6.2</b> Covarianza campionaria</a></li>
+<li class="chapter" data-level="6.3" data-path="correlazioni.html"><a href="correlazioni.html#coefficiente-di-correlazione-campionario"><i class="fa fa-check"></i><b>6.3</b> Coefficiente di correlazione campionario</a></li>
+<li class="chapter" data-level="6.4" data-path="correlazioni.html"><a href="correlazioni.html#coefficiente-di-determinazione"><i class="fa fa-check"></i><b>6.4</b> Coefficiente di determinazione</a></li>
+<li class="chapter" data-level="6.5" data-path="correlazioni.html"><a href="correlazioni.html#regressione-lineare"><i class="fa fa-check"></i><b>6.5</b> Regressione lineare</a></li>
+<li class="chapter" data-level="6.6" data-path="correlazioni.html"><a href="correlazioni.html#regressione-lineare-multipla"><i class="fa fa-check"></i><b>6.6</b> Regressione lineare multipla</a></li>
+<li class="chapter" data-level="6.7" data-path="correlazioni.html"><a href="correlazioni.html#regressione-polinomiale"><i class="fa fa-check"></i><b>6.7</b> Regressione polinomiale</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html"><i class="fa fa-check"></i><b>7</b> Analisi dei cluster</a><ul>
+<li class="chapter" data-level="7.1" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#misure-di-distanza"><i class="fa fa-check"></i><b>7.1</b> Misure di distanza</a></li>
+<li class="chapter" data-level="7.2" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#misura-di-non-omogeneita"><i class="fa fa-check"></i><b>7.2</b> Misura di non omogeneità</a></li>
+<li class="chapter" data-level="7.3" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#funzioni-utili-per-lanalisi-dei-cluster"><i class="fa fa-check"></i><b>7.3</b> Funzioni utili per l’analisi dei cluster</a></li>
+<li class="chapter" data-level="7.4" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodi-gerarchici"><i class="fa fa-check"></i><b>7.4</b> Metodi gerarchici</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-completo"><i class="fa fa-check"></i><b>7.4.1</b> Metodo del legame completo</a></li>
+<li class="chapter" data-level="7.4.2" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-singolo"><i class="fa fa-check"></i><b>7.4.2</b> Metodo del legame singolo</a></li>
+<li class="chapter" data-level="7.4.3" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-medio"><i class="fa fa-check"></i><b>7.4.3</b> Metodo del legame medio</a></li>
+<li class="chapter" data-level="7.4.4" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-centroide"><i class="fa fa-check"></i><b>7.4.4</b> Metodo del centroide</a></li>
+<li class="chapter" data-level="7.4.5" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-della-mediana"><i class="fa fa-check"></i><b>7.4.5</b> Metodo della mediana</a></li>
+<li class="chapter" data-level="7.4.6" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#analisi-metodi-gerarchici"><i class="fa fa-check"></i><b>7.4.6</b> Analisi metodi gerarchici</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-non-gerarchico"><i class="fa fa-check"></i><b>7.5</b> Metodo non gerarchico</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html"><i class="fa fa-check"></i><b>8</b> Distribuzione geometrica</a><ul>
+<li class="chapter" data-level="8.1" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#probabilita-teorica-e-frequenze-del-campione"><i class="fa fa-check"></i><b>8.1</b> Probabilità teorica e frequenze del campione</a></li>
+<li class="chapter" data-level="8.2" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#funzione-di-distribuzione"><i class="fa fa-check"></i><b>8.2</b> Funzione di distribuzione</a></li>
+<li class="chapter" data-level="8.3" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#quantili-1"><i class="fa fa-check"></i><b>8.3</b> Quantili</a></li>
+<li class="chapter" data-level="8.4" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#valore-atteso-e-varianza"><i class="fa fa-check"></i><b>8.4</b> Valore atteso e varianza</a></li>
+<li class="chapter" data-level="8.5" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#assenza-di-memoria"><i class="fa fa-check"></i><b>8.5</b> Assenza di memoria</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="stima-puntuale.html"><a href="stima-puntuale.html"><i class="fa fa-check"></i><b>9</b> Stima puntuale</a><ul>
+<li class="chapter" data-level="9.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#metodo-dei-momenti"><i class="fa fa-check"></i><b>9.1</b> Metodo dei momenti</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#stima-per-la-popolazione-geometrica"><i class="fa fa-check"></i><b>9.1.1</b> Stima per la popolazione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="stima-puntuale.html"><a href="stima-puntuale.html#metodo-della-massima-verosimiglianza"><i class="fa fa-check"></i><b>9.2</b> Metodo della massima verosimiglianza</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#stima-per-la-popolazione-geometrica-1"><i class="fa fa-check"></i><b>9.2.1</b> Stima per la popolazione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="stima-puntuale.html"><a href="stima-puntuale.html#proprieta-degli-stimatori"><i class="fa fa-check"></i><b>9.3</b> Proprietà degli stimatori</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#analisi-dello-stimatore-per-la-distribuzione-geometrica"><i class="fa fa-check"></i><b>9.3.1</b> Analisi dello stimatore per la distribuzione geometrica</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html"><i class="fa fa-check"></i><b>10</b> Intervalli di fiducia approssimati</a><ul>
+<li class="chapter" data-level="10.1" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html#intervalli-di-fiducia-approssimati-per-la-popolazione-geometrica"><i class="fa fa-check"></i><b>10.1</b> Intervalli di fiducia approssimati per la popolazione geometrica</a></li>
+<li class="chapter" data-level="10.2" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html#differenza-tra-valori-medi"><i class="fa fa-check"></i><b>10.2</b> Differenza tra valori medi</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html"><i class="fa fa-check"></i><b>11</b> Verifica delle ipotesi</a><ul>
+<li class="chapter" data-level="11.1" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-bilaterale-approssimato"><i class="fa fa-check"></i><b>11.1</b> Test bilaterale approssimato</a></li>
+<li class="chapter" data-level="11.2" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-unilaterale-sinistro-approssimato"><i class="fa fa-check"></i><b>11.2</b> Test unilaterale sinistro approssimato</a></li>
+<li class="chapter" data-level="11.3" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-unilaterale-destro-approssimato"><i class="fa fa-check"></i><b>11.3</b> Test unilaterale destro approssimato</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="criterio-del-chi-quadrato.html"><a href="criterio-del-chi-quadrato.html"><i class="fa fa-check"></i><b>12</b> Criterio del chi-quadrato</a><ul>
+<li class="chapter" data-level="12.1" data-path="criterio-del-chi-quadrato.html"><a href="criterio-del-chi-quadrato.html#test-per-la-distribuzione-geometrica"><i class="fa fa-check"></i><b>12.1</b> Test per la distribuzione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referenze.html"><a href="referenze.html"><i class="fa fa-check"></i>Referenze</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tesina Statistica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="analisi-dei-cluster" class="section level1">
+<h1><span class="header-section-number">7</span> Analisi dei cluster</h1>
+<p>In questo capitolo verrà effettuata l’analisi dei cluster che ha come obbiettivo il raggruppamento degli individui del campione in gruppi con caratteristiche simili.</p>
+<p>Poiché gli individui del nostro campione sono le regioni italiane cercheremo di determinare dei gruppi costituiti da regioni aventi un grado di associazione elevato, e aventi un grado di associazione basso con le regioni presenti negli altri gruppi.</p>
+<p>Per determinare quantitativamente la somiglianza tra gli individui è possibile utilizzare misure di distanza o misure di similarità.</p>
+<p>Essendo i metodi di enumerazione completa troppo costosi l’analisi dei cluster sarà effettuata prima con metodi gerarchici agglomerativi e poi con un metodo non gerarchico. I metodi gerarchici consentiranno di avere una visione in termini di distanze e consentiranno di scegliere il numero di cluster. Il metodo non gerarchico k-mean cercherà di migliorare i risultati ottenuti precedentemente grazie alla riallocazione degli individui tra i cluster.</p>
+<p>Per ogni metodo gerarchico sarà mostrato anche il dendrogramma, un grafico che riporta sull’asse delle ascisse gli individui e sull’asse delle ordinate le distanze di aggregazione.</p>
+<p>Con i metodi per cui è possibile verrà effettuata anche un’analisi con lo screeplot. Lo screeplot è un grafico in cui sulle ordinate vengono posti i numeri di gruppi che si possono ottenere con il metodo gerarchico e sull’asse delle ascisse le distanze di aggregazione. Calcolate le differenze tra le distanze di aggregazione per formare <span class="math inline">\(k\)</span> gruppi e <span class="math inline">\(k - 1\)</span> gruppi per <span class="math inline">\(k = 2,..,n\)</span> dove <span class="math inline">\(n\)</span> è il numero di individui, la procedura consiglia di scegliere il numero di cluster pari a <span class="math inline">\(l\)</span> se la distanza di aggregazione per formare <span class="math inline">\(l\)</span> gruppi e <span class="math inline">\(l - 1\)</span> gruppi è la distanza più grande tra le distanze possibili. Va notato che l’analisi dello screen plot non suggerisce sempre il numero ottimale di cluster e che non è consigliabile usare il metodo del centroide e della mediana in quanto le distanze di agglomerazioni potrebbero essere non crescenti.</p>
+<div id="misure-di-distanza" class="section level2">
+<h2><span class="header-section-number">7.1</span> Misure di distanza</h2>
+<p>Dati due individui <span class="math inline">\(I_i\)</span> e <span class="math inline">\(I_j\)</span>, e definito con <span class="math inline">\(X_i\)</span> il vettore delle caratteristiche dell’individuo <span class="math inline">\(I_i\)</span> appartenente a uno spazio euclideo a <span class="math inline">\(p\)</span> dimensioni <span class="math inline">\(E_p\)</span>, una funzione di distanza <span class="math inline">\(d(X_i,X_j)\)</span> è una funzione a valori reali tale che:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(d(X_i,X_j)=0\)</span> se e sole se <span class="math inline">\(X_i=X_j\)</span> con <span class="math inline">\(X_i\)</span> e <span class="math inline">\(X_j\)</span> in <span class="math inline">\(E_p\)</span></li>
+<li><span class="math inline">\(d(X_i,X_j)\ge 0\)</span> per ogni <span class="math inline">\(X_i\)</span> e <span class="math inline">\(X_j\)</span> in <span class="math inline">\(E_p\)</span></li>
+<li><span class="math inline">\(d(X_i,X_j)= d(X_j,X_i)\)</span> per ogni <span class="math inline">\(X_i\)</span> e <span class="math inline">\(X_j\)</span> in <span class="math inline">\(E_p\)</span></li>
+<li><span class="math inline">\(d(X_i,X_j) \le d(X_i,X_k) + d(X_k,X_j)\)</span> per ogni <span class="math inline">\(X_i\)</span>, <span class="math inline">\(X_j\)</span> e <span class="math inline">\(X_k\)</span> in <span class="math inline">\(E_p\)</span></li>
+</ol>
+<p>Inoltre le funzioni di distanza godono delle seguenti proprietà:</p>
+<ol style="list-style-type: decimal">
+<li>Se <span class="math inline">\(d\)</span> e <span class="math inline">\(d&#39;\)</span> sono misure di distanza anche <span class="math inline">\(d + d&#39;\)</span> è una misura di distanza</li>
+<li>Se <span class="math inline">\(d\)</span> è una misura di distanza e <span class="math inline">\(c\)</span> è un numero reale positivo allora <span class="math inline">\(cd\)</span> è una misura di distanza</li>
+<li>Se <span class="math inline">\(d\)</span> è una misura di distanza e <span class="math inline">\(c\)</span> è un numero reale positivo allora <span class="math inline">\(\frac{d}{c+d}\)</span> è una misura di distanza</li>
+</ol>
+<p>Poiché il prodotto di due misure di distanza (e quindi il quadrato di una misura di distanza) non sempre soddisfa la disuguaglianza triangolare, ne consegue che non può essere considerato una misura di distanza.</p>
+<p>Esempi di metriche di distanza sono:</p>
+<ul>
+<li>metrica euclidea</li>
+<li>metrica di Manhattan</li>
+<li>metrica di Checycev</li>
+<li>metrica di Minkowski</li>
+<li>metrica di Camberra</li>
+<li>metrica di Jaccard</li>
+</ul>
+<p>Nel seguito utilizzeremo la metrica euclidea definita nel seguente modo <span class="math display">\[d_2(X_i, X_j) = \sqrt{\sum_{k=1}^p(x_{i,k}-x_{j,k})^2}\]</span> dove <span class="math inline">\(x_{i,k}\)</span> è il valore della <span class="math inline">\(k\)</span>-esima caratteristica dell’individuo <span class="math inline">\(I_i\)</span>.</p>
+<p>Da notare che la distanza euclidea è influenzata dall’unità di misura delle caratteristiche, il problema non si pone con il nostro data set in quanto i valori sono espressi in forma percentuale. In caso contrario sarebbe stato necessario scalare e standardizzare i valori.</p>
+</div>
+<div id="misura-di-non-omogeneita" class="section level2">
+<h2><span class="header-section-number">7.2</span> Misura di non omogeneità</h2>
+<p>La misura di non omogeneità statistica è una misura che consente di dire quanto è buona la partizione degli individui in cluster.</p>
+<p><strong>Matrice di non omogeneità statistica</strong></p>
+<p>Dato un insieme di individui distinti <span class="math inline">\(I = \{I_1,\dots, I_n\}\)</span> ognuno associato a <span class="math inline">\(p\)</span> caratteristiche, possiamo considerare la matrice <span class="math inline">\(W_I\)</span> delle varianze e covarianze tra le caratteristiche dell’insieme in modo tale che <span class="math inline">\(W_{I_{ij}}\)</span> sia la covarianza tra la caratteristica <span class="math inline">\(i\)</span>-esima e <span class="math inline">\(j\)</span>-esima.</p>
+<p>Viene definita la matrice statistica di non omogeneità <span class="math inline">\(H_I\)</span> il valore <span class="math inline">\(H_I = (n-1)W_I\)</span> e si definisce misura di non omogeneità statistica il valore <span class="math display">\[trH_I = (n-1)\sum_{r=1}^{p}s_i^2\]</span></p>
+<p><strong>Matrice di non omogeneità statistica dell’unione di cluster</strong></p>
+<p>La matrice statistica di non omogeneità <span class="math inline">\(T\)</span> dell’unione di <span class="math inline">\(m\)</span> cluster <span class="math inline">\(G_1,\dots,G_m\)</span> è definita dal valore:</p>
+<p><span class="math display">\[T = H_{G_1\cup \dots \cup G_m} = S + B\]</span></p>
+<p>dove <span class="math inline">\(S\)</span> è detta matrice di non omogeneità all’interno dei cluster (within) ed è definita dal valore</p>
+<p><span class="math display">\[S = \sum_{i=1}^m H_i\]</span></p>
+<p>e <span class="math inline">\(B\)</span> è detta matrice di non omogeneità tra i cluster (between) ed è definita dal valore <span class="math display">\[B = \sum_{i&lt;j}^m H_{G_i \cap G_j} + \dots + G_1 \cap \dots \cap G_m\]</span></p>
+<p>Ne consegue che <span class="math inline">\(trT = trS + trB\)</span> che è equivalente a <span class="math inline">\(1 = \frac{trS}{trT} + \frac{trB}{trT}\)</span></p>
+<p>Essendo la traccia della matrice di non omogeneità totale <span class="math inline">\(T\)</span> fissata e poiché le matrici <span class="math inline">\(S\)</span> e <span class="math inline">\(B\)</span> dipendono dalla partizione dei cluster, si desidera, per avere una buona partizione, massimizzare il rapporto <span class="math inline">\(\frac{trB}{trT}\)</span> tra la misura di non omogeneità tra cluster e la misura di non omogeneità totale</p>
+<p>Nei seguenti paragrafi verrà utilizzato tale rapporto per analizzare la bontà delle classificazioni generate dai metodi analizzati.</p>
+</div>
+<div id="funzioni-utili-per-lanalisi-dei-cluster" class="section level2">
+<h2><span class="header-section-number">7.3</span> Funzioni utili per l’analisi dei cluster</h2>
+<p>In questo paragrafo sono mostrate funzioni e valori che saranno utilizzati nei seguenti paragrafi per l’analisi dei cluster.</p>
+<p>Sono definite funzioni e valori per il calcolo della misura di non omogeneità totale e non omogeneità tra cluster, per calcolare le distanze di aggregazione, per calcolare il numero di cluster consigliato dallo screeplot, e per la visualizzazione del dendrogramma. Inoltre è presente anche il codice per il calcolo delle distanze utilizzando la metrica euclidea.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nonOmogeneitaTotale &lt;-<span class="st"> </span><span class="cf">function</span>(df) {
+  n &lt;-<span class="st"> </span><span class="kw">nrow</span>(df)
+  trHI &lt;-<span class="st"> </span>(n <span class="op">-</span><span class="st"> </span><span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">apply</span>(df, <span class="dv">2</span>, var))
+}
+
+nonOmogeneitaCluster &lt;-<span class="st"> </span><span class="cf">function</span>(hls, numCluster) {
+  individuiInCluster &lt;-<span class="st"> </span><span class="kw">cutree</span>(hls, <span class="dt">k =</span> <span class="kw">as.integer</span>(numCluster), <span class="dt">h =</span> <span class="ot">NULL</span>)
+  indici &lt;-<span class="st"> </span><span class="kw">list</span>(individuiInCluster)
+  varianze &lt;-<span class="st"> </span><span class="kw">aggregate</span>(df, indici, var)
+  frequenzeAssolute &lt;-<span class="st"> </span><span class="kw">table</span>(individuiInCluster)
+  
+  
+  agvar &lt;-<span class="st"> </span>varianze[, <span class="op">-</span><span class="dv">1</span>]
+  misuraNonOmogCluster &lt;-<span class="st"> </span><span class="kw">numeric</span>(<span class="dv">0</span>)
+  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>numCluster) {
+    misuraNonOmogCluster[i] &lt;-<span class="st"> </span>(frequenzeAssolute[[i]]<span class="op">-</span><span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sum</span>(agvar[i, ])
+    <span class="cf">if</span> (<span class="kw">is.na</span>(misuraNonOmogCluster[i])) { 
+      misuraNonOmogCluster[i] =<span class="st"> </span><span class="dv">0</span>
+    }
+  }
+  misuraNonOmogCluster
+}
+
+plotCluster &lt;-<span class="st"> </span><span class="cf">function</span>(hls, numCluster, tipo) {
+   <span class="kw">plot</span>(hls,
+       <span class="dt">hang =</span> <span class="op">-</span><span class="dv">1</span>,
+       <span class="dt">main =</span> <span class="kw">paste</span>(<span class="st">&quot;Metodo gerarchico agglomerativo</span><span class="ch">\n</span><span class="st">&quot;</span>, tipo),
+       <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>,
+       <span class="dt">sub =</span> <span class="st">&quot;&quot;</span>)
+  <span class="kw">axis</span>(<span class="dt">side =</span> <span class="dv">4</span>, <span class="dt">at =</span> <span class="kw">round</span>(<span class="kw">c</span>(<span class="dv">0</span>, hls<span class="op">$</span>height),<span class="dv">2</span>))
+  <span class="kw">rect.hclust</span>(hls, <span class="dt">k =</span> numCluster, <span class="dt">border =</span> <span class="st">&quot;red&quot;</span>) 
+}
+
+calcoloMisure &lt;-<span class="st"> </span><span class="cf">function</span> (df, hls, numCluster) {
+  totale &lt;-<span class="st"> </span><span class="kw">nonOmogeneitaTotale</span>(df)
+  misuraNonOmogCluster &lt;-<span class="st"> </span><span class="kw">nonOmogeneitaCluster</span>(hls, numCluster)
+  within &lt;-<span class="st"> </span><span class="kw">sum</span>(misuraNonOmogCluster)
+  between &lt;-<span class="st"> </span>totale <span class="op">-</span><span class="st"> </span>within
+  rapporto &lt;-<span class="st"> </span>between <span class="op">/</span><span class="st"> </span>totale
+ 
+  <span class="kw">list</span>(<span class="dt">totale =</span> totale, <span class="dt">misuraNonOmogCluster =</span> misuraNonOmogCluster, 
+       <span class="dt">within =</span> within, <span class="dt">between =</span> between, <span class="dt">rapporto =</span> rapporto) 
+}
+
+screeplot &lt;-<span class="st"> </span><span class="cf">function</span>(hls, tipo) {
+  <span class="kw">plot</span>(<span class="kw">rev</span>(<span class="kw">c</span>(<span class="dv">0</span>,hls<span class="op">$</span>height)),
+     <span class="kw">seq</span>(<span class="dv">1</span>,rowCount),
+     <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>,
+     <span class="dt">main =</span> <span class="kw">paste</span>(<span class="st">&quot;Screeplot - Metodo&quot;</span>, tipo),
+     <span class="dt">xlab =</span> <span class="st">&quot;Distanza di aggregazione&quot;</span>,
+     <span class="dt">ylab =</span> <span class="st">&quot;Numero di cluster&quot;</span>, 
+     <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)
+}
+
+distancesCluster &lt;-<span class="cf">function</span>(hls) {
+  <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">rev</span>(<span class="kw">diff</span>(<span class="kw">c</span>(<span class="dv">0</span>, hls<span class="op">$</span>height))))
+}
+
+computeNumCluster &lt;-<span class="st"> </span><span class="cf">function</span>(hls) {
+  d &lt;-<span class="st"> </span><span class="kw">distancesCluster</span>(hls)
+  <span class="kw">which</span>(d <span class="op">==</span><span class="st"> </span><span class="kw">max</span>(d)) 
+}
+
+d2 &lt;-<span class="st"> </span><span class="kw">dist</span>(df, <span class="dt">method =</span> <span class="st">&quot;euclidean&quot;</span>, <span class="dt">diag =</span> <span class="ot">TRUE</span>, <span class="dt">upper =</span> <span class="ot">TRUE</span>)
+square.d2 =<span class="st"> </span>d2 <span class="op">^</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+</div>
+<div id="metodi-gerarchici" class="section level2">
+<h2><span class="header-section-number">7.4</span> Metodi gerarchici</h2>
+<p>I metodi gerarchici agglomerativi partono da <span class="math inline">\(n\)</span> cluster contenenti i singoli individui ed ad ogni passo uniscono i cluster più vicini in modo tale da ottenere in <span class="math inline">\(n-1\)</span> passi un singolo cluster.</p>
+<p>L’algoritmo è il seguente:</p>
+<ol style="list-style-type: decimal">
+<li>Considerare gli individui come singoli cluster.</li>
+<li>Calcolare la matrice delle distanza tra i cluster</li>
+<li>Raggruppare in un unico cluster i due cluster a distanza minima e calcolare la distanza del nuovo cluster da tutti gli altri cluster.</li>
+<li>Ripartire dal passo 2 finché non rimane un singolo cluster.</li>
+</ol>
+<p>I metodi si distinguono per la scelta della misura di distanza e per come si individuano i cluster più vicini.</p>
+<p>Nel seguito vengono mostrati i metodi non gerarchici del legame completo, del legame singolo, del legame medio, del centroide e della mediana.</p>
+<div id="metodo-del-legame-completo" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Metodo del legame completo</h3>
+<p>Nel metodo del legame completo la distanza tra due gruppi è pari alla massima distanza tra tutte le distanze tra gli individui presi a due a due in cui uno appartiene a un gruppo e uno all’altro gruppo. Tale distanza rappresenta il diametro della sfera contenente tutti gli individui dei due gruppi.</p>
+<p>Questo metodo riesce ad identificare soprattutto gruppi di forma ellissoidale, cioè punti addensati intorno a un nucleo. Inoltre privilegia l’omogeneità tra gli individui del gruppo.</p>
+<p>Il seguente codice è utilizzato per effettuare l’analisi con il metodo del legame completo.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hls &lt;-<span class="st"> </span><span class="kw">hclust</span>(d2, <span class="dt">method =</span> <span class="st">&quot;complete&quot;</span>)
+numCluster &lt;-<span class="st"> </span><span class="dv">4</span>
+misure &lt;-<span class="st"> </span><span class="kw">calcoloMisure</span>(df, hls, numCluster)</code></pre></div>
+Nelle figure <a href="analisi-dei-cluster.html#fig:legame-completo-cluster">7.1</a> e <a href="analisi-dei-cluster.html#fig:legame-completo-screeplot">7.2</a>, sono mostrati il dendrogramma e lo screeplot. L’analisi dello screeplot suggerisce un numero di cluster pari a 2, tuttavia si è scelto un numero di cluster pari a 4 in quanto la distanza per formare 4 cluster è sensibilmente maggiore rispetto a quelle per formare un numero maggiore di cluster.
+<div class="figure" style="text-align: center"><span id="fig:legame-completo-cluster"></span>
+<img src="statistics-project_files/figure-html/legame-completo-cluster-1.png" alt="Cluster" width="672" />
+<p class="caption">
+Figura 7.1: Cluster
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:legame-completo-screeplot"></span>
+<img src="statistics-project_files/figure-html/legame-completo-screeplot-1.png" alt="Screeplot" width="672" />
+<p class="caption">
+Figura 7.2: Screeplot
+</p>
+</div>
+<p>Nella tabella <a href="analisi-dei-cluster.html#tab:legame-completo-misure-omogeneita">7.1</a> sono mostrate le misure di non omogeneità per il metodo considerato.</p>
+<table>
+<caption><span id="tab:legame-completo-misure-omogeneita">Tabella 7.1: </span>Misura di non omogeneità</caption>
+<thead>
+<tr class="header">
+<th align="left">Totale</th>
+<th align="left">Within</th>
+<th align="left">Between</th>
+<th align="left">Between / Totale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1576.9625</td>
+<td align="left">145.40380952381</td>
+<td align="left">1431.55869047619</td>
+<td align="left">0.907795011280351</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="metodo-del-legame-singolo" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> Metodo del legame singolo</h3>
+<p>Nel metodo del legame singolo la distanza tra due gruppi è pari alla minima distanza tra tutte le distanze tra gli individui presi a due a due in cui uno appartiene a un gruppo e uno all’altro gruppo.</p>
+<p>Questo metodo riesce a individuare cluster di qualsiasi forma e mette in luce valori anomali, di contro può provocare la formazione di catene in quanto basa l’unione tra i cluster su un solo legame. Di conseguenza ci può essere un’incapacità di individuare cluster distinti ma non ben separati.</p>
+<p>Il seguente codice è utilizzato per effettuare l’analisi con il metodo del legame singolo.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hls &lt;-<span class="st"> </span><span class="kw">hclust</span>(d2, <span class="dt">method =</span> <span class="st">&quot;single&quot;</span>)
+numCluster &lt;-<span class="st"> </span><span class="dv">4</span>
+misure &lt;-<span class="st"> </span><span class="kw">calcoloMisure</span>(df, hls, numCluster)</code></pre></div>
+<p>Nelle figure <a href="analisi-dei-cluster.html#fig:legame-singolo-cluster">7.3</a> e <a href="analisi-dei-cluster.html#fig:legame-singolo-screeplot">7.4</a>, sono mostrati il dendrogramma e lo screeplot. L’analisi dello screeplot suggerisce un numero di cluster pari a 2, tuttavia si è scelto un numero di cluster pari a 4 per permettere un confronto con altri metodi.</p>
+<div class="figure" style="text-align: center"><span id="fig:legame-singolo-cluster"></span>
+<img src="statistics-project_files/figure-html/legame-singolo-cluster-1.png" alt="Cluster" width="672" />
+<p class="caption">
+Figura 7.3: Cluster
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:legame-singolo-screeplot"></span>
+<img src="statistics-project_files/figure-html/legame-singolo-screeplot-1.png" alt="Screeplot" width="672" />
+<p class="caption">
+Figura 7.4: Screeplot
+</p>
+</div>
+<p>Nella tabella <a href="analisi-dei-cluster.html#tab:legame-singolo-misure-omogeneita">7.2</a> sono mostrate le misure di non omogeneità per il metodo considerato.</p>
+<table>
+<caption><span id="tab:legame-singolo-misure-omogeneita">Tabella 7.2: </span>Misura di non omogeneità</caption>
+<thead>
+<tr class="header">
+<th align="left">Totale</th>
+<th align="left">Within</th>
+<th align="left">Between</th>
+<th align="left">Between / Totale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1576.9625</td>
+<td align="left">423.31875</td>
+<td align="left">1153.64375</td>
+<td align="left">0.731560674397774</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="metodo-del-legame-medio" class="section level3">
+<h3><span class="header-section-number">7.4.3</span> Metodo del legame medio</h3>
+<p>Nel metodo del legame medio la distanza tra due gruppi è pari alla media aritmetica tra tutte le distanze tra gli individui presi a due a due in cui uno appartiene a un gruppo e uno all’altro gruppo.</p>
+<p>Va notato che se le dimensioni tra i cluster sono molto differenti la distanza calcolata sarà molto più vicina a quella del cluster più numeroso.</p>
+<p>Il seguente codice è utilizzato per effettuare l’analisi con il metodo del legame medio.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hls &lt;-<span class="st"> </span><span class="kw">hclust</span>(d2, <span class="dt">method =</span> <span class="st">&quot;average&quot;</span>)
+numCluster &lt;-<span class="st"> </span><span class="dv">4</span>
+misure &lt;-<span class="st"> </span><span class="kw">calcoloMisure</span>(df, hls, numCluster)</code></pre></div>
+<p>Nelle figure <a href="analisi-dei-cluster.html#fig:legame-medio-cluster">7.5</a> e <a href="analisi-dei-cluster.html#fig:legame-medio-screeplot">7.6</a>, sono mostrati il dendrogramma e lo screeplot. L’analisi dello screeplot suggerisce un numero di cluster pari a 2, tuttavia si è scelto un numero di cluster pari a 4 per permettere un confronto con altri metodi.</p>
+<div class="figure" style="text-align: center"><span id="fig:legame-medio-cluster"></span>
+<img src="statistics-project_files/figure-html/legame-medio-cluster-1.png" alt="Cluster" width="672" />
+<p class="caption">
+Figura 7.5: Cluster
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:legame-medio-screeplot"></span>
+<img src="statistics-project_files/figure-html/legame-medio-screeplot-1.png" alt="Screeplot" width="672" />
+<p class="caption">
+Figura 7.6: Screeplot
+</p>
+</div>
+<p>Nella tabella <a href="analisi-dei-cluster.html#tab:legame-medio-misure-omogeneita">7.3</a> sono mostrate le misure di non omogeneità per il metodo considerato.</p>
+<table>
+<caption><span id="tab:legame-medio-misure-omogeneita">Tabella 7.3: </span>Misura di non omogeneità</caption>
+<thead>
+<tr class="header">
+<th align="left">Totale</th>
+<th align="left">Within</th>
+<th align="left">Between</th>
+<th align="left">Between / Totale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1576.9625</td>
+<td align="left">145.40380952381</td>
+<td align="left">1431.55869047619</td>
+<td align="left">0.907795011280351</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="metodo-del-centroide" class="section level3">
+<h3><span class="header-section-number">7.4.4</span> Metodo del centroide</h3>
+<p>Nel metodo della mediana la distanza tra due gruppi è pari alla distanza tra i centroidi, coincidenti con le medie campionarie tra gli individui dei due gruppi.</p>
+<p>Da notare che a differenza dei metodi precedenti il metodo nel centroide utilizza i quadrati delle distanze euclidee. Utilizzando questo metodo gruppi grandi potrebbero attrarre gruppi più piccoli, e se le dimensioni dei cluster sono molto differenti il nuovo centroide sarà più vicino al cluster più numeroso. Infine le distanze di aggregazione potrebbero essere non crescenti.</p>
+<p>Il seguente codice è utilizzato per effettuare l’analisi con il metodo del centroide.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hls &lt;-<span class="st"> </span><span class="kw">hclust</span>(square.d2, <span class="dt">method =</span> <span class="st">&quot;centroid&quot;</span>)
+numCluster &lt;-<span class="st"> </span><span class="dv">4</span>
+misure &lt;-<span class="st"> </span><span class="kw">calcoloMisure</span>(df, hls, numCluster)</code></pre></div>
+Nella figura <a href="analisi-dei-cluster.html#fig:legame-centroide-cluster">7.7</a> è mostrato il dendrogramma con 4 cluster.
+<div class="figure" style="text-align: center"><span id="fig:legame-centroide-cluster"></span>
+<img src="statistics-project_files/figure-html/legame-centroide-cluster-1.png" alt="Cluster" width="672" />
+<p class="caption">
+Figura 7.7: Cluster
+</p>
+</div>
+<p>Nella tabella <a href="analisi-dei-cluster.html#tab:legame-centroide-misure-omogeneita">7.4</a> sono mostrate le misure di non omogeneità per il metodo considerato.</p>
+<table>
+<caption><span id="tab:legame-centroide-misure-omogeneita">Tabella 7.4: </span>Misura di non omogeneità</caption>
+<thead>
+<tr class="header">
+<th align="left">Totale</th>
+<th align="left">Within</th>
+<th align="left">Between</th>
+<th align="left">Between / Totale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1576.9625</td>
+<td align="left">145.40380952381</td>
+<td align="left">1431.55869047619</td>
+<td align="left">0.907795011280351</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="metodo-della-mediana" class="section level3">
+<h3><span class="header-section-number">7.4.5</span> Metodo della mediana</h3>
+<p>Nel metodo della mediana la distanza tra due gruppi è pari alla distanza tra i centroidi, coincidenti con la media aritmetica dei centroidi dei due gruppi e di conseguenza è indipendente dalla numerosità dei cluster.</p>
+<p>In modo simile al metodo del legame singolo, il metodo nel centroide può provocare una formazione di una catena.</p>
+<p>Il seguente codice è utilizzato per effettuare l’analisi con il metodo della mediana.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hls &lt;-<span class="kw">hclust</span>(square.d2, <span class="dt">method =</span> <span class="st">&quot;median&quot;</span>)
+numCluster &lt;-<span class="st"> </span><span class="dv">4</span>
+misure &lt;-<span class="st"> </span><span class="kw">calcoloMisure</span>(df, hls, numCluster)</code></pre></div>
+Nella figura <a href="analisi-dei-cluster.html#fig:legame-mediana-cluster">7.8</a> è mostrato il dendrogramma con 4 cluster.
+<div class="figure" style="text-align: center"><span id="fig:legame-mediana-cluster"></span>
+<img src="statistics-project_files/figure-html/legame-mediana-cluster-1.png" alt="Cluster" width="672" />
+<p class="caption">
+Figura 7.8: Cluster
+</p>
+</div>
+<p>Nella tabella <a href="analisi-dei-cluster.html#tab:legame-mediana-misure-omogeneita">7.5</a> sono mostrate le misure di non omogeneità per il metodo considerato.</p>
+<table>
+<caption><span id="tab:legame-mediana-misure-omogeneita">Tabella 7.5: </span>Misura di non omogeneità</caption>
+<thead>
+<tr class="header">
+<th align="left">Totale</th>
+<th align="left">Within</th>
+<th align="left">Between</th>
+<th align="left">Between / Totale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1576.9625</td>
+<td align="left">145.40380952381</td>
+<td align="left">1431.55869047619</td>
+<td align="left">0.907795011280351</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="analisi-metodi-gerarchici" class="section level3">
+<h3><span class="header-section-number">7.4.6</span> Analisi metodi gerarchici</h3>
+<p>Nonostante l’analisi degli screen plot abbia suggerito un numero di cluster pari a due, e stato scelto empiricamente un numero di cluster pari a quattro. Infatti una suddivisione in due cluster avrebbe avuto in un cluster l’individuo anomalo “Trentino Alto-Adige” e nel restante gruppo tutte le rimanenti regioni italiane. Con una suddivisione uguale a quattro si ottengono ottimi risultati, infatti per tutti i metodi eccetto il metodo del legame singolo, il rapporto tra la misura di non omogeneità between e quella totale è uguale per tutti i metodi ed ha valore maggiore di 0.9. Con il metodo nel legame singolo si ottiene invece un valore inferiore.</p>
+<p>Nel seguito vengono analizzati i cluster con il metodo del legame completo, ottenendo informazioni su alcune misure di sintesi.</p>
+<p>Il seguente codice permette di calcolare a quale cluster appartiene ogni individuo, il numero di individui per cluster e le altezze di aggregazione. I risultati ottenuti sono mostrati rispettivamente nelle tabelle: <a href="analisi-dei-cluster.html#tab:individui-cluster">7.6</a>, <a href="analisi-dei-cluster.html#tab:numero-individui-cluster">7.7</a> e <a href="analisi-dei-cluster.html#tab:altezze">7.8</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">individuiInCluster &lt;-<span class="st"> </span><span class="kw">cutree</span>(hls, <span class="dt">k =</span> <span class="kw">as.integer</span>(numCluster), <span class="dt">h =</span> <span class="ot">NULL</span>)
+frequenzeAssolute &lt;-<span class="st"> </span><span class="kw">table</span>(individuiInCluster)</code></pre></div>
+<table>
+<caption><span id="tab:individui-cluster">Tabella 7.6: </span>Individui nei cluster</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Cluster</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Piemonte</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Valle d’Aosta</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Liguria</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Lombardia</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Veneto</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Friuli-Venezia Giulia</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Emilia-Romagna</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Toscana</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Umbria</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Trentino Alto Adige</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td>Marche</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td>Lazio</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td>Abruzzo</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td>Molise</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td>Basilicata</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td>Sicilia</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td>Sardegna</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td>Campania</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td>Puglia</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td>Calabria</td>
+<td align="right">4</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:numero-individui-cluster">Tabella 7.7: </span>Numero individui nei cluster</caption>
+<thead>
+<tr class="header">
+<th align="left">Cluster</th>
+<th align="right">Numero individui</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="right">3</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:altezze">Tabella 7.8: </span>Altezze di aggregazione - I numeri negativi indicano gli individui, i numeri positivi i cluster</caption>
+<thead>
+<tr class="header">
+<th align="right">Primo individuo/cluster</th>
+<th align="right">Secondo individuo/cluster</th>
+<th align="right">Altezza</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">-17</td>
+<td align="right">-20</td>
+<td align="right">0.200000</td>
+</tr>
+<tr class="even">
+<td align="right">-14</td>
+<td align="right">-19</td>
+<td align="right">1.320000</td>
+</tr>
+<tr class="odd">
+<td align="right">-2</td>
+<td align="right">-4</td>
+<td align="right">2.850000</td>
+</tr>
+<tr class="even">
+<td align="right">-1</td>
+<td align="right">3</td>
+<td align="right">3.652500</td>
+</tr>
+<tr class="odd">
+<td align="right">-9</td>
+<td align="right">4</td>
+<td align="right">4.628125</td>
+</tr>
+<tr class="even">
+<td align="right">-3</td>
+<td align="right">-6</td>
+<td align="right">4.850000</td>
+</tr>
+<tr class="odd">
+<td align="right">-10</td>
+<td align="right">5</td>
+<td align="right">6.924531</td>
+</tr>
+<tr class="even">
+<td align="right">-8</td>
+<td align="right">6</td>
+<td align="right">7.612500</td>
+</tr>
+<tr class="odd">
+<td align="right">-11</td>
+<td align="right">-12</td>
+<td align="right">8.470000</td>
+</tr>
+<tr class="even">
+<td align="right">-15</td>
+<td align="right">-16</td>
+<td align="right">8.990000</td>
+</tr>
+<tr class="odd">
+<td align="right">-7</td>
+<td align="right">7</td>
+<td align="right">9.874883</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">11</td>
+<td align="right">11.103252</td>
+</tr>
+<tr class="odd">
+<td align="right">-13</td>
+<td align="right">9</td>
+<td align="right">16.637500</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">17.800000</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="right">14</td>
+<td align="right">24.216875</td>
+</tr>
+<tr class="even">
+<td align="right">-18</td>
+<td align="right">10</td>
+<td align="right">28.217500</td>
+</tr>
+<tr class="odd">
+<td align="right">12</td>
+<td align="right">15</td>
+<td align="right">84.044055</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="right">17</td>
+<td align="right">192.296307</td>
+</tr>
+<tr class="odd">
+<td align="right">-5</td>
+<td align="right">18</td>
+<td align="right">904.848374</td>
+</tr>
+</tbody>
+</table>
+<p>Invece il seguente codice permette di calcolare le medie campionarie, le varianze campionarie e le deviazioni standard campionarie. I risultati sono mostrati rispettivamente nelle tabelle <a href="analisi-dei-cluster.html#tab:misure-sintesi-medie">7.9</a>, <a href="analisi-dei-cluster.html#tab:misure-sintesi-varianze">7.10</a> e <a href="analisi-dei-cluster.html#tab:misure-sintesi-sd">7.11</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hls &lt;-<span class="st"> </span><span class="kw">hclust</span>(d2, <span class="dt">method =</span> <span class="st">&quot;complete&quot;</span>)
+individuiInCluster &lt;-<span class="st"> </span><span class="kw">cutree</span>(hls, <span class="dt">k =</span> <span class="kw">as.integer</span>(numCluster), <span class="dt">h =</span> <span class="ot">NULL</span>)
+indici &lt;-<span class="st"> </span><span class="kw">list</span>(individuiInCluster)
+medie &lt;-<span class="st"> </span><span class="kw">aggregate</span>(df, indici, mean)
+varianze &lt;-<span class="st"> </span><span class="kw">aggregate</span>(df, indici, var)
+deviazioniStandard &lt;-<span class="st"> </span><span class="kw">aggregate</span>(df, indici, sd)</code></pre></div>
+<p>Va notato che la varianza e la variazione standard possono essere calcolate solo se sono presenti almeno due individui. Di conseguenza per il cluster in cui è presente l’unico individuo “Trentino Alto-Adige” tali valori non sono calcolati.</p>
+<table>
+<caption><span id="tab:misure-sintesi-medie">Tabella 7.9: </span>Medie</caption>
+<thead>
+<tr class="header">
+<th align="right">Cluster</th>
+<th align="right">Economica</th>
+<th align="right">Salute</th>
+<th align="right">Famiglia</th>
+<th align="right">Amici</th>
+<th align="right">Tempo libero</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">4.500000</td>
+<td align="right">18.00000</td>
+<td align="right">36.90000</td>
+<td align="right">25.96667</td>
+<td align="right">15.900000</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">10.800000</td>
+<td align="right">28.70000</td>
+<td align="right">46.40000</td>
+<td align="right">35.20000</td>
+<td align="right">23.800000</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">2.471429</td>
+<td align="right">14.82857</td>
+<td align="right">31.52857</td>
+<td align="right">21.82857</td>
+<td align="right">12.000000</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">2.066667</td>
+<td align="right">11.40000</td>
+<td align="right">24.83333</td>
+<td align="right">16.83333</td>
+<td align="right">9.266667</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:misure-sintesi-varianze">Tabella 7.10: </span>Varianze</caption>
+<thead>
+<tr class="header">
+<th align="right">Cluster</th>
+<th align="right">Economica</th>
+<th align="right">Salute</th>
+<th align="right">Famiglia</th>
+<th align="right">Amici</th>
+<th align="right">Tempo libero</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">0.8750000</td>
+<td align="right">1.230000</td>
+<td align="right">2.682500</td>
+<td align="right">1.3200000</td>
+<td align="right">0.5425000</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">0.3257143</td>
+<td align="right">4.979048</td>
+<td align="right">2.462381</td>
+<td align="right">2.3890476</td>
+<td align="right">1.3266667</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">0.2233333</td>
+<td align="right">2.080000</td>
+<td align="right">8.623333</td>
+<td align="right">0.7233333</td>
+<td align="right">0.0033333</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:misure-sintesi-sd">Tabella 7.11: </span>Deviazioni standard</caption>
+<thead>
+<tr class="header">
+<th align="right">Cluster</th>
+<th align="right">Economica</th>
+<th align="right">Salute</th>
+<th align="right">Famiglia</th>
+<th align="right">Amici</th>
+<th align="right">Tempo libero</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">0.9354143</td>
+<td align="right">1.109054</td>
+<td align="right">1.637834</td>
+<td align="right">1.1489125</td>
+<td align="right">0.736546</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">0.5707138</td>
+<td align="right">2.231378</td>
+<td align="right">1.569198</td>
+<td align="right">1.5456544</td>
+<td align="right">1.151810</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">0.4725816</td>
+<td align="right">1.442220</td>
+<td align="right">2.936551</td>
+<td align="right">0.8504901</td>
+<td align="right">0.057735</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="metodo-non-gerarchico" class="section level2">
+<h2><span class="header-section-number">7.5</span> Metodo non gerarchico</h2>
+<p>Nei paragrafi precedenti abbiamo utilizzato i metodi non gerarchici per individuare il numero di cluster, in questo paragrafo invece utilizzeremo il metodo non gerarchico k-means per cercare di ottenere un migliore raggruppamento degli individui per il numero di cluster scelto. Questo è possibile in quanto il metodo k-means al contrario dei metodi gerarchici visti precedentemente consente di riallocare gli individui nei cluster.</p>
+<p>Il metodo funziona nel seguente modo:</p>
+<ol style="list-style-type: decimal">
+<li>Fissare il numero <span class="math inline">\(k\)</span> di cluster, e i punti di riferimento iniziali.</li>
+<li>Associare ogni individuo al cluster più vicino.</li>
+<li>Calcolare il baricentro di ogni cluster.</li>
+<li>Ricalcolare le distanze di ogni individuo da tutti i cluster e riallocare gli individui nel cluster più vicino se necessario.</li>
+<li>Ricalcolare il baricentro di ogni cluster.</li>
+<li>Ripetere il procedimento dal punto 4 finché i centroidi non subiscono modifiche rispetto all’iterazione precedente.</li>
+</ol>
+<p>Va notato che nel metodo k-means si considera la matrice contenente i quadrati delle distanze euclidee, e che la classificazione finale può dipendere dalle scelte iniziali.</p>
+<p>I punti di riferimento possono essere scelti in modo casuale o utilizzare i centroidi calcolati con il metodo del centroide, inoltre può essere fissato a priori il numero massimo di iterazioni. Nel seguito il numero massimo di iterazioni sarà posto pari a dieci, un numero maggiore non migliora la classificazione.</p>
+<p>Il seguente codice utilizza il metodo k-means scegliendo per dieci volte i punti di riferimento iniziale in modo casuale.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numCluster &lt;-<span class="st"> </span><span class="dv">4</span>
+km &lt;-<span class="st"> </span><span class="kw">kmeans</span>(df, <span class="dt">center =</span> numCluster, <span class="dt">iter.max =</span> <span class="dv">10</span>, <span class="dt">nstart =</span> <span class="dv">10</span>)</code></pre></div>
+<p>Invece il seguente codice utilizza come centroidi i centroidi calcolati con il metodo del centroide. Tuttavia con tali punti si ottengono gli stessi risultati.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hls &lt;-<span class="st">  </span><span class="kw">hclust</span>(square.d2, <span class="dt">method =</span> <span class="st">&quot;centroid&quot;</span>)
+individuiInCluster &lt;-<span class="st"> </span><span class="kw">cutree</span>(hls, <span class="dt">k =</span> numCluster, <span class="dt">h =</span> <span class="ot">NULL</span>)
+indici &lt;-<span class="st"> </span><span class="kw">list</span>(individuiInCluster)
+centroidiIniziali&lt;-<span class="kw">aggregate</span>(df, indici, mean)[,<span class="op">-</span><span class="dv">1</span>]
+
+km &lt;-<span class="st"> </span><span class="kw">kmeans</span>(df, <span class="dt">center =</span> centroidiIniziali, <span class="dt">iter.max =</span> <span class="dv">10</span>)</code></pre></div>
+<p>Nella tabella <a href="analisi-dei-cluster.html#tab:kmeans-misure-omogeneita">7.12</a> vengono mostrate le misure di non omogeneità utilizzando il metodo k-means, mentre nella tabella <a href="analisi-dei-cluster.html#tab:kmeans-cluster">7.13</a> viene mostrato il cluster di appartenenza di ogni individuo. Come è possibile osservare si ottengono i medesimi risultati del metodo gerarchico del legame completo.</p>
+<table>
+<caption><span id="tab:kmeans-misure-omogeneita">Tabella 7.12: </span>Misura di non omogeneità</caption>
+<thead>
+<tr class="header">
+<th align="right">Totale</th>
+<th align="right">Within</th>
+<th align="right">Between</th>
+<th align="right">Between / Totale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1576.963</td>
+<td align="right">145.4038</td>
+<td align="right">1431.559</td>
+<td align="right">0.907795</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:kmeans-cluster">Tabella 7.13: </span>Individui nei cluster</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Cluster</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Piemonte</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Valle d’Aosta</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Liguria</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Lombardia</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Veneto</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Friuli-Venezia Giulia</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Emilia-Romagna</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Toscana</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Umbria</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Trentino Alto Adige</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td>Marche</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td>Lazio</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td>Abruzzo</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td>Molise</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td>Basilicata</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td>Sicilia</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td>Sardegna</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td>Campania</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td>Puglia</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td>Calabria</td>
+<td align="right">4</td>
+</tr>
+</tbody>
+</table>
+<p>Infine vengono mostrati nella tabella <a href="analisi-dei-cluster.html#tab:kmeans-centri">7.14</a> i centroidi dei cluster calcolati.</p>
+<table>
+<caption><span id="tab:kmeans-centri">Tabella 7.14: </span>Centroidi</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Economica</th>
+<th align="right">Salute</th>
+<th align="right">Famiglia</th>
+<th align="right">Amici</th>
+<th align="right">Tempo libero</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cluster 1</td>
+<td align="right">4.500000</td>
+<td align="right">18.00000</td>
+<td align="right">36.90000</td>
+<td align="right">25.96667</td>
+<td align="right">15.900000</td>
+</tr>
+<tr class="even">
+<td>Cluster 2</td>
+<td align="right">10.800000</td>
+<td align="right">28.70000</td>
+<td align="right">46.40000</td>
+<td align="right">35.20000</td>
+<td align="right">23.800000</td>
+</tr>
+<tr class="odd">
+<td>Cluster 3</td>
+<td align="right">2.471429</td>
+<td align="right">14.82857</td>
+<td align="right">31.52857</td>
+<td align="right">21.82857</td>
+<td align="right">12.000000</td>
+</tr>
+<tr class="even">
+<td>Cluster 4</td>
+<td align="right">2.066667</td>
+<td align="right">11.40000</td>
+<td align="right">24.83333</td>
+<td align="right">16.83333</td>
+<td align="right">9.266667</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="correlazioni.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distribuzione-geometrica.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["statistics-project.pdf", "statistics-project.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

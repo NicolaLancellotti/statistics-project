@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tesina Statistica</title>
+  <meta name="description" content="Tesina Statistica">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Tesina Statistica" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tesina Statistica" />
+  
+  
+  
+
+<meta name="author" content="Nicola Lancellotti">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="distribuzione-geometrica.html">
+<link rel="next" href="intervalli-di-fiducia-approssimati.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tesina Statistica</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduzione</a></li>
+<li class="chapter" data-level="2" data-path="data-set.html"><a href="data-set.html"><i class="fa fa-check"></i><b>2</b> Data Set</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-set.html"><a href="data-set.html#boxplot"><i class="fa fa-check"></i><b>2.1</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distribuzione.html"><a href="distribuzione.html"><i class="fa fa-check"></i><b>3</b> Distribuzione</a><ul>
+<li class="chapter" data-level="3.1" data-path="distribuzione.html"><a href="distribuzione.html#frequenze"><i class="fa fa-check"></i><b>3.1</b> Frequenze</a></li>
+<li class="chapter" data-level="3.2" data-path="distribuzione.html"><a href="distribuzione.html#funzione-di-distribuzione-empirica-continua"><i class="fa fa-check"></i><b>3.2</b> Funzione di distribuzione empirica continua</a></li>
+<li class="chapter" data-level="3.3" data-path="distribuzione.html"><a href="distribuzione.html#istogrammi"><i class="fa fa-check"></i><b>3.3</b> Istogrammi</a></li>
+<li class="chapter" data-level="3.4" data-path="distribuzione.html"><a href="distribuzione.html#simmetria"><i class="fa fa-check"></i><b>3.4</b> Simmetria</a></li>
+<li class="chapter" data-level="3.5" data-path="distribuzione.html"><a href="distribuzione.html#curtosi-campionaria"><i class="fa fa-check"></i><b>3.5</b> Curtosi campionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html"><i class="fa fa-check"></i><b>4</b> Indici di posizione</a><ul>
+<li class="chapter" data-level="4.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#media-campionaria"><i class="fa fa-check"></i><b>4.1</b> Media campionaria</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#scarto-dalla-media-campionaria"><i class="fa fa-check"></i><b>4.1.1</b> Scarto dalla media campionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#mediana-campionaria"><i class="fa fa-check"></i><b>4.2</b> Mediana campionaria</a></li>
+<li class="chapter" data-level="4.3" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili"><i class="fa fa-check"></i><b>4.3</b> Quantili</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-2"><i class="fa fa-check"></i><b>4.3.1</b> Quantili con il tipo 2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-7"><i class="fa fa-check"></i><b>4.3.2</b> Quantili con il tipo 7</a></li>
+<li class="chapter" data-level="4.3.3" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-1"><i class="fa fa-check"></i><b>4.3.3</b> Quantili con il tipo 1</a></li>
+<li class="chapter" data-level="4.3.4" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#rappresentazione-grafica-dei-quartili"><i class="fa fa-check"></i><b>4.3.4</b> Rappresentazione grafica dei quartili</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html"><i class="fa fa-check"></i><b>5</b> Indici di dispersione</a><ul>
+<li class="chapter" data-level="5.1" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#varianza-campionaria"><i class="fa fa-check"></i><b>5.1</b> Varianza campionaria</a></li>
+<li class="chapter" data-level="5.2" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#deviazione-standard-campionaria"><i class="fa fa-check"></i><b>5.2</b> Deviazione standard campionaria</a></li>
+<li class="chapter" data-level="5.3" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#coefficiente-di-variazione"><i class="fa fa-check"></i><b>5.3</b> Coefficiente di variazione</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="correlazioni.html"><a href="correlazioni.html"><i class="fa fa-check"></i><b>6</b> Correlazioni</a><ul>
+<li class="chapter" data-level="6.1" data-path="correlazioni.html"><a href="correlazioni.html#diagrammi-si-dispersione"><i class="fa fa-check"></i><b>6.1</b> Diagrammi si dispersione</a></li>
+<li class="chapter" data-level="6.2" data-path="correlazioni.html"><a href="correlazioni.html#covarianza-campionaria"><i class="fa fa-check"></i><b>6.2</b> Covarianza campionaria</a></li>
+<li class="chapter" data-level="6.3" data-path="correlazioni.html"><a href="correlazioni.html#coefficiente-di-correlazione-campionario"><i class="fa fa-check"></i><b>6.3</b> Coefficiente di correlazione campionario</a></li>
+<li class="chapter" data-level="6.4" data-path="correlazioni.html"><a href="correlazioni.html#coefficiente-di-determinazione"><i class="fa fa-check"></i><b>6.4</b> Coefficiente di determinazione</a></li>
+<li class="chapter" data-level="6.5" data-path="correlazioni.html"><a href="correlazioni.html#regressione-lineare"><i class="fa fa-check"></i><b>6.5</b> Regressione lineare</a></li>
+<li class="chapter" data-level="6.6" data-path="correlazioni.html"><a href="correlazioni.html#regressione-lineare-multipla"><i class="fa fa-check"></i><b>6.6</b> Regressione lineare multipla</a></li>
+<li class="chapter" data-level="6.7" data-path="correlazioni.html"><a href="correlazioni.html#regressione-polinomiale"><i class="fa fa-check"></i><b>6.7</b> Regressione polinomiale</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html"><i class="fa fa-check"></i><b>7</b> Analisi dei cluster</a><ul>
+<li class="chapter" data-level="7.1" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#misure-di-distanza"><i class="fa fa-check"></i><b>7.1</b> Misure di distanza</a></li>
+<li class="chapter" data-level="7.2" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#misura-di-non-omogeneita"><i class="fa fa-check"></i><b>7.2</b> Misura di non omogeneità</a></li>
+<li class="chapter" data-level="7.3" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#funzioni-utili-per-lanalisi-dei-cluster"><i class="fa fa-check"></i><b>7.3</b> Funzioni utili per l’analisi dei cluster</a></li>
+<li class="chapter" data-level="7.4" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodi-gerarchici"><i class="fa fa-check"></i><b>7.4</b> Metodi gerarchici</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-completo"><i class="fa fa-check"></i><b>7.4.1</b> Metodo del legame completo</a></li>
+<li class="chapter" data-level="7.4.2" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-singolo"><i class="fa fa-check"></i><b>7.4.2</b> Metodo del legame singolo</a></li>
+<li class="chapter" data-level="7.4.3" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-medio"><i class="fa fa-check"></i><b>7.4.3</b> Metodo del legame medio</a></li>
+<li class="chapter" data-level="7.4.4" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-centroide"><i class="fa fa-check"></i><b>7.4.4</b> Metodo del centroide</a></li>
+<li class="chapter" data-level="7.4.5" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-della-mediana"><i class="fa fa-check"></i><b>7.4.5</b> Metodo della mediana</a></li>
+<li class="chapter" data-level="7.4.6" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#analisi-metodi-gerarchici"><i class="fa fa-check"></i><b>7.4.6</b> Analisi metodi gerarchici</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-non-gerarchico"><i class="fa fa-check"></i><b>7.5</b> Metodo non gerarchico</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html"><i class="fa fa-check"></i><b>8</b> Distribuzione geometrica</a><ul>
+<li class="chapter" data-level="8.1" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#probabilita-teorica-e-frequenze-del-campione"><i class="fa fa-check"></i><b>8.1</b> Probabilità teorica e frequenze del campione</a></li>
+<li class="chapter" data-level="8.2" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#funzione-di-distribuzione"><i class="fa fa-check"></i><b>8.2</b> Funzione di distribuzione</a></li>
+<li class="chapter" data-level="8.3" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#quantili-1"><i class="fa fa-check"></i><b>8.3</b> Quantili</a></li>
+<li class="chapter" data-level="8.4" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#valore-atteso-e-varianza"><i class="fa fa-check"></i><b>8.4</b> Valore atteso e varianza</a></li>
+<li class="chapter" data-level="8.5" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#assenza-di-memoria"><i class="fa fa-check"></i><b>8.5</b> Assenza di memoria</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="stima-puntuale.html"><a href="stima-puntuale.html"><i class="fa fa-check"></i><b>9</b> Stima puntuale</a><ul>
+<li class="chapter" data-level="9.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#metodo-dei-momenti"><i class="fa fa-check"></i><b>9.1</b> Metodo dei momenti</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#stima-per-la-popolazione-geometrica"><i class="fa fa-check"></i><b>9.1.1</b> Stima per la popolazione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="stima-puntuale.html"><a href="stima-puntuale.html#metodo-della-massima-verosimiglianza"><i class="fa fa-check"></i><b>9.2</b> Metodo della massima verosimiglianza</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#stima-per-la-popolazione-geometrica-1"><i class="fa fa-check"></i><b>9.2.1</b> Stima per la popolazione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="stima-puntuale.html"><a href="stima-puntuale.html#proprieta-degli-stimatori"><i class="fa fa-check"></i><b>9.3</b> Proprietà degli stimatori</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#analisi-dello-stimatore-per-la-distribuzione-geometrica"><i class="fa fa-check"></i><b>9.3.1</b> Analisi dello stimatore per la distribuzione geometrica</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html"><i class="fa fa-check"></i><b>10</b> Intervalli di fiducia approssimati</a><ul>
+<li class="chapter" data-level="10.1" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html#intervalli-di-fiducia-approssimati-per-la-popolazione-geometrica"><i class="fa fa-check"></i><b>10.1</b> Intervalli di fiducia approssimati per la popolazione geometrica</a></li>
+<li class="chapter" data-level="10.2" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html#differenza-tra-valori-medi"><i class="fa fa-check"></i><b>10.2</b> Differenza tra valori medi</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html"><i class="fa fa-check"></i><b>11</b> Verifica delle ipotesi</a><ul>
+<li class="chapter" data-level="11.1" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-bilaterale-approssimato"><i class="fa fa-check"></i><b>11.1</b> Test bilaterale approssimato</a></li>
+<li class="chapter" data-level="11.2" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-unilaterale-sinistro-approssimato"><i class="fa fa-check"></i><b>11.2</b> Test unilaterale sinistro approssimato</a></li>
+<li class="chapter" data-level="11.3" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-unilaterale-destro-approssimato"><i class="fa fa-check"></i><b>11.3</b> Test unilaterale destro approssimato</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="criterio-del-chi-quadrato.html"><a href="criterio-del-chi-quadrato.html"><i class="fa fa-check"></i><b>12</b> Criterio del chi-quadrato</a><ul>
+<li class="chapter" data-level="12.1" data-path="criterio-del-chi-quadrato.html"><a href="criterio-del-chi-quadrato.html#test-per-la-distribuzione-geometrica"><i class="fa fa-check"></i><b>12.1</b> Test per la distribuzione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referenze.html"><a href="referenze.html"><i class="fa fa-check"></i>Referenze</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tesina Statistica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="stima-puntuale" class="section level1">
+<h1><span class="header-section-number">9</span> Stima puntuale</h1>
+<p>Un problema dell’inferenza statistica è lo studio di una popolazione descritta da una variabile aleatoria osservabile e avente una funzione di distribuzione nota eccetto per uno o più parametri non noti</p>
+<p>Uno stimatore è una funzione misurabile e osservabile che associa a un campione un valore per il parametro da stimare. Il valore assunto dallo stimatore è detto stima.</p>
+<p>Nel seguito verranno mostrati due metodi di stima dei parametri, il metodo dei momenti e il metodo della massima verosimiglianza.</p>
+<div id="metodo-dei-momenti" class="section level2">
+<h2><span class="header-section-number">9.1</span> Metodo dei momenti</h2>
+<p>Si definisce momento campionari r-esimo di un campione <span class="math inline">\((x_1,...,x_n)\)</span> il valore <span class="math display">\[M_r(x_1,...,x_n) = \frac{1}{n}\sum_{i=1}^nx_i^r\]</span></p>
+<p>mentre si definisce momento campionario di una variabile aleatoria il valore <span class="math display">\[M_r(X) = E(X^r)\]</span></p>
+<p>Il metodo dei momenti consiste nell’uguagliare i momenti campionari e i momenti non osservabili della variabile aleatoria caratterizzante la popolazione. Le soluzioni risultanti sono gli stimatori dei parametri non noti.</p>
+<p>Formalmente, se si desidera stimare <span class="math inline">\(k\)</span> parametri <span class="math inline">\(\theta_1,...,\theta_k\)</span> non noti di una distribuzione di probabilità <span class="math inline">\(f_X(x;\theta_1,...,\theta_k)\)</span> della variabile aleatoria <span class="math inline">\(X\)</span> si calcolano i primi <span class="math inline">\(k\)</span> momenti della variabile aleatoria <span class="math inline">\(X\)</span> <span class="math display">\[\mu_i = E[X^i] = g_i(\theta_1,...,\theta_k) \quad \text{per} \ i = 1,...,k\]</span> e dato un campione estratto <span class="math inline">\((x_1,...,x_n)\)</span> si calcolano i primi <span class="math inline">\(k\)</span> momenti del campione<br />
+<span class="math display">\[\hat{\mu_i} = M_r(x_1,...,x_n) \quad \text{per} \ i = 1,...,k \]</span></p>
+<p>Lo stimatore del metodo dei momenti per <span class="math inline">\(\theta_1,...,\theta_k\)</span> denotato da <span class="math inline">\(\hat\theta_1,...,\hat\theta_k\)</span> se esiste è la soluzione del sistema di equazioni <span class="math display">\[\hat{\mu_i} = g_i(\hat\theta_1,...,\hat\theta_k)  \quad \text{per} \ i = 1,...,k \]</span> Essendo gli stimatori dipendenti dal campione ne consegue che al variare dei campioni si potrebbero ottenere stimatori diversi.</p>
+<div id="stima-per-la-popolazione-geometrica" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> Stima per la popolazione geometrica</h3>
+<p>In questo paragrafo verrà stimato il parametro <span class="math inline">\(p\)</span> di una distribuzione geometrica con il metodo dei momenti.</p>
+<p>Il momento campionario primo della variabile geometrica è <span class="math display">\[\mu_1 = E[X^1] = \frac{1}{p}\]</span> mentre il momento campionario primo del campione è</p>
+<p><span class="math display">\[\hat\mu_1 = \frac{1}{n}\sum_{i=1}^nx_i = \overline{x}\]</span></p>
+<p>Ne consegue che la media campionaria <span class="math inline">\(\overline{x}\)</span> è uno stimatore per <span class="math inline">\(\frac{1}{p}\)</span></p>
+<p>Il seguente codice definisce un campione proveniente da una distribuzione geometrica di parametro <span class="math inline">\(p\)</span> non noto e stima il parametro <span class="math inline">\(p\)</span> con il metodo dei momenti.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">campione &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">1</span>, 
+         <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>, 
+         <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, 
+         <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">5</span>, 
+         <span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)
+
+stima.p &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="kw">mean</span>(campione) </code></pre></div>
+<p>Il valore calcolato pari a 0.4255319 è il valore stimato del parametro p.</p>
+</div>
+</div>
+<div id="metodo-della-massima-verosimiglianza" class="section level2">
+<h2><span class="header-section-number">9.2</span> Metodo della massima verosimiglianza</h2>
+<p>Se <span class="math inline">\(X_1,..., X_k\)</span> è un campione casuale si definisce funzione di verosimiglianza <span class="math display">\[L(\theta_1,...,\theta_k) = L(\theta_1,...,\theta_k; x_1,...,x_k) = f(x_1;\theta_1,...,\theta_k) \cdots f(x_n;\theta_1,...,\theta_k)\]</span> del campione osservato <span class="math inline">\((x_1,...,x_k)\)</span> la funzione di probabilità congiunta se la popolazione è discreta o la funzione di densità di probabilità congiunta se la popolazione è assolutamente continua, del campione casuale <span class="math inline">\(X_1,..., X_k\)</span>.</p>
+<p>Il metodo della massima verosimiglianza consiste nel massimizzare la funzione di verosimiglianza rispetto ai parametri non noti e quindi trovare i parametri della funzione di probabilità o di densità di probabilità per la quale sia più verosimile la provenienza del campione.</p>
+<p>I valori <span class="math inline">\(\hat\theta_1,...,\hat\theta_k\)</span> che massimizzano la funzione di verosimiglianza sono detti stime di massima verosimiglianza dei parametri non noti <span class="math inline">\(\theta_1,...,\theta_k\)</span>. Essendo le stime dipendenti dal campione ne consegue che al variare dei campioni si possono ottenere stimatori diversi dei parametri non noti.</p>
+<div id="stima-per-la-popolazione-geometrica-1" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Stima per la popolazione geometrica</h3>
+<p>In questo paragrafo verrà stimato il parametro <span class="math inline">\(p\)</span> di una distribuzione geometrica con il metodo della massima verosimiglianza.</p>
+<p>Posto <span class="math inline">\(\theta = 1/p\)</span> viene calcolata la funzione di massima verosimiglianza <span class="math display">\[L(\theta) = \left(\frac{1}{\theta}\right)^n \left(\frac{\theta-1}{\theta}\right)^{\sum_{i=1}^nx_i-n} = \left(\frac{1}{\theta}\right)^{\sum_{i=1}^nx_i} \left(\theta-1\right)^{\sum_{i=1}^nx_i-n}\]</span> per semplificare i calcoli viene preso il logaritmo della funzione di massima verosimiglianza <span class="math display">\[\log L(\theta) =  -\sum_{i=1}^nx_i \log(\theta) + \left(\sum_{i=1}^nx_i-n\right) \log(\theta - 1) \]</span> viene poi calcolata la derivata del logaritmo della funzione di massima verosimiglianza <span class="math display">\[\frac{d \log L(\theta)}{d \theta} = - \frac{\sum_{i=1}^nx_i}{\theta} + \frac{\sum_{i=1}^nx_i-n}{\theta - 1} = \sum_{i=1}^nx_i \left(-\frac{1}{\theta} + \frac{1}{\theta - 1}  \right) - \frac{n}{\theta - 1} =\]</span></p>
+<p><span class="math display">\[= \frac{1}{\theta (\theta - 1)} \sum_{i=1}^nx_i - \frac{n}{\theta - 1} = \frac{\sum_{i=1}^nx_i - \theta n}{\theta (\theta - 1)} \]</span></p>
+<p>e infine viene calcolato per quale valore la derivata è uguale a zero <span class="math display">\[\frac{\sum_{i=1}^nx_i - \theta n}{\theta (\theta - 1)} = 0 \Leftrightarrow \theta = \frac{\sum_{i=1}^nx_i}{n}\]</span></p>
+<p>Ne consegue che <span class="math inline">\(\hat\theta = \frac{1}{n} \sum_{i=1}^nx_i = \overline{x}\)</span> è uno stimatore di <span class="math inline">\(\theta = 1 /p\)</span>.</p>
+<p>Lo stimatore ottenuto con il metodo della massima verosimiglianza è lo stesso di quello ottenuto con il metodo dei momenti, quindi la stima per parametro <span class="math inline">\(p\)</span> utilizzando il nostro campione è 0.4255319.</p>
+</div>
+</div>
+<div id="proprieta-degli-stimatori" class="section level2">
+<h2><span class="header-section-number">9.3</span> Proprietà degli stimatori</h2>
+<p><strong>Stimatore corretto</strong></p>
+<p>Uno stimatore <span class="math inline">\(\hat \Theta\)</span> di un parametro non noto <span class="math inline">\(\theta\)</span> è detto corretto o non distorto se per ogni <span class="math inline">\(\theta \in \Theta\)</span> il valore medio dello stimatore <span class="math inline">\(\hat \Theta\)</span> è uguale al parametro non noto.</p>
+<p><span class="math display">\[ E[\hat \Theta] = \theta \quad \forall \ \theta \in \Theta\]</span> Da notare che possono esistere diversi stimatori corretti del parametro non noto.</p>
+<p><strong>Errore quadratico medio</strong></p>
+<p>L’errore quadratico medio fornisce una misura di quanto lo stimatore si discosta dal parametro non noto ed è definito con il valore <span class="math display">\[MSE(\hat \Theta) = E[(\hat \Theta - \theta)^2]\]</span> Se <span class="math inline">\(\hat \Theta\)</span> è uno stimatore corretto del parametro <span class="math inline">\(\theta\)</span> allora <span class="math display">\[MSE(\hat \Theta) = E[(\hat \Theta - E[\hat \Theta])^2] = Var(\hat \Theta)\]</span> <strong>Stimatore corretto con varianza uniformemente minima</strong></p>
+<p>Uno stimatore è corretto con varianza uniformemente minima se per ogni <span class="math inline">\(\theta \in \Theta\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(E[\hat \Theta] = \theta\)</span></p></li>
+<li><p><span class="math inline">\(Var(\hat \Theta) \le Var(\hat \Theta^*)\)</span> per ogni stimatore <span class="math inline">\(\hat \Theta^*\)</span> corretto del parametro <span class="math inline">\(\theta\)</span></p></li>
+</ul>
+<p><strong>Disuguaglianza di Cramer</strong></p>
+<p>Se <span class="math inline">\(\hat{\theta}\)</span> è uno stimatore corretto del parametro non noto <span class="math inline">\(\theta\)</span> di una popolazione caratterizzata da una funzione di probabilità (nel caso discreto) o densità di probabilità (nel caso assolutamente continuo) <span class="math inline">\(f(x;\theta)\)</span> e se:</p>
+<ul>
+<li><p><span class="math inline">\(\frac{\partial}{\partial \theta} \log f(x;\theta) \text{esiste per ogni } x \text{ e per ogni } \theta \in \Theta\)</span></p></li>
+<li><p><span class="math inline">\(E \left[ \left( \frac{\partial}{\partial \theta} \log f(x;\theta) \right)^2\right] \text{esiste finito per ogni } \theta \in \Theta\)</span></p></li>
+</ul>
+<p>Allora</p>
+<p><span class="math display">\[Var(\hat{\Theta}) \ge \frac{1}{n E \left[ \left( \frac{\partial}{\partial \theta} \log f(x;\theta) \right)^2\right]}\]</span> Di conseguenza se la varianza dello stimatore <span class="math inline">\(\hat\Theta\)</span> è <span class="math display">\[Var(\hat{\Theta}) = \frac{1}{n E \left[ \left( \frac{\partial}{\partial \theta} \log f(x;\theta) \right)^2\right]}\]</span> allora lo stimatore <span class="math inline">\(\hat\Theta\)</span> è corretto con varianza uniformemente minima.</p>
+<p><strong>Stimatore consistente</strong></p>
+<p>Uno stimatore <span class="math inline">\(\hat{\theta}\)</span> è detto consistente se converge in probabilità a <span class="math inline">\(\theta\)</span></p>
+<p><span class="math display">\[\lim_{n \to +\infty} P(|\hat{\Theta} - \theta| &lt; \epsilon) = 1 \quad \forall \theta \in \Theta\]</span> Una condizione sufficiente alla consistenza di uno stimatore <span class="math inline">\(\hat{\theta}\)</span> è il verificarsi delle seguenti uguaglianze: <span class="math display">\[\lim_{n \to +\infty} E(\hat \Theta) = \theta \quad \forall \theta \in \Theta\]</span> <span class="math display">\[\lim_{n \to +\infty} Var(\hat \Theta) = 0 \quad \forall \theta \in \Theta\]</span></p>
+<div id="analisi-dello-stimatore-per-la-distribuzione-geometrica" class="section level3">
+<h3><span class="header-section-number">9.3.1</span> Analisi dello stimatore per la distribuzione geometrica</h3>
+<p>In questo paragrafo verrà mostrato come la varianza campionaria è uno stimatore corretto con varianza minima per il parametro <span class="math inline">\(p\)</span> di una distribuzione geometrica.</p>
+<p>Dato che <span class="math inline">\(E(X) = 1/p\)</span> allora il parametro da stimare è <span class="math inline">\(\theta = 1/p\)</span></p>
+<p>Inoltre vale la seguente uguaglianza <span class="math inline">\(Var(X) = \frac{1-p}{p^2} = \theta^2 - \theta\)</span></p>
+<p><strong>Stimatore corretto</strong></p>
+<p>Per dimostrare che lo stimatore <span class="math inline">\(\theta\)</span> è corretto dobbiamo dimostrare che <span class="math display">\[E[\hat \Theta] = \theta \quad \forall \ \theta \in \Theta\]</span> Poiché <span class="math display">\[E[\overline{X}] = E[X]\]</span> ne consegue che</p>
+<p><span class="math display">\[E[\hat \Theta] = E[\overline{X}] = E[X] = \theta\]</span> Di conseguenza <span class="math inline">\(\Theta\)</span> è uno stimatore corretto.</p>
+<p><strong>Stimatore corretto con varianza uniformemente minima</strong></p>
+<p>Per dimostrare che la stimatore è corretto con varianza uniformemente minima utilizziamo la disuguaglianza di Cramer.</p>
+<p>Poiché la seguente derivata esiste ed è finita</p>
+<p><span class="math display">\[\frac{\partial}{\partial \theta} \log f(x; \theta) = \frac{\partial}{\partial \theta} \log(p(1-p)^{x-1})= \frac{\partial}{\partial \theta} \log{(\theta^{-1}(1-\theta^{-1})^{x-1})} =\frac{x - \theta}{\theta^2 -  \theta}\]</span> è possibile calcolare il seguente valore</p>
+<p><span class="math display">\[\frac{1}{n E \left[ \left( \frac{\partial}{\partial \theta} \log f(x;\theta) \right)^2\right]} = \frac{1}{n \frac{E[(X - \theta)^2]}{(\theta^2 -  \theta)^2}} = \frac{(\theta^2 -  \theta)^2 }{n E[(X - \theta)^2]} = \frac{(\theta^2 -  \theta)^2}{nVar(X)} =\frac{\theta^2 -  \theta}{n} \]</span></p>
+<p>che risulta essere uguale al valore della varianza dello stimatore <span class="math display">\[Var(\overline{X}) = \frac{Var(X)}{n} =  \frac{(\theta^2 -  \theta)}{n}\]</span></p>
+<p>Ne consegue che <span class="math inline">\(\overline{X}\)</span> è uno stimatore con varianza uniformemente minima.</p>
+<p><strong>Stimatore consistente</strong></p>
+<p>Inoltre essendo verificati i due limiti:</p>
+<ul>
+<li><span class="math inline">\(\lim_{n \to +\infty} E[\overline{X_n}] = \theta\)</span></li>
+<li><span class="math inline">\(\lim_{n \to +\infty} Var(\overline{X_n}) = \lim_{n \to +\infty} \frac{1-p}{np^2} = 0\)</span></li>
+</ul>
+<p>Ne consegue che <span class="math inline">\(\overline{X}\)</span> è uno stimatore consistente.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="distribuzione-geometrica.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intervalli-di-fiducia-approssimati.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["statistics-project.pdf", "statistics-project.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

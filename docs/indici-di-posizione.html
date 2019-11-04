@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tesina Statistica</title>
+  <meta name="description" content="Tesina Statistica">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Tesina Statistica" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tesina Statistica" />
+  
+  
+  
+
+<meta name="author" content="Nicola Lancellotti">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="distribuzione.html">
+<link rel="next" href="indici-di-dispersione.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tesina Statistica</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduzione</a></li>
+<li class="chapter" data-level="2" data-path="data-set.html"><a href="data-set.html"><i class="fa fa-check"></i><b>2</b> Data Set</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-set.html"><a href="data-set.html#boxplot"><i class="fa fa-check"></i><b>2.1</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distribuzione.html"><a href="distribuzione.html"><i class="fa fa-check"></i><b>3</b> Distribuzione</a><ul>
+<li class="chapter" data-level="3.1" data-path="distribuzione.html"><a href="distribuzione.html#frequenze"><i class="fa fa-check"></i><b>3.1</b> Frequenze</a></li>
+<li class="chapter" data-level="3.2" data-path="distribuzione.html"><a href="distribuzione.html#funzione-di-distribuzione-empirica-continua"><i class="fa fa-check"></i><b>3.2</b> Funzione di distribuzione empirica continua</a></li>
+<li class="chapter" data-level="3.3" data-path="distribuzione.html"><a href="distribuzione.html#istogrammi"><i class="fa fa-check"></i><b>3.3</b> Istogrammi</a></li>
+<li class="chapter" data-level="3.4" data-path="distribuzione.html"><a href="distribuzione.html#simmetria"><i class="fa fa-check"></i><b>3.4</b> Simmetria</a></li>
+<li class="chapter" data-level="3.5" data-path="distribuzione.html"><a href="distribuzione.html#curtosi-campionaria"><i class="fa fa-check"></i><b>3.5</b> Curtosi campionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html"><i class="fa fa-check"></i><b>4</b> Indici di posizione</a><ul>
+<li class="chapter" data-level="4.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#media-campionaria"><i class="fa fa-check"></i><b>4.1</b> Media campionaria</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#scarto-dalla-media-campionaria"><i class="fa fa-check"></i><b>4.1.1</b> Scarto dalla media campionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#mediana-campionaria"><i class="fa fa-check"></i><b>4.2</b> Mediana campionaria</a></li>
+<li class="chapter" data-level="4.3" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili"><i class="fa fa-check"></i><b>4.3</b> Quantili</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-2"><i class="fa fa-check"></i><b>4.3.1</b> Quantili con il tipo 2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-7"><i class="fa fa-check"></i><b>4.3.2</b> Quantili con il tipo 7</a></li>
+<li class="chapter" data-level="4.3.3" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-1"><i class="fa fa-check"></i><b>4.3.3</b> Quantili con il tipo 1</a></li>
+<li class="chapter" data-level="4.3.4" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#rappresentazione-grafica-dei-quartili"><i class="fa fa-check"></i><b>4.3.4</b> Rappresentazione grafica dei quartili</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html"><i class="fa fa-check"></i><b>5</b> Indici di dispersione</a><ul>
+<li class="chapter" data-level="5.1" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#varianza-campionaria"><i class="fa fa-check"></i><b>5.1</b> Varianza campionaria</a></li>
+<li class="chapter" data-level="5.2" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#deviazione-standard-campionaria"><i class="fa fa-check"></i><b>5.2</b> Deviazione standard campionaria</a></li>
+<li class="chapter" data-level="5.3" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#coefficiente-di-variazione"><i class="fa fa-check"></i><b>5.3</b> Coefficiente di variazione</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="correlazioni.html"><a href="correlazioni.html"><i class="fa fa-check"></i><b>6</b> Correlazioni</a><ul>
+<li class="chapter" data-level="6.1" data-path="correlazioni.html"><a href="correlazioni.html#diagrammi-si-dispersione"><i class="fa fa-check"></i><b>6.1</b> Diagrammi si dispersione</a></li>
+<li class="chapter" data-level="6.2" data-path="correlazioni.html"><a href="correlazioni.html#covarianza-campionaria"><i class="fa fa-check"></i><b>6.2</b> Covarianza campionaria</a></li>
+<li class="chapter" data-level="6.3" data-path="correlazioni.html"><a href="correlazioni.html#coefficiente-di-correlazione-campionario"><i class="fa fa-check"></i><b>6.3</b> Coefficiente di correlazione campionario</a></li>
+<li class="chapter" data-level="6.4" data-path="correlazioni.html"><a href="correlazioni.html#coefficiente-di-determinazione"><i class="fa fa-check"></i><b>6.4</b> Coefficiente di determinazione</a></li>
+<li class="chapter" data-level="6.5" data-path="correlazioni.html"><a href="correlazioni.html#regressione-lineare"><i class="fa fa-check"></i><b>6.5</b> Regressione lineare</a></li>
+<li class="chapter" data-level="6.6" data-path="correlazioni.html"><a href="correlazioni.html#regressione-lineare-multipla"><i class="fa fa-check"></i><b>6.6</b> Regressione lineare multipla</a></li>
+<li class="chapter" data-level="6.7" data-path="correlazioni.html"><a href="correlazioni.html#regressione-polinomiale"><i class="fa fa-check"></i><b>6.7</b> Regressione polinomiale</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html"><i class="fa fa-check"></i><b>7</b> Analisi dei cluster</a><ul>
+<li class="chapter" data-level="7.1" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#misure-di-distanza"><i class="fa fa-check"></i><b>7.1</b> Misure di distanza</a></li>
+<li class="chapter" data-level="7.2" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#misura-di-non-omogeneita"><i class="fa fa-check"></i><b>7.2</b> Misura di non omogeneità</a></li>
+<li class="chapter" data-level="7.3" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#funzioni-utili-per-lanalisi-dei-cluster"><i class="fa fa-check"></i><b>7.3</b> Funzioni utili per l’analisi dei cluster</a></li>
+<li class="chapter" data-level="7.4" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodi-gerarchici"><i class="fa fa-check"></i><b>7.4</b> Metodi gerarchici</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-completo"><i class="fa fa-check"></i><b>7.4.1</b> Metodo del legame completo</a></li>
+<li class="chapter" data-level="7.4.2" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-singolo"><i class="fa fa-check"></i><b>7.4.2</b> Metodo del legame singolo</a></li>
+<li class="chapter" data-level="7.4.3" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-medio"><i class="fa fa-check"></i><b>7.4.3</b> Metodo del legame medio</a></li>
+<li class="chapter" data-level="7.4.4" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-centroide"><i class="fa fa-check"></i><b>7.4.4</b> Metodo del centroide</a></li>
+<li class="chapter" data-level="7.4.5" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-della-mediana"><i class="fa fa-check"></i><b>7.4.5</b> Metodo della mediana</a></li>
+<li class="chapter" data-level="7.4.6" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#analisi-metodi-gerarchici"><i class="fa fa-check"></i><b>7.4.6</b> Analisi metodi gerarchici</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-non-gerarchico"><i class="fa fa-check"></i><b>7.5</b> Metodo non gerarchico</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html"><i class="fa fa-check"></i><b>8</b> Distribuzione geometrica</a><ul>
+<li class="chapter" data-level="8.1" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#probabilita-teorica-e-frequenze-del-campione"><i class="fa fa-check"></i><b>8.1</b> Probabilità teorica e frequenze del campione</a></li>
+<li class="chapter" data-level="8.2" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#funzione-di-distribuzione"><i class="fa fa-check"></i><b>8.2</b> Funzione di distribuzione</a></li>
+<li class="chapter" data-level="8.3" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#quantili-1"><i class="fa fa-check"></i><b>8.3</b> Quantili</a></li>
+<li class="chapter" data-level="8.4" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#valore-atteso-e-varianza"><i class="fa fa-check"></i><b>8.4</b> Valore atteso e varianza</a></li>
+<li class="chapter" data-level="8.5" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#assenza-di-memoria"><i class="fa fa-check"></i><b>8.5</b> Assenza di memoria</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="stima-puntuale.html"><a href="stima-puntuale.html"><i class="fa fa-check"></i><b>9</b> Stima puntuale</a><ul>
+<li class="chapter" data-level="9.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#metodo-dei-momenti"><i class="fa fa-check"></i><b>9.1</b> Metodo dei momenti</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#stima-per-la-popolazione-geometrica"><i class="fa fa-check"></i><b>9.1.1</b> Stima per la popolazione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="stima-puntuale.html"><a href="stima-puntuale.html#metodo-della-massima-verosimiglianza"><i class="fa fa-check"></i><b>9.2</b> Metodo della massima verosimiglianza</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#stima-per-la-popolazione-geometrica-1"><i class="fa fa-check"></i><b>9.2.1</b> Stima per la popolazione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="stima-puntuale.html"><a href="stima-puntuale.html#proprieta-degli-stimatori"><i class="fa fa-check"></i><b>9.3</b> Proprietà degli stimatori</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#analisi-dello-stimatore-per-la-distribuzione-geometrica"><i class="fa fa-check"></i><b>9.3.1</b> Analisi dello stimatore per la distribuzione geometrica</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html"><i class="fa fa-check"></i><b>10</b> Intervalli di fiducia approssimati</a><ul>
+<li class="chapter" data-level="10.1" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html#intervalli-di-fiducia-approssimati-per-la-popolazione-geometrica"><i class="fa fa-check"></i><b>10.1</b> Intervalli di fiducia approssimati per la popolazione geometrica</a></li>
+<li class="chapter" data-level="10.2" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html#differenza-tra-valori-medi"><i class="fa fa-check"></i><b>10.2</b> Differenza tra valori medi</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html"><i class="fa fa-check"></i><b>11</b> Verifica delle ipotesi</a><ul>
+<li class="chapter" data-level="11.1" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-bilaterale-approssimato"><i class="fa fa-check"></i><b>11.1</b> Test bilaterale approssimato</a></li>
+<li class="chapter" data-level="11.2" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-unilaterale-sinistro-approssimato"><i class="fa fa-check"></i><b>11.2</b> Test unilaterale sinistro approssimato</a></li>
+<li class="chapter" data-level="11.3" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-unilaterale-destro-approssimato"><i class="fa fa-check"></i><b>11.3</b> Test unilaterale destro approssimato</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="criterio-del-chi-quadrato.html"><a href="criterio-del-chi-quadrato.html"><i class="fa fa-check"></i><b>12</b> Criterio del chi-quadrato</a><ul>
+<li class="chapter" data-level="12.1" data-path="criterio-del-chi-quadrato.html"><a href="criterio-del-chi-quadrato.html#test-per-la-distribuzione-geometrica"><i class="fa fa-check"></i><b>12.1</b> Test per la distribuzione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referenze.html"><a href="referenze.html"><i class="fa fa-check"></i>Referenze</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tesina Statistica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="indici-di-posizione" class="section level1">
+<h1><span class="header-section-number">4</span> Indici di posizione</h1>
+<p>Gli indici di posizione sono indici di sintesi che danno un’idea dell’ordine di grandezza dei valori. Si dividono in indici di posizione centrali e non centrali.</p>
+<p>I più importanti indici di posizione centrali sono la media campionaria, la mediana campionaria e la moda campionaria. Nel seguito verranno analizzate le prime due statistiche tralasciando la moda campionaria in quanto poco significativa essendo i dati in forma percentuale. Successivamente verrano analizzati i quantili, che sono indici di posizione non centrali che ripartiscono il campione in parti di uguale numerosità.</p>
+<div id="media-campionaria" class="section level2">
+<h2><span class="header-section-number">4.1</span> Media campionaria</h2>
+<p>Dati <span class="math inline">\(n\)</span> valori la media campionaria <span class="math inline">\(\overline{x}\)</span> è definita come la media aritmetica degli <span class="math inline">\(n\)</span> valori.</p>
+<p><span class="math display">\[\overline{x} = \frac{1}{n} \sum_{i=1}^{n}x_i\]</span></p>
+<p>Va notato che il valore della media campionaria è fortemente influenzato dai valori molto grandi o piccoli.</p>
+<p>Il seguente codice permette di computare le medie campionarie per le caratteristiche del data set. I risultati sono mostrati nella tabella <a href="indici-di-posizione.html#tab:media-campionaria">4.1</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">medie &lt;-<span class="st"> </span><span class="kw">sapply</span>(df, mean)</code></pre></div>
+<p>Come già osservato in forma visiva tramite l’analisi dei boxplot possiamo dire che in media gli italiani traggono il massimo della soddisfazione nei rapporti familiari seguiti dai rapporti con gli amici, la salute, il tempo libero e infine dalla situazione economica.</p>
+<table>
+<caption><span id="tab:media-campionaria">Tabella 4.1: </span>Medie campionarie</caption>
+<thead>
+<tr class="header">
+<th align="left">Caratteristica</th>
+<th align="left">Media campionaria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Economica</td>
+<td align="left">3.74</td>
+</tr>
+<tr class="even">
+<td align="left">Salute</td>
+<td align="left">16.435</td>
+</tr>
+<tr class="odd">
+<td align="left">Famiglia</td>
+<td align="left">33.685</td>
+</tr>
+<tr class="even">
+<td align="left">Amici</td>
+<td align="left">23.61</td>
+</tr>
+<tr class="odd">
+<td align="left">Tempo libero</td>
+<td align="left">13.935</td>
+</tr>
+</tbody>
+</table>
+<div id="scarto-dalla-media-campionaria" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Scarto dalla media campionaria</h3>
+<p>Per valutare quanto i valori si discostano dalla media campionaria è utile computare lo scarto dalla media campionaria. Tale quantità è definita per ogni valore di ogni caratteristica come la differenza tra il valore è la media campionaria della caratteristica considerata.</p>
+<p><span class="math display">\[s_i = x_i - \overline{x}\]</span></p>
+<p>Va notato che la somma degli scarti dalla media è sempre nulla, infatti</p>
+<p><span class="math display">\[\sum_{i=1}^{n}s_i = \sum_{i=1}^{n}(x_i - \overline{x}) = \sum_{i=1}^{n} x_i - n\overline{x} = n\overline{x} - n\overline{x} = 0\]</span></p>
+<p>Il seguente codice permette di computare gli scarti dalla media campionaria per ogni valore di ogni caratteristica. I risultati sono mostrati nella tabella <a href="indici-di-posizione.html#tab:scarto-media-campionaria">4.2</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scarti &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow =</span> rowCount, <span class="dt">ncol =</span> <span class="dv">0</span>)
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>colCount) { 
+  scarti &lt;-<span class="st"> </span><span class="kw">cbind</span>(scarti, df[i] <span class="op">-</span><span class="st"> </span>medie[i])
+}</code></pre></div>
+<p>Dai risultati ottenuti si può osservare che gli scarti maggiori derivano dai dati del “Trentino Alto Adige” il quale rappresenta un valore anomalo come già riscontrato nell’analisi dei boxplot.</p>
+<table>
+<caption><span id="tab:scarto-media-campionaria">Tabella 4.2: </span>Scarti dalle medie campionarie</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Economica</th>
+<th align="right">Salute</th>
+<th align="right">Famiglia</th>
+<th align="right">Amici</th>
+<th align="right">Tempo libero</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Piemonte</td>
+<td align="right">1.06</td>
+<td align="right">1.165</td>
+<td align="right">2.515</td>
+<td align="right">0.89</td>
+<td align="right">1.465</td>
+</tr>
+<tr class="even">
+<td>Valle d’Aosta</td>
+<td align="right">1.36</td>
+<td align="right">3.065</td>
+<td align="right">1.615</td>
+<td align="right">1.89</td>
+<td align="right">1.065</td>
+</tr>
+<tr class="odd">
+<td>Liguria</td>
+<td align="right">0.16</td>
+<td align="right">1.765</td>
+<td align="right">5.815</td>
+<td align="right">2.89</td>
+<td align="right">2.465</td>
+</tr>
+<tr class="even">
+<td>Lombardia</td>
+<td align="right">0.56</td>
+<td align="right">1.965</td>
+<td align="right">1.615</td>
+<td align="right">1.89</td>
+<td align="right">2.065</td>
+</tr>
+<tr class="odd">
+<td>Trentino Alto Adige</td>
+<td align="right">7.06</td>
+<td align="right">12.265</td>
+<td align="right">12.715</td>
+<td align="right">11.59</td>
+<td align="right">9.865</td>
+</tr>
+<tr class="even">
+<td>Veneto</td>
+<td align="right">0.96</td>
+<td align="right">2.265</td>
+<td align="right">4.815</td>
+<td align="right">1.49</td>
+<td align="right">1.465</td>
+</tr>
+<tr class="odd">
+<td>Friuli-Venezia Giulia</td>
+<td align="right">2.66</td>
+<td align="right">0.865</td>
+<td align="right">3.615</td>
+<td align="right">3.19</td>
+<td align="right">2.665</td>
+</tr>
+<tr class="even">
+<td>Emilia-Romagna</td>
+<td align="right">0.36</td>
+<td align="right">2.765</td>
+<td align="right">5.015</td>
+<td align="right">4.79</td>
+<td align="right">1.565</td>
+</tr>
+<tr class="odd">
+<td>Toscana</td>
+<td align="right">-0.74</td>
+<td align="right">0.665</td>
+<td align="right">1.915</td>
+<td align="right">1.79</td>
+<td align="right">1.565</td>
+</tr>
+<tr class="even">
+<td>Umbria</td>
+<td align="right">0.46</td>
+<td align="right">-0.435</td>
+<td align="right">2.015</td>
+<td align="right">2.39</td>
+<td align="right">3.365</td>
+</tr>
+<tr class="odd">
+<td>Marche</td>
+<td align="right">-0.34</td>
+<td align="right">-1.135</td>
+<td align="right">0.015</td>
+<td align="right">-0.41</td>
+<td align="right">-0.035</td>
+</tr>
+<tr class="even">
+<td>Lazio</td>
+<td align="right">-0.84</td>
+<td align="right">-1.835</td>
+<td align="right">-2.585</td>
+<td align="right">-0.81</td>
+<td align="right">-0.935</td>
+</tr>
+<tr class="odd">
+<td>Abruzzo</td>
+<td align="right">-0.94</td>
+<td align="right">1.865</td>
+<td align="right">0.215</td>
+<td align="right">0.19</td>
+<td align="right">-2.035</td>
+</tr>
+<tr class="even">
+<td>Molise</td>
+<td align="right">-1.54</td>
+<td align="right">-1.135</td>
+<td align="right">-3.085</td>
+<td align="right">-3.91</td>
+<td align="right">-1.835</td>
+</tr>
+<tr class="odd">
+<td>Campania</td>
+<td align="right">-1.84</td>
+<td align="right">-3.435</td>
+<td align="right">-9.385</td>
+<td align="right">-7.11</td>
+<td align="right">-4.635</td>
+</tr>
+<tr class="even">
+<td>Puglia</td>
+<td align="right">-1.14</td>
+<td align="right">-5.435</td>
+<td align="right">-11.485</td>
+<td align="right">-7.41</td>
+<td align="right">-4.635</td>
+</tr>
+<tr class="odd">
+<td>Basilicata</td>
+<td align="right">-1.54</td>
+<td align="right">-4.335</td>
+<td align="right">-3.185</td>
+<td align="right">-2.01</td>
+<td align="right">-3.335</td>
+</tr>
+<tr class="even">
+<td>Calabria</td>
+<td align="right">-2.04</td>
+<td align="right">-6.235</td>
+<td align="right">-5.685</td>
+<td align="right">-5.81</td>
+<td align="right">-4.735</td>
+</tr>
+<tr class="odd">
+<td>Sicilia</td>
+<td align="right">-1.84</td>
+<td align="right">-0.235</td>
+<td align="right">-3.185</td>
+<td align="right">-3.51</td>
+<td align="right">-2.335</td>
+</tr>
+<tr class="even">
+<td>Sardegna</td>
+<td align="right">-1.84</td>
+<td align="right">-4.435</td>
+<td align="right">-3.285</td>
+<td align="right">-2.01</td>
+<td align="right">-3.035</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="mediana-campionaria" class="section level2">
+<h2><span class="header-section-number">4.2</span> Mediana campionaria</h2>
+<p>La mediana campionaria è la statistica che bipartisce il campione in due parti di uguale numerosità.</p>
+<p>La mediana campionaria di un campione di ampiezza <span class="math inline">\(n\)</span> è definita come il valore in posizione <span class="math inline">\((n+1)/2\)</span> del campione ordinato in modo non decrescente se <span class="math inline">\(n\)</span> è dispari, altrimenti è definito come la media aritmetica dei valori in posizione <span class="math inline">\(n/2\)</span> e <span class="math inline">\(n/2 + 1\)</span> del medesimo campione ordinato. Di conseguenza, al contrario della media campionaria, la mediana campionaria dipende da al più due valori.</p>
+<p>Il seguente codice permette di computare le mediane campionarie per le caratteristiche del data set. I risultati sono mostrati nella tabella <a href="indici-di-posizione.html#tab:mediana-campionaria">4.3</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mediane &lt;-<span class="st"> </span><span class="kw">sapply</span>(df, median)</code></pre></div>
+<p>Si può infine notare che per tutte le caratteriste eccetto per la soddisfazione economica la mediana campionaria è leggermente maggiore della media campionaria.</p>
+<table>
+<caption><span id="tab:mediana-campionaria">Tabella 4.3: </span>Mediane campionarie</caption>
+<thead>
+<tr class="header">
+<th align="left">Caratteristica</th>
+<th align="left">Mediana campionaria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Economica</td>
+<td align="left">3.2</td>
+</tr>
+<tr class="even">
+<td align="left">Salute</td>
+<td align="left">16.65</td>
+</tr>
+<tr class="odd">
+<td align="left">Famiglia</td>
+<td align="left">34.6</td>
+</tr>
+<tr class="even">
+<td align="left">Amici</td>
+<td align="left">24.15</td>
+</tr>
+<tr class="odd">
+<td align="left">Tempo libero</td>
+<td align="left">14.45</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="quantili" class="section level2">
+<h2><span class="header-section-number">4.3</span> Quantili</h2>
+<p>I quantili sono indici che dividono il campione in un numero fissato di parti di uguale numerosità. In numero di parti può essere uguale a qualsiasi numero naturale positivo, in genere il campione è diviso in cento quantili detti anche percentili o quattro quantili detti anche quartili.</p>
+<p>In R esistono nove algoritmi per il calcolo dei quantili, tuttavia, i valori tendono a coincidere con qualsiasi algoritmo quando il campione ha un’ampiezza elevata.</p>
+<p>Il seguente codice consente di calcolare i quartili per la soddisfazione economica utilizzando tutti gli algoritmi. I risultati sono esposti nella tabella <a href="indici-di-posizione.html#tab:quantili">4.4</a>. Come è possibile osservare i quantili ottenuti non presentano significative differenze con i differenti algoritmi.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tipiquartili &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  y &lt;-<span class="st"> </span><span class="kw">numeric</span>(<span class="dv">0</span>)
+  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>) {
+    y &lt;-<span class="st"> </span><span class="kw">rbind</span>(y, <span class="kw">c</span>(<span class="kw">quantile</span>(x, <span class="dv">0</span>, <span class="dt">type =</span> i),
+                    <span class="kw">quantile</span>(x, <span class="fl">0.25</span>, <span class="dt">type =</span> i),
+                    <span class="kw">quantile</span>(x, <span class="fl">0.5</span>, <span class="dt">type =</span> i),
+                    <span class="kw">quantile</span>(x, <span class="fl">0.75</span>, <span class="dt">type =</span> i),
+                    <span class="kw">quantile</span>(x, <span class="dv">1</span>, <span class="dt">type =</span> i)))
+  }
+  <span class="kw">rownames</span>(y) &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;type&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)
+  <span class="kw">return</span> (y)
+}
+
+quartili &lt;-<span class="st"> </span><span class="kw">tipiquartili</span>(<span class="kw">as.matrix</span>(df[<span class="dv">1</span>]))</code></pre></div>
+<table>
+<caption><span id="tab:quantili">Tabella 4.4: </span>Quartili - Soddisfazione Economica</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">0%</th>
+<th align="right">25%</th>
+<th align="right">50%</th>
+<th align="right">75%</th>
+<th align="right">100%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>type 1</td>
+<td align="right">1.7</td>
+<td align="right">2.2</td>
+<td align="right">3.0</td>
+<td align="right">4.300000</td>
+<td align="right">10.8</td>
+</tr>
+<tr class="even">
+<td>type 2</td>
+<td align="right">1.7</td>
+<td align="right">2.2</td>
+<td align="right">3.2</td>
+<td align="right">4.500000</td>
+<td align="right">10.8</td>
+</tr>
+<tr class="odd">
+<td>type 3</td>
+<td align="right">1.7</td>
+<td align="right">2.2</td>
+<td align="right">3.0</td>
+<td align="right">4.300000</td>
+<td align="right">10.8</td>
+</tr>
+<tr class="even">
+<td>type 4</td>
+<td align="right">1.7</td>
+<td align="right">2.2</td>
+<td align="right">3.0</td>
+<td align="right">4.300000</td>
+<td align="right">10.8</td>
+</tr>
+<tr class="odd">
+<td>type 5</td>
+<td align="right">1.7</td>
+<td align="right">2.2</td>
+<td align="right">3.2</td>
+<td align="right">4.500000</td>
+<td align="right">10.8</td>
+</tr>
+<tr class="even">
+<td>type 6</td>
+<td align="right">1.7</td>
+<td align="right">2.2</td>
+<td align="right">3.2</td>
+<td align="right">4.600000</td>
+<td align="right">10.8</td>
+</tr>
+<tr class="odd">
+<td>type 7</td>
+<td align="right">1.7</td>
+<td align="right">2.2</td>
+<td align="right">3.2</td>
+<td align="right">4.400000</td>
+<td align="right">10.8</td>
+</tr>
+<tr class="even">
+<td>type 8</td>
+<td align="right">1.7</td>
+<td align="right">2.2</td>
+<td align="right">3.2</td>
+<td align="right">4.533333</td>
+<td align="right">10.8</td>
+</tr>
+<tr class="odd">
+<td>type 9</td>
+<td align="right">1.7</td>
+<td align="right">2.2</td>
+<td align="right">3.2</td>
+<td align="right">4.525000</td>
+<td align="right">10.8</td>
+</tr>
+</tbody>
+</table>
+<p>La seguente funzione consente di calcolare i quartili per un dato tipo di algoritmo. Tale funzione verrà utilizzata nel seguito per calcolare i quartili di tutte le caratteristiche con alcuni tipi di algoritmi.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataframe.quantile &lt;-<span class="st"> </span><span class="cf">function</span>(df, type) {
+  y &lt;-<span class="st"> </span><span class="kw">numeric</span>(<span class="dv">0</span>)
+  <span class="cf">for</span> (x <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>colCount) {
+    value &lt;-<span class="st"> </span>df[[x]]
+    row &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">quantile</span>(value, <span class="dt">probs =</span> <span class="dv">0</span>, <span class="dt">type =</span> type),
+             <span class="kw">quantile</span>(value, <span class="dt">probs =</span> <span class="fl">0.25</span>, <span class="dt">type =</span> type),
+             <span class="kw">quantile</span>(value, <span class="dt">probs =</span> <span class="fl">0.5</span>, <span class="dt">type =</span> type),
+             <span class="kw">quantile</span>(value, <span class="dt">probs =</span> <span class="fl">0.75</span>, <span class="dt">type =</span> type),
+             <span class="kw">quantile</span>(value, <span class="dt">probs =</span> <span class="dv">1</span>, <span class="dt">type =</span> type))
+    y &lt;-<span class="st"> </span><span class="kw">rbind</span>(y, row)
+  }
+  <span class="co"># colnames(y) &lt;- colnames(df)</span>
+  <span class="kw">row.names</span>(y) &lt;-<span class="st"> </span>column.names
+  <span class="kw">return</span> (y)
+}</code></pre></div>
+<div id="quantili-con-il-tipo-2" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Quantili con il tipo 2</h3>
+<p>Il percentile <span class="math inline">\(k\)</span>-esimo con l’algoritmo di tipo 2 si calcola nel seguente modo:</p>
+<ol style="list-style-type: decimal">
+<li>Si ordina il campione <span class="math inline">\(v\)</span> in modo non decrescente.</li>
+<li>Si calcola l’indice <span class="math inline">\(h = np = \frac{nk}{100}\)</span>.</li>
+<li>Se <span class="math inline">\(h\)</span> è un intero il percentile <span class="math inline">\(k\)</span>-esimo è pari a <span class="math inline">\((v[h] + v[h+1])/2\)</span> altrimenti è pari a <span class="math inline">\(v[ceiling(h)]\)</span>.</li>
+</ol>
+<p>Il seguente codice permette di calcolare i quartili con l’algoritmo di tipo 2. I risultati sono mostrati nella tabella <a href="indici-di-posizione.html#tab:quartili2">4.5</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">quartili2 &lt;-<span class="st"> </span><span class="kw">dataframe.quantile</span>(df, <span class="dv">2</span>)</code></pre></div>
+<table>
+<caption><span id="tab:quartili2">Tabella 4.5: </span>Quartili tipo 2</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">0%</th>
+<th align="right">25%</th>
+<th align="right">50%</th>
+<th align="right">75%</th>
+<th align="right">100%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Economica</td>
+<td align="right">1.7</td>
+<td align="right">2.20</td>
+<td align="right">3.20</td>
+<td align="right">4.50</td>
+<td align="right">10.8</td>
+</tr>
+<tr class="even">
+<td>Salute</td>
+<td align="right">10.2</td>
+<td align="right">13.80</td>
+<td align="right">16.65</td>
+<td align="right">18.35</td>
+<td align="right">28.7</td>
+</tr>
+<tr class="odd">
+<td>Famiglia</td>
+<td align="right">22.2</td>
+<td align="right">30.50</td>
+<td align="right">34.60</td>
+<td align="right">36.75</td>
+<td align="right">46.4</td>
+</tr>
+<tr class="even">
+<td>Amici</td>
+<td align="right">16.2</td>
+<td align="right">20.85</td>
+<td align="right">24.15</td>
+<td align="right">25.75</td>
+<td align="right">35.2</td>
+</tr>
+<tr class="odd">
+<td>Tempo libero</td>
+<td align="right">9.2</td>
+<td align="right">11.25</td>
+<td align="right">14.45</td>
+<td align="right">15.75</td>
+<td align="right">23.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="quantili-con-il-tipo-7" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Quantili con il tipo 7</h3>
+<p>Il percentile <span class="math inline">\(k\)</span>-esimo con l’algoritmo di tipo 7 (default in R) si basa su una tecnica di interpolazione lineare e si calcola nel seguente modo:</p>
+<ol style="list-style-type: decimal">
+<li>Si ordina il campione <span class="math inline">\(v\)</span> in modo non decrescente.</li>
+<li>Si calcola l’indice <span class="math inline">\(h = (n -1)p + 1 = (n -1)\frac{k}{100} + 1\)</span>.</li>
+<li>Calcolare <span class="math inline">\(h^* = floor(h)\)</span>.</li>
+<li>Il percentile <span class="math inline">\(k\)</span>-esimo è pari a <span class="math inline">\(v[h^*] + (h - h^*) * [v(h^*+1) - v(h^*)]\)</span>.</li>
+</ol>
+<p>Il seguente codice permette di calcolare i quartili con l’algoritmo di tipo 7. I risultati sono mostrati nella tabella <a href="indici-di-posizione.html#tab:quartili7">4.6</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">quartili7 &lt;-<span class="st"> </span><span class="kw">dataframe.quantile</span>(df, <span class="dv">7</span>)</code></pre></div>
+<table>
+<caption><span id="tab:quartili7">Tabella 4.6: </span>Quartili tipo 7</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">0%</th>
+<th align="right">25%</th>
+<th align="right">50%</th>
+<th align="right">75%</th>
+<th align="right">100%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Economica</td>
+<td align="right">1.7</td>
+<td align="right">2.200</td>
+<td align="right">3.20</td>
+<td align="right">4.400</td>
+<td align="right">10.8</td>
+</tr>
+<tr class="even">
+<td>Salute</td>
+<td align="right">10.2</td>
+<td align="right">14.200</td>
+<td align="right">16.65</td>
+<td align="right">18.325</td>
+<td align="right">28.7</td>
+</tr>
+<tr class="odd">
+<td>Famiglia</td>
+<td align="right">22.2</td>
+<td align="right">30.500</td>
+<td align="right">34.60</td>
+<td align="right">36.475</td>
+<td align="right">46.4</td>
+</tr>
+<tr class="even">
+<td>Amici</td>
+<td align="right">16.2</td>
+<td align="right">21.225</td>
+<td align="right">24.15</td>
+<td align="right">25.625</td>
+<td align="right">35.2</td>
+</tr>
+<tr class="odd">
+<td>Tempo libero</td>
+<td align="right">9.2</td>
+<td align="right">11.425</td>
+<td align="right">14.45</td>
+<td align="right">15.625</td>
+<td align="right">23.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="quantili-con-il-tipo-1" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Quantili con il tipo 1</h3>
+<p>Se un campione può assumere <span class="math inline">\(k\)</span> modalità distinte <span class="math inline">\(z_1 &lt; z_2 &lt; ... &lt;z_k\)</span> allora il percentile <span class="math inline">\(k\)</span>-esimo con l’algoritmo di tipo 1 è definito come la modalità <span class="math inline">\(i\)</span>-esima che soddisfa la doppia disuguaglianza <span class="math inline">\(F_{i-1} &lt; k / 100\)</span> e <span class="math inline">\(F_i \geq k / 100\)</span> dove <span class="math inline">\(F_1,...,F_k\)</span> sono le frequenze relative cumulate.</p>
+<p>Il seguente codice permette di calcolare i quartili con l’algoritmo di tipo 1. I risultati sono mostrati nella tabella <a href="indici-di-posizione.html#tab:quartili1">4.7</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">quartili1 &lt;-<span class="st"> </span><span class="kw">dataframe.quantile</span>(df, <span class="dv">1</span>)</code></pre></div>
+<table>
+<caption><span id="tab:quartili1">Tabella 4.7: </span>Quartili tipo 1</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">0%</th>
+<th align="right">25%</th>
+<th align="right">50%</th>
+<th align="right">75%</th>
+<th align="right">100%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Economica</td>
+<td align="right">1.7</td>
+<td align="right">2.2</td>
+<td align="right">3.0</td>
+<td align="right">4.3</td>
+<td align="right">10.8</td>
+</tr>
+<tr class="even">
+<td>Salute</td>
+<td align="right">10.2</td>
+<td align="right">13.0</td>
+<td align="right">16.2</td>
+<td align="right">18.3</td>
+<td align="right">28.7</td>
+</tr>
+<tr class="odd">
+<td>Famiglia</td>
+<td align="right">22.2</td>
+<td align="right">30.5</td>
+<td align="right">33.9</td>
+<td align="right">36.2</td>
+<td align="right">46.4</td>
+</tr>
+<tr class="even">
+<td>Amici</td>
+<td align="right">16.2</td>
+<td align="right">20.1</td>
+<td align="right">23.8</td>
+<td align="right">25.5</td>
+<td align="right">35.2</td>
+</tr>
+<tr class="odd">
+<td>Tempo libero</td>
+<td align="right">9.2</td>
+<td align="right">10.9</td>
+<td align="right">13.9</td>
+<td align="right">15.5</td>
+<td align="right">23.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="rappresentazione-grafica-dei-quartili" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Rappresentazione grafica dei quartili</h3>
+<p>Una rappresentazione grafica dei quartili sul diagramma della funzione di distribuzione empirica per ognuna delle caratteristiche è mostrata nelle figure <a href="indici-di-posizione.html#fig:distribuzione-quartili-1">4.1</a>, <a href="indici-di-posizione.html#fig:distribuzione-quartili-2">4.2</a>, <a href="indici-di-posizione.html#fig:distribuzione-quartili-3">4.3</a>, <a href="indici-di-posizione.html#fig:distribuzione-quartili-4">4.4</a>, <a href="indici-di-posizione.html#fig:distribuzione-quartili-5">4.5</a>. Nei grafici la linea blu rappresenta il primo quartile, la linea gialla il secondo e la linea verde il terzo.</p>
+<div class="figure" style="text-align: center"><span id="fig:distribuzione-quartili-1"></span>
+<img src="statistics-project_files/figure-html/distribuzione-quartili-1-1.png" alt="Distribuzione empirica continua e quartili - Soddisfazione Economica" width="672" />
+<p class="caption">
+Figura 4.1: Distribuzione empirica continua e quartili - Soddisfazione Economica
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:distribuzione-quartili-2"></span>
+<img src="statistics-project_files/figure-html/distribuzione-quartili-2-1.png" alt="Distribuzione empirica continua e quartili - Soddisfazione Salute" width="672" />
+<p class="caption">
+Figura 4.2: Distribuzione empirica continua e quartili - Soddisfazione Salute
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:distribuzione-quartili-3"></span>
+<img src="statistics-project_files/figure-html/distribuzione-quartili-3-1.png" alt="Distribuzione empirica continua e quartili - Soddisfazione Famiglia" width="672" />
+<p class="caption">
+Figura 4.3: Distribuzione empirica continua e quartili - Soddisfazione Famiglia
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:distribuzione-quartili-4"></span>
+<img src="statistics-project_files/figure-html/distribuzione-quartili-4-1.png" alt="Distribuzione empirica continua e quartili - Soddisfazione Amici" width="672" />
+<p class="caption">
+Figura 4.4: Distribuzione empirica continua e quartili - Soddisfazione Amici
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:distribuzione-quartili-5"></span>
+<img src="statistics-project_files/figure-html/distribuzione-quartili-5-1.png" alt="Distribuzione empirica continua e quartili - Soddisfazione Tempo libero" width="672" />
+<p class="caption">
+Figura 4.5: Distribuzione empirica continua e quartili - Soddisfazione Tempo libero
+</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="distribuzione.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="indici-di-dispersione.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["statistics-project.pdf", "statistics-project.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

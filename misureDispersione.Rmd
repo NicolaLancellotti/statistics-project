@@ -1,0 +1,105 @@
+# Indici di dispersione
+
+Gli indici di dispersione sono indici di sintesi che descrivono quanto un valore è distante
+da un indice centrale.
+Gli indici di dispersione considerati nel seguito sono la varianza campionaria, la deviazione 
+standard campionaria e il coefficiente di variazione.
+
+## Varianza campionaria
+La varianza campionaria fornisce una misura di quanto i valori si discostano quadraticamente
+dalla media campionaria.
+
+Formalmente dato un campione $x_1,...,x_n$, la varianza campionaria $s^2$ è definita con la quantità
+$$s^2=\frac{1}{n-1} \sum_{i=1}^{n}(x_1-\overline{x})^2$$
+
+Ne consegue che se i valori del campione sono tutti uguali la varianza campionaria è nulla, altrimenti
+il valore della varianza campionaria è tanto più grande quando più i dati si discostano dalla media.
+
+Il seguente codice permette di computare la varianza campionaria per ogni caratteristica del data set. 
+I risultati sono mostrati nella tabella \@ref(tab:varianza-campionaria).
+```{r}
+varianze <- sapply(df, var)
+```
+
+Dai valori ottenuti si può notare che la variabilità maggiore si ottiene nella soddisfazione in famiglia
+seguita da quella con gli amici, della salute, del tempo libero, e infine economica.
+
+```{r varianza-campionaria, echo = FALSE}
+value <- cbind(column.names, as.vector(varianze))
+knitr::kable(head(value, length(value)),
+             col.names = c("Caratteristica", "Varianza campionaria"),
+             caption = 'Varianze campionarie')
+```
+
+
+
+
+## Deviazione standard campionaria
+
+La deviazione standard campionaria detta anche scarto quadratico medio campionario è definita
+come la radice quadrata della varianza campionaria.
+
+$$s = \sqrt{s^2}$$
+
+Da notare che la deviazione standard campionaria ha le stesse unità di misura del campione.
+
+Il seguente codice permette di computare la deviazione standard campionaria per ogni caratteristica del data set. 
+I risultati sono mostrati nella tabella \@ref(tab:deviazione-standard-campionaria).
+```{r}
+deviazioniStandard <- sapply(df, sd)
+```
+
+Per la deviazione standard campionaria le considerazioni sui risultati sono analoghe a quelle della varianza campionaria.
+
+```{r deviazione-standard-campionaria, echo = FALSE}
+value <- cbind(column.names, as.vector(deviazioniStandard))
+knitr::kable(head(value, length(value)),
+             col.names = c("Caratteristica", "Deviazione standard campionaria"),
+             caption = 'Deviazione standard campionarie')
+```
+
+
+
+
+
+## Coefficiente di variazione 
+Il coefficiente di variazione è definito come il rapporto tra la deviazione standard campionaria e 
+il valore assoluto della media campionaria. Essendo un numero puro, cioè adimensionale, può essere utilizzato per
+confrontare le varianze di campioni con unità di misura diverse o con differenti range di variazione.
+Dove con range di variazione si intende la differenza tra il massimo e il minimo nel campione.
+Inoltre va notato che il coefficiente di variazione può essere calcolato solo se la media campionaria non è nulla.
+
+Il seguente codice permette di calcolare il range di variazione per ogni caratteristica.
+I risultati sono mostrati nella tabella \@ref(tab:range-variazione).
+```{r}
+range <- sapply(df, max) - sapply(df, min)
+```
+
+Possiamo osservare che il range di variazione maggiore è relativo alla soddisfazione in famiglia
+seguita dalla soddisfazione con gli amici, salute, tempo libero e per ultimo quella economica.
+
+```{r range-variazione, echo = FALSE}
+value <- cbind(column.names, as.vector(range))
+knitr::kable(head(value, length(value)),
+             col.names = c("Caratteristica", "Range di variazione"),
+             caption = 'Range di variazione')
+```
+
+Il seguente codice permette di calcolare il coefficiente di variazione per ogni caratteristica.
+I valori sono mostrati nella tabella \@ref(tab:coefficiente-variazione).
+```{r}
+cv <- function(x) {
+  sd(x) / abs(mean(x))
+}
+coeffVariazione <- sapply(df, cv)
+```
+
+Il coefficiente di variazione maggiore si ottiene con la soddisfazione economica, seguita
+da quella per il tempo libero, per la salute, per gli amici e infine per la famiglia.
+
+```{r coefficiente-variazione, echo = FALSE}
+value <- cbind(column.names, as.vector(coeffVariazione))
+knitr::kable(head(value, length(value)),
+             col.names = c("Caratteristica", "Coefficiente di variazione"),
+             caption = 'Coefficiente di variazione')
+```

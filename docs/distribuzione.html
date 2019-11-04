@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tesina Statistica</title>
+  <meta name="description" content="Tesina Statistica">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Tesina Statistica" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tesina Statistica" />
+  
+  
+  
+
+<meta name="author" content="Nicola Lancellotti">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="data-set.html">
+<link rel="next" href="indici-di-posizione.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tesina Statistica</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduzione</a></li>
+<li class="chapter" data-level="2" data-path="data-set.html"><a href="data-set.html"><i class="fa fa-check"></i><b>2</b> Data Set</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-set.html"><a href="data-set.html#boxplot"><i class="fa fa-check"></i><b>2.1</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distribuzione.html"><a href="distribuzione.html"><i class="fa fa-check"></i><b>3</b> Distribuzione</a><ul>
+<li class="chapter" data-level="3.1" data-path="distribuzione.html"><a href="distribuzione.html#frequenze"><i class="fa fa-check"></i><b>3.1</b> Frequenze</a></li>
+<li class="chapter" data-level="3.2" data-path="distribuzione.html"><a href="distribuzione.html#funzione-di-distribuzione-empirica-continua"><i class="fa fa-check"></i><b>3.2</b> Funzione di distribuzione empirica continua</a></li>
+<li class="chapter" data-level="3.3" data-path="distribuzione.html"><a href="distribuzione.html#istogrammi"><i class="fa fa-check"></i><b>3.3</b> Istogrammi</a></li>
+<li class="chapter" data-level="3.4" data-path="distribuzione.html"><a href="distribuzione.html#simmetria"><i class="fa fa-check"></i><b>3.4</b> Simmetria</a></li>
+<li class="chapter" data-level="3.5" data-path="distribuzione.html"><a href="distribuzione.html#curtosi-campionaria"><i class="fa fa-check"></i><b>3.5</b> Curtosi campionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html"><i class="fa fa-check"></i><b>4</b> Indici di posizione</a><ul>
+<li class="chapter" data-level="4.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#media-campionaria"><i class="fa fa-check"></i><b>4.1</b> Media campionaria</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#scarto-dalla-media-campionaria"><i class="fa fa-check"></i><b>4.1.1</b> Scarto dalla media campionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#mediana-campionaria"><i class="fa fa-check"></i><b>4.2</b> Mediana campionaria</a></li>
+<li class="chapter" data-level="4.3" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili"><i class="fa fa-check"></i><b>4.3</b> Quantili</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-2"><i class="fa fa-check"></i><b>4.3.1</b> Quantili con il tipo 2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-7"><i class="fa fa-check"></i><b>4.3.2</b> Quantili con il tipo 7</a></li>
+<li class="chapter" data-level="4.3.3" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-1"><i class="fa fa-check"></i><b>4.3.3</b> Quantili con il tipo 1</a></li>
+<li class="chapter" data-level="4.3.4" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#rappresentazione-grafica-dei-quartili"><i class="fa fa-check"></i><b>4.3.4</b> Rappresentazione grafica dei quartili</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html"><i class="fa fa-check"></i><b>5</b> Indici di dispersione</a><ul>
+<li class="chapter" data-level="5.1" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#varianza-campionaria"><i class="fa fa-check"></i><b>5.1</b> Varianza campionaria</a></li>
+<li class="chapter" data-level="5.2" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#deviazione-standard-campionaria"><i class="fa fa-check"></i><b>5.2</b> Deviazione standard campionaria</a></li>
+<li class="chapter" data-level="5.3" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#coefficiente-di-variazione"><i class="fa fa-check"></i><b>5.3</b> Coefficiente di variazione</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="correlazioni.html"><a href="correlazioni.html"><i class="fa fa-check"></i><b>6</b> Correlazioni</a><ul>
+<li class="chapter" data-level="6.1" data-path="correlazioni.html"><a href="correlazioni.html#diagrammi-si-dispersione"><i class="fa fa-check"></i><b>6.1</b> Diagrammi si dispersione</a></li>
+<li class="chapter" data-level="6.2" data-path="correlazioni.html"><a href="correlazioni.html#covarianza-campionaria"><i class="fa fa-check"></i><b>6.2</b> Covarianza campionaria</a></li>
+<li class="chapter" data-level="6.3" data-path="correlazioni.html"><a href="correlazioni.html#coefficiente-di-correlazione-campionario"><i class="fa fa-check"></i><b>6.3</b> Coefficiente di correlazione campionario</a></li>
+<li class="chapter" data-level="6.4" data-path="correlazioni.html"><a href="correlazioni.html#coefficiente-di-determinazione"><i class="fa fa-check"></i><b>6.4</b> Coefficiente di determinazione</a></li>
+<li class="chapter" data-level="6.5" data-path="correlazioni.html"><a href="correlazioni.html#regressione-lineare"><i class="fa fa-check"></i><b>6.5</b> Regressione lineare</a></li>
+<li class="chapter" data-level="6.6" data-path="correlazioni.html"><a href="correlazioni.html#regressione-lineare-multipla"><i class="fa fa-check"></i><b>6.6</b> Regressione lineare multipla</a></li>
+<li class="chapter" data-level="6.7" data-path="correlazioni.html"><a href="correlazioni.html#regressione-polinomiale"><i class="fa fa-check"></i><b>6.7</b> Regressione polinomiale</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html"><i class="fa fa-check"></i><b>7</b> Analisi dei cluster</a><ul>
+<li class="chapter" data-level="7.1" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#misure-di-distanza"><i class="fa fa-check"></i><b>7.1</b> Misure di distanza</a></li>
+<li class="chapter" data-level="7.2" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#misura-di-non-omogeneita"><i class="fa fa-check"></i><b>7.2</b> Misura di non omogeneità</a></li>
+<li class="chapter" data-level="7.3" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#funzioni-utili-per-lanalisi-dei-cluster"><i class="fa fa-check"></i><b>7.3</b> Funzioni utili per l’analisi dei cluster</a></li>
+<li class="chapter" data-level="7.4" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodi-gerarchici"><i class="fa fa-check"></i><b>7.4</b> Metodi gerarchici</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-completo"><i class="fa fa-check"></i><b>7.4.1</b> Metodo del legame completo</a></li>
+<li class="chapter" data-level="7.4.2" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-singolo"><i class="fa fa-check"></i><b>7.4.2</b> Metodo del legame singolo</a></li>
+<li class="chapter" data-level="7.4.3" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-medio"><i class="fa fa-check"></i><b>7.4.3</b> Metodo del legame medio</a></li>
+<li class="chapter" data-level="7.4.4" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-centroide"><i class="fa fa-check"></i><b>7.4.4</b> Metodo del centroide</a></li>
+<li class="chapter" data-level="7.4.5" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-della-mediana"><i class="fa fa-check"></i><b>7.4.5</b> Metodo della mediana</a></li>
+<li class="chapter" data-level="7.4.6" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#analisi-metodi-gerarchici"><i class="fa fa-check"></i><b>7.4.6</b> Analisi metodi gerarchici</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-non-gerarchico"><i class="fa fa-check"></i><b>7.5</b> Metodo non gerarchico</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html"><i class="fa fa-check"></i><b>8</b> Distribuzione geometrica</a><ul>
+<li class="chapter" data-level="8.1" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#probabilita-teorica-e-frequenze-del-campione"><i class="fa fa-check"></i><b>8.1</b> Probabilità teorica e frequenze del campione</a></li>
+<li class="chapter" data-level="8.2" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#funzione-di-distribuzione"><i class="fa fa-check"></i><b>8.2</b> Funzione di distribuzione</a></li>
+<li class="chapter" data-level="8.3" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#quantili-1"><i class="fa fa-check"></i><b>8.3</b> Quantili</a></li>
+<li class="chapter" data-level="8.4" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#valore-atteso-e-varianza"><i class="fa fa-check"></i><b>8.4</b> Valore atteso e varianza</a></li>
+<li class="chapter" data-level="8.5" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#assenza-di-memoria"><i class="fa fa-check"></i><b>8.5</b> Assenza di memoria</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="stima-puntuale.html"><a href="stima-puntuale.html"><i class="fa fa-check"></i><b>9</b> Stima puntuale</a><ul>
+<li class="chapter" data-level="9.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#metodo-dei-momenti"><i class="fa fa-check"></i><b>9.1</b> Metodo dei momenti</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#stima-per-la-popolazione-geometrica"><i class="fa fa-check"></i><b>9.1.1</b> Stima per la popolazione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="stima-puntuale.html"><a href="stima-puntuale.html#metodo-della-massima-verosimiglianza"><i class="fa fa-check"></i><b>9.2</b> Metodo della massima verosimiglianza</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#stima-per-la-popolazione-geometrica-1"><i class="fa fa-check"></i><b>9.2.1</b> Stima per la popolazione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="stima-puntuale.html"><a href="stima-puntuale.html#proprieta-degli-stimatori"><i class="fa fa-check"></i><b>9.3</b> Proprietà degli stimatori</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#analisi-dello-stimatore-per-la-distribuzione-geometrica"><i class="fa fa-check"></i><b>9.3.1</b> Analisi dello stimatore per la distribuzione geometrica</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html"><i class="fa fa-check"></i><b>10</b> Intervalli di fiducia approssimati</a><ul>
+<li class="chapter" data-level="10.1" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html#intervalli-di-fiducia-approssimati-per-la-popolazione-geometrica"><i class="fa fa-check"></i><b>10.1</b> Intervalli di fiducia approssimati per la popolazione geometrica</a></li>
+<li class="chapter" data-level="10.2" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html#differenza-tra-valori-medi"><i class="fa fa-check"></i><b>10.2</b> Differenza tra valori medi</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html"><i class="fa fa-check"></i><b>11</b> Verifica delle ipotesi</a><ul>
+<li class="chapter" data-level="11.1" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-bilaterale-approssimato"><i class="fa fa-check"></i><b>11.1</b> Test bilaterale approssimato</a></li>
+<li class="chapter" data-level="11.2" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-unilaterale-sinistro-approssimato"><i class="fa fa-check"></i><b>11.2</b> Test unilaterale sinistro approssimato</a></li>
+<li class="chapter" data-level="11.3" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-unilaterale-destro-approssimato"><i class="fa fa-check"></i><b>11.3</b> Test unilaterale destro approssimato</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="criterio-del-chi-quadrato.html"><a href="criterio-del-chi-quadrato.html"><i class="fa fa-check"></i><b>12</b> Criterio del chi-quadrato</a><ul>
+<li class="chapter" data-level="12.1" data-path="criterio-del-chi-quadrato.html"><a href="criterio-del-chi-quadrato.html#test-per-la-distribuzione-geometrica"><i class="fa fa-check"></i><b>12.1</b> Test per la distribuzione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referenze.html"><a href="referenze.html"><i class="fa fa-check"></i>Referenze</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tesina Statistica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="distribuzione" class="section level1">
+<h1><span class="header-section-number">3</span> Distribuzione</h1>
+<p>In questo capitolo verranno prima calcolate e analizzate le frequenze delle caratteristiche del data set, in seguito le frequenze saranno utilizzate per il calcolo della distribuzione empirica continua di frequenza per ogni caratteristica. Il capitolo si concluderà con un analisi della simmetria e della curtosi delle distribuzioni considerate.</p>
+<div id="frequenze" class="section level2">
+<h2><span class="header-section-number">3.1</span> Frequenze</h2>
+<p>Se i valori osservati possono assumere <span class="math inline">\(k\)</span> modalità, la frequenza assoluta della modalità <span class="math inline">\(i\)</span>-esima è definita come il numero di occorrenze della modalità <span class="math inline">\(i\)</span>-esima nel campione. Mentre la frequenza relativa della modalità <span class="math inline">\(i\)</span>-esima è definita come il rapporto tra la frequenza assoluta <span class="math inline">\(i\)</span>-esima ed il numero delle osservazioni. Infine la frequenza cumulata assoluta (o relativa) <span class="math inline">\(i\)</span>-esima è definita come la somma di tutte le frequenze assolute (o relative) <span class="math inline">\(j\)</span>-esime con <span class="math inline">\(j\)</span> minore o uguale a <span class="math inline">\(i\)</span>.</p>
+<p>Il calcolo delle frequenze diventa problematico nel caso in cui il numero delle modalità è grande (o al limite infinito), rispetto al numero delle osservazioni. Infatti le frequenze tenderanno ad assumere valori pari a zero o uno. In questi casi è utile dividere i valori in classi e considerare tali classi come le modalità osservabili.</p>
+<p>Essendo il nostro data set composto da dati reali si è scelto, per il motivo sopra esposto, di dividere i dati in classi in modo tale che ogni numero reale appartenga alla classe del suo intero più vicino.</p>
+<p>Il seguente codice permette di calcolare le frequenze relative del dataset. I valori calcolati sono mostrati nelle tabelle <a href="distribuzione.html#tab:frequenze-1">3.1</a>, <a href="distribuzione.html#tab:frequenze-2">3.2</a>, <a href="distribuzione.html#tab:frequenze-3">3.3</a> <a href="distribuzione.html#tab:frequenze-4">3.4</a> e <a href="distribuzione.html#tab:frequenze-5">3.5</a>, per le classi non presenti nelle tabelle la frequenza relativa associata è nulla. Invece una rappresentazione delle frequenze con grafici a bastoncini è mostrata nelle figure <a href="distribuzione.html#fig:bastoncini-frequenze-1">3.1</a>, <a href="distribuzione.html#fig:bastoncini-frequenze-2">3.2</a>, <a href="distribuzione.html#fig:bastoncini-frequenze-3">3.3</a>, <a href="distribuzione.html#fig:bastoncini-frequenze-4">3.4</a> e <a href="distribuzione.html#fig:bastoncini-frequenze-5">3.5</a> rispettivamente per le stesse caratteristiche. Nei grafici la linea rossa indica la mediana mentre la linea verde la media.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">classi &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">seq</span>(<span class="fl">0.5</span>, <span class="fl">100.5</span>, <span class="dt">by =</span> <span class="dv">1</span>))
+
+calcolaFrequenzeRelative =<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="kw">table</span>(<span class="kw">cut</span>(x, <span class="dt">breaks =</span> classi, <span class="dt">right =</span> <span class="ot">FALSE</span>)) <span class="op">/</span><span class="st"> </span>rowCount  
+}
+
+frequenzeRelative &lt;-<span class="st"> </span><span class="kw">sapply</span>(df, calcolaFrequenzeRelative)</code></pre></div>
+<table>
+<caption><span id="tab:frequenze-1">Tabella 3.1: </span>Frequenze relative - Soddisfazione Economica</caption>
+<thead>
+<tr class="header">
+<th align="left">Classe</th>
+<th align="left">Frequenza Relativa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">[1.5,2.5)</td>
+<td align="left">0.3</td>
+</tr>
+<tr class="even">
+<td align="left">[2.5,3.5)</td>
+<td align="left">0.25</td>
+</tr>
+<tr class="odd">
+<td align="left">[3.5,4.5)</td>
+<td align="left">0.2</td>
+</tr>
+<tr class="even">
+<td align="left">[4.5,5.5)</td>
+<td align="left">0.15</td>
+</tr>
+<tr class="odd">
+<td align="left">[5.5,6.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">[10.5,11.5)</td>
+<td align="left">0.05</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:frequenze-2">Tabella 3.2: </span>Frequenze relative - Soddisfazione Salute</caption>
+<thead>
+<tr class="header">
+<th align="left">Classe</th>
+<th align="left">Frequenza Relativa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">[9.5,10.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">[10.5,11.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="odd">
+<td align="left">[11.5,12.5)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="even">
+<td align="left">[12.5,13.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="odd">
+<td align="left">[14.5,15.5)</td>
+<td align="left">0.15</td>
+</tr>
+<tr class="even">
+<td align="left">[15.5,16.5)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">[16.5,17.5)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="even">
+<td align="left">[17.5,18.5)</td>
+<td align="left">0.2</td>
+</tr>
+<tr class="odd">
+<td align="left">[18.5,19.5)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="even">
+<td align="left">[19.5,20.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="odd">
+<td align="left">[28.5,29.5)</td>
+<td align="left">0.05</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:frequenze-3">Tabella 3.3: </span>Frequenze relative - Soddisfazione Famiglia</caption>
+<thead>
+<tr class="header">
+<th align="left">Classe</th>
+<th align="left">Frequenza Relativa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">[21.5,22.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">[23.5,24.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="odd">
+<td align="left">[27.5,28.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">[29.5,30.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="odd">
+<td align="left">[30.5,31.5)</td>
+<td align="left">0.2</td>
+</tr>
+<tr class="even">
+<td align="left">[33.5,34.5)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">[34.5,35.5)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="even">
+<td align="left">[35.5,36.5)</td>
+<td align="left">0.15</td>
+</tr>
+<tr class="odd">
+<td align="left">[36.5,37.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">[38.5,39.5)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">[39.5,40.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">[45.5,46.5)</td>
+<td align="left">0.05</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:frequenze-4">Tabella 3.4: </span>Frequenze relative - Soddisfazione Amici</caption>
+<thead>
+<tr class="header">
+<th align="left">Classe</th>
+<th align="left">Frequenza Relativa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">[15.5,16.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">[16.5,17.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="odd">
+<td align="left">[17.5,18.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">[19.5,20.5)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">[21.5,22.5)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="even">
+<td align="left">[22.5,23.5)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">[23.5,24.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">[24.5,25.5)</td>
+<td align="left">0.15</td>
+</tr>
+<tr class="odd">
+<td align="left">[25.5,26.5)</td>
+<td align="left">0.15</td>
+</tr>
+<tr class="even">
+<td align="left">[26.5,27.5)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">[27.5,28.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">[34.5,35.5)</td>
+<td align="left">0.05</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:frequenze-5">Tabella 3.5: </span>Frequenze relative - Soddisfazione Tempo libero</caption>
+<thead>
+<tr class="header">
+<th align="left">Classe</th>
+<th align="left">Frequenza Relativa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">[8.5,9.5)</td>
+<td align="left">0.15</td>
+</tr>
+<tr class="even">
+<td align="left">[10.5,11.5)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">[11.5,12.5)</td>
+<td align="left">0.15</td>
+</tr>
+<tr class="even">
+<td align="left">[12.5,13.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="odd">
+<td align="left">[13.5,14.5)</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">[14.5,15.5)</td>
+<td align="left">0.15</td>
+</tr>
+<tr class="odd">
+<td align="left">[15.5,16.5)</td>
+<td align="left">0.2</td>
+</tr>
+<tr class="even">
+<td align="left">[16.5,17.5)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">[23.5,24.5)</td>
+<td align="left">0.05</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span id="fig:bastoncini-frequenze-1"></span>
+<img src="statistics-project_files/figure-html/bastoncini-frequenze-1-1.png" alt="Grafico delle frequenze - Soddisfazione Economica" width="672" />
+<p class="caption">
+Figura 3.1: Grafico delle frequenze - Soddisfazione Economica
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:bastoncini-frequenze-2"></span>
+<img src="statistics-project_files/figure-html/bastoncini-frequenze-2-1.png" alt="Grafico delle frequenze - Soddisfazione Salute" width="672" />
+<p class="caption">
+Figura 3.2: Grafico delle frequenze - Soddisfazione Salute
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:bastoncini-frequenze-3"></span>
+<img src="statistics-project_files/figure-html/bastoncini-frequenze-3-1.png" alt="Grafico delle frequenze - Soddisfazione Famiglia" width="672" />
+<p class="caption">
+Figura 3.3: Grafico delle frequenze - Soddisfazione Famiglia
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:bastoncini-frequenze-4"></span>
+<img src="statistics-project_files/figure-html/bastoncini-frequenze-4-1.png" alt="Grafico delle frequenze - Soddisfazione Amici" width="672" />
+<p class="caption">
+Figura 3.4: Grafico delle frequenze - Soddisfazione Amici
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:bastoncini-frequenze-5"></span>
+<img src="statistics-project_files/figure-html/bastoncini-frequenze-5-1.png" alt="Grafico delle frequenze - Soddisfazione Tempo libero" width="672" />
+<p class="caption">
+Figura 3.5: Grafico delle frequenze - Soddisfazione Tempo libero
+</p>
+</div>
+</div>
+<div id="funzione-di-distribuzione-empirica-continua" class="section level2">
+<h2><span class="header-section-number">3.2</span> Funzione di distribuzione empirica continua</h2>
+<p>La funzione di distribuzione empirica continua è una funzione che associa a ogni valore reale <span class="math inline">\(x\)</span> la frequenza che un valore osservato sia minore o uguale a <span class="math inline">\(x\)</span>. Da notare che nel continuo si preferisce suddividere i valori in <span class="math inline">\(k\)</span> classi <span class="math inline">\([z_i, z_{i+1})\)</span> con <span class="math inline">\(i = 1,..,k\)</span>. Ne consegue che la distribuzione empirica continua è una funzione reale non decrescente, che assume valore zero per ogni reale minore di <span class="math inline">\(z_1\)</span> e valore uno per ogni reale maggiore o uguale a <span class="math inline">\(z_{k+1}\)</span>, quando <span class="math inline">\(x = z_i\)</span> per <span class="math inline">\(i = 1,..,k\)</span> la funzione assume lo stesso valore della frequenza relativa cumulata <span class="math inline">\(F_i\)</span> mentre per ogni valore compreso tra <span class="math inline">\((z_i, z_{i+1})\)</span> la funzione coincide con il segmento passante per i punti <span class="math inline">\((z_i, F_i)\)</span> e <span class="math inline">\((z_{i+1}, F_{i+1})\)</span></p>
+<p>La seguente funzione permette di creare i grafici delle distribuzioni empiriche continue delle caratteristiche del dataset, tali grafici sono mostrati nelle figure <a href="distribuzione.html#fig:distribuzione-empirica1">3.6</a>, <a href="distribuzione.html#fig:distribuzione-empirica2">3.7</a>, <a href="distribuzione.html#fig:distribuzione-empirica3">3.8</a>, <a href="distribuzione.html#fig:distribuzione-empirica4">3.9</a>, <a href="distribuzione.html#fig:distribuzione-empirica5">3.10</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">distribuzioneEmpiricaContinua =<span class="st"> </span><span class="cf">function</span>(index, lim) {
+  x &lt;-frequenzeRelative[, index]
+  Fi&lt;-<span class="kw">cumsum</span>(x)
+  Fi&lt;-<span class="kw">c</span>(<span class="dv">0</span>,Fi)
+  main =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Distribuzione empirica continua - Soddisfazione&quot;</span>, column.names[index])
+  <span class="kw">plot</span>(classi, Fi, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>,<span class="dt">axes =</span> <span class="ot">FALSE</span>, 
+       <span class="dt">main =</span> main,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>, 
+       <span class="dt">xlab =</span> <span class="st">&quot; &quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot; &quot;</span>,
+       <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, lim))
+  <span class="kw">axis</span>(<span class="dv">1</span>, classi)
+  <span class="kw">axis</span>(<span class="dv">2</span>, <span class="kw">format</span>(Fi, <span class="dt">digits =</span> <span class="dv">1</span>), <span class="dt">las =</span> <span class="dv">2</span>)
+  <span class="kw">box</span>()
+}</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:distribuzione-empirica1"></span>
+<img src="statistics-project_files/figure-html/distribuzione-empirica1-1.png" alt="Distribuzione empirica continua - Soddisfazione Economica" width="672" />
+<p class="caption">
+Figura 3.6: Distribuzione empirica continua - Soddisfazione Economica
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:distribuzione-empirica2"></span>
+<img src="statistics-project_files/figure-html/distribuzione-empirica2-1.png" alt="Distribuzione empirica continua - Soddisfazione Salute" width="672" />
+<p class="caption">
+Figura 3.7: Distribuzione empirica continua - Soddisfazione Salute
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:distribuzione-empirica3"></span>
+<img src="statistics-project_files/figure-html/distribuzione-empirica3-1.png" alt="Distribuzione empirica continua - Soddisfazione Famiglia" width="672" />
+<p class="caption">
+Figura 3.8: Distribuzione empirica continua - Soddisfazione Famiglia
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:distribuzione-empirica4"></span>
+<img src="statistics-project_files/figure-html/distribuzione-empirica4-1.png" alt="Distribuzione empirica continua - Soddisfazione Amici" width="672" />
+<p class="caption">
+Figura 3.9: Distribuzione empirica continua - Soddisfazione Amici
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:distribuzione-empirica5"></span>
+<img src="statistics-project_files/figure-html/distribuzione-empirica5-1.png" alt="Distribuzione empirica continua - Soddisfazione Tempo Libero" width="672" />
+<p class="caption">
+Figura 3.10: Distribuzione empirica continua - Soddisfazione Tempo Libero
+</p>
+</div>
+</div>
+<div id="istogrammi" class="section level2">
+<h2><span class="header-section-number">3.3</span> Istogrammi</h2>
+<p>Gli istogrammi sono una rappresentazione grafica della distribuzione delle frequenze in classi. Graficamente sono costituiti da rettangoli i cui estremi delle basi coincidono con gli estremi delle classi. Inoltre le aree dei rettangoli sono uguali alla frequenza assoluta o relativa delle rispettive classi.</p>
+<p>Il seguente codice permette di disegnare gli istogrammi per le caratteristiche del data set. I grafici sono mostrati in figura <a href="distribuzione.html#fig:istrogrammi">3.11</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>colCount) {
+  <span class="kw">hist</span>(df[[i]], <span class="dt">freq =</span> <span class="ot">TRUE</span>,
+     <span class="dt">main =</span> <span class="kw">paste</span>(<span class="st">&quot;Istogramma - &quot;</span>, column.names[i]), 
+     <span class="dt">ylab =</span> <span class="st">&quot;Frequenza assoluta&quot;</span>, 
+     <span class="dt">xlab =</span> <span class="kw">paste</span>(<span class="st">&quot;Soddifazione - &quot;</span>, column.names[i]))
+}</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:istrogrammi"></span>
+<img src="statistics-project_files/figure-html/istrogrammi-1.png" alt="Istrogrammi" width="672" />
+<p class="caption">
+Figura 3.11: Istrogrammi
+</p>
+</div>
+</div>
+<div id="simmetria" class="section level2">
+<h2><span class="header-section-number">3.4</span> Simmetria</h2>
+<p>In questo paragrafo analizzeremo la simmetria della distribuzione di frequenza tramite un indice detto Skewness campionario definito con il valore <span class="math display">\[\gamma_1=\frac{m_3}{m_2^{3/2}} \]</span> dove <span class="math display">\[m_j = \frac{1}{n}\sum_{i=1}^{n}(x_i-\overline{x})^j\]</span> è detto momento centrato campionario j-esimo.</p>
+<p>La skewness campionaria assume il valore zero se la distribuzione è simmetrica, valori positivi nel caso di asimmetria positiva (sbilanciata a destra) o valori negativi nel caso di asimmetria negativa (sbilanciata a sinistra). Da notare che è Skewness campionaria è un numero puro.</p>
+<p>Va inoltre notato che esistono distribuzioni non simmetriche con skewness campionaria pari a zero. Ne consegue che il valore zero è una condizione necessaria ma non sufficiente affinché la distribuzione sia simmetrica.</p>
+<p>Il seguente codice permette di calcolare la Skewness campionaria e il tipo di simmetria. I valori ottenuti sono mostrati rispettivamente nelle tabelle <a href="distribuzione.html#tab:skewness">3.6</a> e <a href="distribuzione.html#tab:tipoSimmetria">3.7</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mcc &lt;-<span class="cf">function</span>(x, j){
+      <span class="kw">sum</span>((x <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(x))<span class="op">^</span>j) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(x)
+}
+
+skw &lt;-<span class="cf">function</span>(x) {
+    <span class="kw">mcc</span>(x, <span class="dv">3</span>) <span class="op">/</span><span class="st"> </span><span class="kw">mcc</span>(x, <span class="dv">2</span>) <span class="op">^</span><span class="st"> </span><span class="fl">1.5</span>
+}
+
+tipoSimmetria &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {
+    <span class="st">&quot;simmetrica&quot;</span>
+  } <span class="cf">else</span> <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {
+    <span class="st">&quot;asimmetria positiva&quot;</span>
+  } <span class="cf">else</span> {
+    <span class="st">&quot;asimmetria negativa&quot;</span>
+  }
+}
+
+skewness &lt;-<span class="st"> </span><span class="kw">sapply</span>(df, skw)
+
+tipoSimmetria &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">sapply</span>(skewness, tipoSimmetria))
+<span class="kw">colnames</span>(tipoSimmetria) &lt;-<span class="st"> &quot;Simmetria&quot;</span></code></pre></div>
+<table>
+<caption><span id="tab:skewness">Tabella 3.6: </span>Skewness campionaria</caption>
+<thead>
+<tr class="header">
+<th align="left">Caratteristica</th>
+<th align="left">Skewness campionaria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Economica</td>
+<td align="left">1.95847654825419</td>
+</tr>
+<tr class="even">
+<td align="left">Salute</td>
+<td align="left">1.06874798713143</td>
+</tr>
+<tr class="odd">
+<td align="left">Famiglia</td>
+<td align="left">-0.0308002067356801</td>
+</tr>
+<tr class="even">
+<td align="left">Amici</td>
+<td align="left">0.424929097467179</td>
+</tr>
+<tr class="odd">
+<td align="left">Tempo libero</td>
+<td align="left">0.811228347832538</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:tipoSimmetria">Tabella 3.7: </span>Simmetria</caption>
+<thead>
+<tr class="header">
+<th align="left">Caratteristica</th>
+<th align="left">Simmetria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Economica</td>
+<td align="left">asimmetria positiva</td>
+</tr>
+<tr class="even">
+<td align="left">Salute</td>
+<td align="left">asimmetria positiva</td>
+</tr>
+<tr class="odd">
+<td align="left">Famiglia</td>
+<td align="left">asimmetria negativa</td>
+</tr>
+<tr class="even">
+<td align="left">Amici</td>
+<td align="left">asimmetria positiva</td>
+</tr>
+<tr class="odd">
+<td align="left">Tempo libero</td>
+<td align="left">asimmetria positiva</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="curtosi-campionaria" class="section level2">
+<h2><span class="header-section-number">3.5</span> Curtosi campionaria</h2>
+<p>Con curtosi si intende un allontanamento dalla normalità distributiva ed è misurato con il coefficiente di curtosi definito con il valore <span class="math display">\[\gamma_2=\frac{m_4}{m_2^2} - 3\]</span><br />
+dove <span class="math inline">\(m_j\)</span> è il momento centrato campionario j-esimo. Tale indice consente di dare una misura della piccatezza della distribuzione di frequenza del campione in confronto alla densità normale standard che assume un valore di curtosi campionaria pari a zero.</p>
+<p>Se</p>
+<ul>
+<li><span class="math inline">\(\gamma_2 = 0\)</span> la distribuzione è come una normale (normocurtica)</li>
+<li><span class="math inline">\(\gamma_2 &gt; 0\)</span> la distribuzione è più piccata di una normale (leptocurtica)</li>
+<li><span class="math inline">\(\gamma_2 &lt; 0\)</span> la distribuzione è meno piccata di una normale (platicurtica)</li>
+</ul>
+<p>Il seguente codice permette di calcolare il valora della curtosi campionaria e il tipo di curtosi per ogni caratterista del dataset. I valori calcolati sono esposti rispettivamente nelle tabelle <a href="distribuzione.html#tab:curtosi">3.8</a>, <a href="distribuzione.html#tab:tipo-curtosi">3.9</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">calcolaCurtosi &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="kw">mcc</span>(x, <span class="dv">4</span>) <span class="op">/</span><span class="st"> </span><span class="kw">mcc</span>(x, <span class="dv">2</span>) <span class="op">^</span><span class="st"> </span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span>
+}
+
+calcolaTipoCurtosi &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {
+    <span class="st">&quot;normocurtica&quot;</span>
+  } <span class="cf">else</span> <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {
+    <span class="st">&quot;leptocurtica&quot;</span>
+  } <span class="cf">else</span> {
+    <span class="st">&quot;platicurtica&quot;</span>
+  }
+}
+
+curtosi &lt;-<span class="st"> </span><span class="kw">sapply</span>(df, calcolaCurtosi)
+tipoCurtosi &lt;-<span class="st"> </span><span class="kw">sapply</span>(curtosi, calcolaTipoCurtosi)</code></pre></div>
+<table>
+<caption><span id="tab:curtosi">Tabella 3.8: </span>Curtosi campionaria</caption>
+<thead>
+<tr class="header">
+<th align="left">Caratteristica</th>
+<th align="left">Curtosi campionaria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Economica</td>
+<td align="left">4.36873112268003</td>
+</tr>
+<tr class="even">
+<td align="left">Salute</td>
+<td align="left">2.41958559064078</td>
+</tr>
+<tr class="odd">
+<td align="left">Famiglia</td>
+<td align="left">0.339928187129484</td>
+</tr>
+<tr class="even">
+<td align="left">Amici</td>
+<td align="left">0.777502821228514</td>
+</tr>
+<tr class="odd">
+<td align="left">Tempo libero</td>
+<td align="left">1.10215748669869</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:tipo-curtosi">Tabella 3.9: </span>Tipo Curtosi campionaria</caption>
+<thead>
+<tr class="header">
+<th align="left">Caratteristica</th>
+<th align="left">Tipo Curtosi campionaria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Economica</td>
+<td align="left">leptocurtica</td>
+</tr>
+<tr class="even">
+<td align="left">Salute</td>
+<td align="left">leptocurtica</td>
+</tr>
+<tr class="odd">
+<td align="left">Famiglia</td>
+<td align="left">leptocurtica</td>
+</tr>
+<tr class="even">
+<td align="left">Amici</td>
+<td align="left">leptocurtica</td>
+</tr>
+<tr class="odd">
+<td align="left">Tempo libero</td>
+<td align="left">leptocurtica</td>
+</tr>
+</tbody>
+</table>
+<p>Ne consegue che per tutte le caratteristiche la distribuzione di frequenza è leptocurtica.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-set.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="indici-di-posizione.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["statistics-project.pdf", "statistics-project.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

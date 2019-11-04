@@ -1,0 +1,269 @@
+```{r chunk, echo = FALSE}
+```
+
+```{r chunk2, echo = FALSE}
+```
+# Distribuzione
+
+
+
+In questo capitolo verranno prima calcolate e analizzate le frequenze delle caratteristiche del data set,
+in seguito le frequenze saranno utilizzate per il calcolo della distribuzione empirica continua di frequenza per ogni caratteristica.
+Il capitolo si concluderà con un analisi della simmetria e della curtosi delle distribuzioni
+considerate.
+
+## Frequenze
+
+Se i valori osservati possono assumere $k$ modalità, la frequenza assoluta della modalità $i$-esima è definita come il numero di occorrenze della modalità $i$-esima nel campione.
+Mentre la frequenza relativa della modalità $i$-esima è definita come il rapporto tra la frequenza assoluta $i$-esima ed il numero delle osservazioni.
+Infine la frequenza cumulata assoluta (o relativa) $i$-esima è definita come la somma di tutte le frequenze assolute (o relative)  $j$-esime con $j$ minore o uguale a $i$.
+
+Il calcolo delle frequenze diventa problematico nel caso in cui il numero delle modalità è grande (o al limite infinito), rispetto al numero delle osservazioni. Infatti le frequenze tenderanno ad assumere valori pari a zero o uno. In questi casi è utile dividere i valori in classi e considerare tali classi come le modalità osservabili. 
+
+Essendo il nostro data set composto da dati reali si è scelto, per il motivo sopra esposto, di dividere i dati in classi in modo tale che ogni numero reale appartenga alla classe del suo intero più vicino.
+
+Il seguente codice permette di calcolare le frequenze relative del dataset. 
+I valori calcolati sono mostrati nelle tabelle \@ref(tab:frequenze-1), \@ref(tab:frequenze-2), \@ref(tab:frequenze-3)
+\@ref(tab:frequenze-4) e \@ref(tab:frequenze-5), per le classi non presenti nelle tabelle 
+la frequenza relativa associata è nulla.
+Invece una rappresentazione delle frequenze con grafici a bastoncini è mostrata nelle figure \@ref(fig:bastoncini-frequenze-1), \@ref(fig:bastoncini-frequenze-2), \@ref(fig:bastoncini-frequenze-3), \@ref(fig:bastoncini-frequenze-4) e \@ref(fig:bastoncini-frequenze-5) rispettivamente per le stesse caratteristiche. Nei grafici la linea rossa indica la mediana mentre la linea verde la media.
+
+```{r chunk3}
+```
+
+```{r, echo = FALSE}
+tabellaFrequenzeRealtive = function(index) {
+  frequenze <- frequenzeRelative[, index][frequenzeRelative[, index] > 0]
+  classi <- names(frequenze)
+  names(frequenze) <- NULL
+  dati <- cbind(classi, frequenze)
+  caption = paste("Frequenze relative - Soddisfazione", column.names[index])
+  knitr::kable(head(dati, rowCount),
+               col.names = c("Classe", "Frequenza Relativa"),
+               caption = caption )
+}
+```
+
+```{r frequenze-1, echo = FALSE}
+tabellaFrequenzeRealtive(1)
+```
+```{r frequenze-2, echo = FALSE}
+tabellaFrequenzeRealtive(2)
+```
+```{r frequenze-3, echo = FALSE}
+tabellaFrequenzeRealtive(3)
+```
+```{r frequenze-4, echo = FALSE}
+tabellaFrequenzeRealtive(4)
+```
+```{r frequenze-5, echo = FALSE}
+tabellaFrequenzeRealtive(5)
+```
+
+```{r, echo = FALSE}
+plotDiagrammaFrequenze = function(i) {
+  main = paste("Grafico delle frequenze - Soddisfazione", column.names[i])
+   #f <- frequenzeRelative[, i][frequenzeRelative[, i] > 0]
+   f <- frequenzeRelative[, i]
+   m1 <- median(df[[i]])
+   m2 <- mean(df[[i]])
+   plot(f, main = main, 
+        xlab = " Valori", ylab = "Frequenze",  
+        xaxt = "n", type="h", ylim = c(0, 0.4))
+   #axis(1, at = 1:length(names(f)), labels = names(f), las = 2)
+   abline(v= m1, col = "red")
+   abline(v= m2, col = "green")
+   mtext("PPPP", side=0)
+   legend(85, 0.4, c("Mediana","Media"), pch=0, col=c("red ","green"), cex=0.8)
+}
+```
+
+
+```{r, echo = FALSE, bastoncini-frequenze-1, fig.cap='Grafico delle frequenze - Soddisfazione Economica', fig.align='center'}
+plotDiagrammaFrequenze(1)
+```
+```{r, echo = FALSE, bastoncini-frequenze-2, fig.cap='Grafico delle frequenze - Soddisfazione Salute', fig.align='center'}
+plotDiagrammaFrequenze(2)
+```
+
+```{r, echo = FALSE, bastoncini-frequenze-3, fig.cap='Grafico delle frequenze - Soddisfazione Famiglia', fig.align='center'}
+plotDiagrammaFrequenze(3)
+```
+
+```{r, echo = FALSE, bastoncini-frequenze-4, fig.cap='Grafico delle frequenze - Soddisfazione Amici', fig.align='center'}
+plotDiagrammaFrequenze(4)
+```
+
+```{r, echo = FALSE, bastoncini-frequenze-5, fig.cap='Grafico delle frequenze - Soddisfazione Tempo libero', fig.align='center'}
+plotDiagrammaFrequenze(5)
+```
+
+## Funzione di distribuzione empirica continua
+
+La funzione di distribuzione empirica continua è una funzione che associa a ogni valore reale $x$ la frequenza che un valore osservato sia minore o uguale a $x$.
+Da notare che nel continuo si preferisce suddividere i valori in $k$ classi
+$[z_i, z_{i+1})$ con $i = 1,..,k$.
+Ne consegue che la distribuzione empirica continua è una funzione reale non decrescente, che assume valore zero per ogni reale minore di $z_1$ e valore uno
+per ogni reale maggiore o uguale a $z_{k+1}$, quando $x = z_i$ per $i = 1,..,k$
+la funzione assume lo stesso valore della frequenza relativa cumulata $F_i$ mentre per ogni valore compreso tra $(z_i, z_{i+1})$ la funzione coincide con il segmento passante per
+i punti $(z_i, F_i)$ e $(z_{i+1}, F_{i+1})$
+
+
+La seguente funzione permette di creare i grafici delle distribuzioni empiriche continue delle caratteristiche del dataset, tali grafici sono mostrati nelle figure \@ref(fig:distribuzione-empirica1), \@ref(fig:distribuzione-empirica2),
+\@ref(fig:distribuzione-empirica3), \@ref(fig:distribuzione-empirica4), \@ref(fig:distribuzione-empirica5).
+
+```{r chunk4}
+```
+
+```{r distribuzione-empirica1, fig.cap='Distribuzione empirica continua - Soddisfazione Economica', fig.align='center', echo = FALSE}
+distribuzioneEmpiricaContinua(1, 12)
+```
+
+```{r distribuzione-empirica2, fig.cap='Distribuzione empirica continua - Soddisfazione Salute', fig.align='center', echo = FALSE}
+distribuzioneEmpiricaContinua(2, 30)
+```
+
+```{r distribuzione-empirica3, fig.cap='Distribuzione empirica continua - Soddisfazione Famiglia', fig.align='center', echo = FALSE}
+distribuzioneEmpiricaContinua(3, 47)
+```
+
+```{r distribuzione-empirica4, fig.cap='Distribuzione empirica continua - Soddisfazione Amici', fig.align='center', echo = FALSE}
+distribuzioneEmpiricaContinua(4, 36)
+```
+
+```{r distribuzione-empirica5, fig.cap='Distribuzione empirica continua - Soddisfazione Tempo Libero', fig.align='center', echo = FALSE}
+distribuzioneEmpiricaContinua(5, 34)
+```
+
+## Istogrammi
+Gli istogrammi sono una rappresentazione grafica della distribuzione
+delle frequenze in classi. Graficamente sono costituiti da rettangoli
+i cui estremi delle basi coincidono con gli estremi delle classi.
+Inoltre le aree dei rettangoli sono uguali alla frequenza assoluta
+o relativa delle rispettive classi.
+
+Il seguente codice permette di disegnare gli istogrammi per le caratteristiche del data set.
+I grafici sono mostrati in figura \@ref(fig:istrogrammi).
+```{r istrogrammi, fig.cap='Istrogrammi', fig.align='center'}
+par(mfrow=c(3, 2))
+for (i in 1:colCount) {
+  hist(df[[i]], freq = TRUE,
+     main = paste("Istogramma - ", column.names[i]), 
+     ylab = "Frequenza assoluta", 
+     xlab = paste("Soddifazione - ", column.names[i]))
+}
+```
+
+## Simmetria
+
+In questo paragrafo analizzeremo la simmetria della distribuzione di frequenza tramite un indice detto
+Skewness campionario definito con il valore
+$$\gamma_1=\frac{m_3}{m_2^{3/2}} $$
+dove 
+$$m_j = \frac{1}{n}\sum_{i=1}^{n}(x_i-\overline{x})^j$$ 
+è detto momento centrato campionario j-esimo.
+
+La skewness campionaria assume il valore zero se la distribuzione è simmetrica,
+valori positivi nel caso di asimmetria positiva (sbilanciata a destra)
+o valori negativi nel caso di asimmetria negativa (sbilanciata a sinistra). 
+Da notare che è Skewness campionaria è un numero puro.
+
+Va inoltre notato che esistono distribuzioni non simmetriche con skewness campionaria pari a zero. Ne consegue che il valore zero è una condizione necessaria ma non sufficiente affinché la distribuzione sia simmetrica.
+
+Il seguente codice permette di calcolare la Skewness campionaria e il tipo di simmetria.
+I valori ottenuti sono mostrati rispettivamente nelle tabelle \@ref(tab:skewness) e \@ref(tab:tipoSimmetria)
+
+```{r}
+mcc <-function(x, j){
+	  sum((x - mean(x))^j) / length(x)
+}
+
+skw <-function(x) {
+	mcc(x, 3) / mcc(x, 2) ^ 1.5
+}
+
+tipoSimmetria <- function(x) {
+  if (x == 0) {
+    "simmetrica"
+  } else if (x > 0) {
+    "asimmetria positiva"
+  } else {
+    "asimmetria negativa"
+  }
+}
+
+skewness <- sapply(df, skw)
+
+tipoSimmetria <- as.matrix(sapply(skewness, tipoSimmetria))
+colnames(tipoSimmetria) <- "Simmetria"
+```
+
+
+```{r skewness, echo = FALSE}
+value <- cbind(column.names, as.vector(skewness))
+knitr::kable(head(value, length(value)),
+             col.names = c("Caratteristica", "Skewness campionaria"),
+             caption = 'Skewness campionaria')
+```
+
+
+
+```{r tipoSimmetria, echo = FALSE}
+value <- cbind(column.names, as.vector(tipoSimmetria))
+knitr::kable(head(value, length(value)),
+             col.names = c("Caratteristica", "Simmetria"),
+             caption = 'Simmetria')
+```
+
+## Curtosi campionaria
+ 
+Con curtosi si intende un allontanamento dalla normalità distributiva ed è misurato con il
+coefficiente di curtosi definito con il valore
+$$\gamma_2=\frac{m_4}{m_2^2} - 3$$  
+dove $m_j$ è il momento centrato campionario j-esimo.
+Tale indice consente di dare una misura della piccatezza della distribuzione di frequenza 
+del campione in confronto alla densità normale standard che assume un valore di curtosi campionaria pari a zero.
+
+Se
+
+* $\gamma_2 = 0$ la distribuzione è come una normale (normocurtica)
+* $\gamma_2 > 0$ la distribuzione è più piccata di una normale (leptocurtica)
+* $\gamma_2 < 0$ la distribuzione è meno piccata di una normale (platicurtica)
+
+Il seguente codice permette di calcolare il valora della curtosi campionaria e il tipo di curtosi per ogni caratterista del dataset.
+I valori calcolati sono esposti rispettivamente nelle tabelle 
+\@ref(tab:curtosi), \@ref(tab:tipo-curtosi).
+```{r}
+calcolaCurtosi <- function(x) {
+  mcc(x, 4) / mcc(x, 2) ^ 2 - 3
+}
+
+calcolaTipoCurtosi <- function(x) {
+  if (x == 0) {
+    "normocurtica"
+  } else if (x > 0) {
+    "leptocurtica"
+  } else {
+    "platicurtica"
+  }
+}
+
+curtosi <- sapply(df, calcolaCurtosi)
+tipoCurtosi <- sapply(curtosi, calcolaTipoCurtosi)
+```
+
+```{r curtosi, echo = FALSE}
+value <- cbind(column.names, as.vector(curtosi))
+knitr::kable(head(value, length(value)),
+             col.names = c("Caratteristica", "Curtosi campionaria"),
+             caption = 'Curtosi campionaria')
+```
+```{r tipo-curtosi, echo = FALSE}
+value <- cbind(column.names, as.vector(tipoCurtosi))
+knitr::kable(head(value, length(value)),
+             col.names = c("Caratteristica", "Tipo Curtosi campionaria"),
+             caption = 'Tipo Curtosi campionaria')
+```
+
+
+Ne consegue che per tutte le caratteristiche la distribuzione di frequenza è leptocurtica.

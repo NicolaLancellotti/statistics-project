@@ -1,0 +1,256 @@
+# Intervalli di fiducia approssimati
+
+**Intervalli di fiducia**
+
+Sia $X_1,..,X_n$ un campione di ampiezza $n$ estratto da una popolazione con funzione di probabilità
+(nel caso discreto) o funzione di densità di probabilità (nel caso continuo) $F(x; \theta)$ dove $\theta$
+è il parametro non noto della popolazione.
+
+Se per $0 < \alpha < 1$ esistono due statistiche $\underline{C_n} = g_1(X_1,..,X_n)$ e $\overline{C_n} = g_2(X_1,..,X_n)$  tali che
+
+$$P(\underline{C_n} < \theta < \overline{C_n}) = 1 - \alpha$$
+allora $(\underline{C_n},\overline{C_n})$ è un intervallo di confidenza di grado $1 - \alpha$ per il parametro 
+non noto $\theta$.
+
+Mentre l'intervallo $(g_1(X_1,..,X_n), g_2(X_1,..,X_n))$ è detto stima dell'intervallo di confidenza di grado $1 - \alpha$ per il parametro non noto $\theta$.
+
+Da notare che possono esistere più intervalli di confidenza dello stesso grado per un parametro non noto di una
+popolazione.
+
+**Metodo pivotale**
+
+Il metodo pivotale è un metodo per la ricerca di intervalli di confidenza che consiste nel cercare una variabile pivot $\gamma(X_1,..,X_n; \theta)$ dipendente dal campione
+e dal parametro non noto $\theta$. La variabile non è osservabile perché dipende
+dal parametro non noto, ne consegue che la variabile pivot non è una statistica.
+
+Per un fissato $\alpha$ con $0 < \alpha < 1$ se esistono $\alpha_1$ e $\alpha_2$ dipendenti 
+soltanto dal campione con $\alpha_1 < \alpha_2$
+tali che per ogni $\theta \in \Theta$
+
+$$P(\alpha_1 < \gamma(X_1,..,X_n; \theta) < \alpha_2) = 1 - \alpha$$
+
+e se per ogni campione osservato $(x_1,..,x_n)$ e per ogni $\theta \in \Theta$ si può dimostrare che
+
+$$\alpha_1 < \gamma(x_1,..,x_n; \theta) < \alpha_2 \Leftrightarrow g_1(x_1,..,x_n) < \theta < g_2(x_1,..,x_n)$$
+
+dove $g_1(x_1,..,x_n)$ e $g_2(x_1,..,x_n)$ dipendono soltanto dal campione osservato, allora
+la probabilità
+
+$$P(\alpha_1 < \gamma(X_1,..,X_n; \theta) < \alpha_2) = 1 - \alpha$$
+
+è equivalente a
+
+$$P(g_1(X_1,..,X_n) < \theta < g_2(X_1,..,X_n) = 1 - \alpha$$
+Se
+$\underline{C_n} = g_1(X_1,..,X_n)$ e $\overline{C_n} = g_2(X_1,..,X_n)$
+
+allora $(\underline{C_n},\overline{C_n})$ è un intervallo di confidenza di grado $1 - \alpha$ per il parametro 
+non noto $\theta$.
+
+
+**Teorema centrale di convergenza**
+
+Siano $X_1,...X_n$ $n$ variabili aleatorie indipendenti e identicamente distribuite tali che 
+
+$$E(X_i) = \mu \quad e \quad Var(X_i) = \sigma^2 \quad per \ \ i=1,..n$$ 
+e posto $Y_n = \sum_{i=1}^{n}X_i$ tale che 
+
+$$E(Y_n) = n \mu \quad  e \quad Var(Y_n) = \sigma^2 n$$
+
+
+$$\lim_{n \to +\infty} P \left( \frac{Y_n - E(Y_n)}{\sqrt{Var(Y_n)}} \right) \le x = \Phi(x) \quad \forall n \in \mathbf Z, \ n > 0 \ \forall x \in \mathbf R$$ 
+
+dove $\Phi(x)$ è la funzione di distribuzione della normale standardizzata.
+
+Di conseguenza per $n$ grande ($n$ > 30) la variabile $Y_n$ standardizzata converge in distribuzione alla normale standard.
+
+
+
+**Intervalli di fiducia approssimati**
+
+Se $X$ è la variabile aleatoria che descrive la popolazione, se $E(X) = \mu$ e $Var(X) = \sigma^2$ e se 
+$X_1,...,X_n$ è un campione casuale estratto dalla popolazione, allora per il teorema centrale di convergenza
+
+$$Y_n = \frac{\sum_{i=1}^{n}X_i - n\mu}{ \sqrt{\sigma^2 n}} = \frac{\overline X_n - \mu}{\sigma / \sqrt{n}}$$
+converge in distribuzione alla variabile aleatoria normale standard $Z \sim \mathcal{N}(0, 1)$.
+
+Di conseguenza se il campione è numeroso è possibile utilizzare il metodo pivotale in forma approssimata
+per determinare un intervallo di confidenza approssimato
+
+$$P\left( -z_{\alpha/2} < Y_n < z_{\alpha/2} \right) \backsimeq 1 - \alpha$$
+dove $-z_{\alpha/2}$ e $z_{\alpha/2}$ sono tali che
+$$P(Z < -z_{\alpha/2}) = P(Z > z_{\alpha/2}) = \frac{\alpha}{2}$$
+
+In figura \@ref(fig:normale-standard) è rappresentata una densità normale standard e i valori $-z_{\alpha/2}$ e $z_{\alpha/2}$
+
+```{r, echo = FALSE, normale-standard, fig.cap='Densità normale standard', fig.align='center'}
+curve(dnorm(x,mean=0,sd=1) ,from=-3, to=3, axes=FALSE ,ylim=c(0,0.5) , xlab="",ylab="",
+      main="Densità normale standard")
+text(0,0.05, expression (1- alpha))
+axis(1,c(-3,-1,0,1,3),c("",expression (-z[alpha/2]), 0, expression (z[alpha /2]) ,""))
+vals<-seq(-3,-1, length =100)
+x<-c(-3,vals ,-1,-3)
+y<-c(0, dnorm(vals) ,0,0)
+polygon (x,y,density =20, angle =45)
+vals<-seq(1,3, length =100)
+x<-c(1,vals ,3,1)
+y<-c(0, dnorm(vals) ,0,0)
+polygon (x,y,density =20, angle =45)
+abline (h=0)
+text(-1.5,0.05, expression (alpha/2))
+text(1.5,0.05, expression (alpha/2))
+box()
+```
+
+
+## Intervalli di fiducia approssimati per la popolazione geometrica
+
+Nel caso della popolazione geometrica il valore medio e la varianza della popolazione, 
+e il valore medio e la varianza della media campionaria hanno valori
+$$E(X) = 1/p  \quad Var(X) = (1-p) / p^2$$
+$$E(\overline{X_n}) = 1/p \quad Var(\overline X_n) = (1-p) / (n p^2)$$
+
+per il teorema centrale di convergenza la variabile aleatoria
+$$Z_n = \frac{\overline X - E(\overline{X_n})}{Var(\overline X_n)} = \frac{\overline{X} - 1/p}{\sqrt{(1-p) / (n p^2)}} = \frac{p\overline{X} -1}{p} \frac{p\sqrt{n}}{\sqrt{1-p}} = \sqrt{n} \frac{p\overline{X} -1}{\sqrt{1-p}}$$
+converge in distribuzione a una normale standard.
+
+La disuguaglianza
+$$-z_{\alpha/2} < \sqrt{n} \frac{p\overline{x} -1}{\sqrt{1-p}} < z_{\alpha/2}$$
+è equivalente alla disequazione di secondo grado
+$$ \left[ \sqrt{n} \frac{p\overline{x} -1}{\sqrt{1-p}} \right]^2 < z_{\alpha/2}$$
+
+espressa nel seguito in forma canonica
+$$n\overline{x}^2 p^2 +p(z_{\alpha/2}^2 -2n\overline{x_n}) + n -z_{\alpha/2}^2 < 0$$
+
+
+La soluzioni della disequazione sono interne all'intervallo formato dalle radici del polinomio.
+Tali radici possono essere calcolate esplicitamente o mediante la funzione *polyroot*.
+
+La seguente funzione consente di calcolare l'intervallo di confidenza per il parametro $p$ di una distribuzione
+geometrica dati in input il grado $1-\alpha$, la lunghezza del campione e la media campionaria.
+```{r}
+intervalloDiConfidenza <- function(grado, lunghezzaCampione, mediaCampionaria) {
+  alpha <- 1 - grado
+  zalpha <- qnorm(1 - alpha / 2, mean = 0, sd = 1)
+  a2 <- lunghezzaCampione * mediaCampionaria^2
+  a1 <- zalpha^2 - 2 * lunghezzaCampione * mediaCampionaria
+  a0 <- lunghezzaCampione - zalpha^2
+  radici <- polyroot(c(a0,a1,a2))
+  radici
+}
+```
+
+Il seguente codice definisce una variabile contenente i dati del campione e 
+calcola l'intervallo di confidenza di grado $1-\alpha = 0.95$ per $p$.
+```{r}
+campione <- c(2, 1, 1, 3, 1, 3, 4, 5, 1, 1, 1, 1, 4, 2, 2, 2, 4, 3, 3, 1, 
+         1, 1, 2, 2, 1, 1, 1, 2, 3, 6, 3, 1, 6, 1, 1, 2, 1, 4, 1, 1, 
+         4, 3, 2, 1, 4, 6, 7, 2, 1, 1, 3, 1, 1, 4, 1, 1, 4, 1, 4, 1, 
+         2, 1, 1, 1, 4, 2, 1, 2, 3, 2, 2, 1, 2, 1, 2, 1, 2, 2, 6, 5, 
+         6, 2, 6, 2, 3, 2, 2, 2, 4, 1, 1, 1, 1, 2, 3, 9, 3, 1, 2, 1)
+
+intervallo <- intervalloDiConfidenza(grado = 0.95, 
+                                     lunghezzaCampione = length(campione), 
+                                     mediaCampionaria = mean(campione))
+```
+
+L'intervallo di confidenza di grado $1-\alpha = 0.95$ per il parametro $p$ calcolato è 
+
+<center> (`r intervallo[1]`, `r intervallo[2]`) </center>
+
+Da notare che la stima puntuale di valore `r 1 / mean(campione)` risulta interna all'intervallo.
+
+
+## Differenza tra valori medi
+
+Siano $X_1,..,X_{n}$ e $Y_1,..,Y_{m}$ due campioni casuali di ampiezza $n_1$ e $n_2$ estratti da due popolazioni
+geometriche con parametri $p_1$ e $p_2$ rispettivamente.
+Vogliamo determinare un intervallo di confidenza di grado $1-\alpha$ per la differenza $p_1 - p_2$.
+
+Essendo
+$$E(\overline{X_{n_1}}-\overline{Y_{n_2}}) = \frac{1}{p_1} - \frac{1}{p_2}$$
+
+$$Var(\overline{X_{n_1}}-\overline{Y_{n_2}}) = \frac{1-p_1}{n_1 p_1^2} + \frac{1-p_2}{n_2 p_2^2}$$
+
+allora per il teorema centrale di convergenza la variabile aleatoria
+
+$$\frac{\overline{X_{n_1}} - \overline{Y_{n_2}} - \left( \frac{1}{p_1} - \frac{1}{p_2} \right)}{\sqrt{\frac{1-p_1}{n_1 p_1^2} + \frac{1-p_2}{n_2 p_2^2}}}$$
+
+converge in distribuzione alla variabile aleatoria normale standard $Z \sim \mathcal{N}(0, 1)$.
+
+Inoltre essendo
+
+$$lim_{n \to + \infty} E[\overline{X_{n_1}}(\overline{X_{n_1}} - 1)] = \frac{1-p_1}{p_1^2}$$
+$$lim_{n \to + \infty} E[\overline{Y_{n_2}}(\overline{Y_{n_2}} -1)] = \frac{1-p_2}{p_2^2}$$
+
+Per campioni sufficientemente grandi
+
+$$P\left( -z_{\alpha/2} < \frac{\overline{X_{n_1}} - \overline{Y_{n_2}} - \left( \frac{1}{p_1} - \frac{1}{p_2} \right)}{\sqrt{\frac{\overline{X_{n_1}}(\overline{X_{n_1}} - 1)}{n_1} + \frac{\overline{Y_{n_2}}(\overline{Y_{n_2}} - 1)}{n_1}}} < z_{\alpha/2} \right) \backsimeq 1 - \alpha$$
+La disuguaglianza
+$$-z_{\alpha/2} < \frac{\overline{x_{n_1}} - \overline{y_{n_2}} - \left( \frac{1}{p_1} - \frac{1}{p_2} \right)}{\sqrt{\frac{\overline{x_{n_1}}(\overline{x_{n_1}} - 1)}{n_1} + \frac{\overline{y_{n_2}}(\overline{y_{n_2}} - 1)}{n_1}}} < z_{\alpha/2}$$
+
+è equivalente a 
+
+$$ \overline{x_{n_1}} - \overline{y_{n_2}}  - z_{\alpha/2} \sqrt{\frac{\overline{x_{n_1}}(\overline{x_{n_1}} - 1)}{n_1} + \frac{\overline{y_{n_2}}(\overline{y_{n_2}} - 1)}{n_1}}<  \left( \frac{1}{p_1} - \frac{1}{p_2} \right)$$
+
+
+
+$$ \left( \frac{1}{p_1} - \frac{1}{p_2} \right) < \overline{x_{n_1}} - \overline{y_{n_2}}  + z_{\alpha/2} \sqrt{\frac{\overline{x_{n_1}}(\overline{x_{n_1}} - 1)}{n_1} + \frac{\overline{y_{n_2}}(\overline{y_{n_2}} - 1)}{n_1}}$$
+La seguente funzione consente di calcolare l'intervallo di confidenza 
+per la differenza dei valori medi dati in input il grado $1-\alpha$, la lunghezza del primo campione
+e del secondo campione e la media campionaria del primo e del secondo campione.
+
+```{r}
+differenzeValoriMedi <- function(grado, n1, n2, m1, m2) {
+  alpha <- 1 - grado
+  delta <- m1 * (m1 - 1) / n1 + m2 * (m2 - 1) / n2
+  radice <- sqrt(delta)
+  a <- m1 - m2
+  b <- qnorm(1 - alpha / 2, mean = 0, sd = 1) * radice
+  left <-  a - b
+  right <- a + b
+  return(c(left, right))
+}
+```
+
+**Interpretazione intervallo**
+
+- Se gli estremi dell'intervallo sono entrambi positivi allora 
+il valore medio della prima popolazione è maggiore del valore medio della seconda popolazione.
+
+- Se gli estremi dell'intervallo sono entrambi negativi allora 
+il valore medio della prima popolazione è minore del valore medio della seconda popolazione.
+
+- Altrimenti esiste la possibilità che i valori medi siano uguali, quindi non è possibile dire quale sia maggiore.
+
+Il seguente codice definisce due campione e calcola l'intervallo di confidenza di grado $1-\alpha = 0.99$
+per le differenze dei valori medi.
+
+```{r}
+#campione1 <- rgeom(150, prob = 0.3) + 1
+campione1 <- c(2, 4, 7, 5, 2, 2, 1, 2, 6, 5, 3, 2, 6, 1, 4, 1, 5, 1, 1, 1, 
+              2, 1, 5, 4, 9, 6, 3, 5, 3, 4, 3, 1, 6, 1, 3, 1, 1, 4, 3, 1, 
+              3, 1, 1, 1, 1, 4, 2, 3, 6, 1, 3, 1, 3, 7, 12, 5, 5, 3, 1, 4, 
+              2, 3, 1, 7, 4, 3, 5, 1, 3, 11, 9, 1, 3, 4, 1, 2, 4, 2, 1, 4, 
+              4, 2, 5, 8, 12, 5, 2, 1, 1, 6, 2, 2, 5, 1, 4, 7, 1, 3, 1, 2, 
+              2, 2, 4, 4, 3, 4, 2, 4, 1, 5, 1, 2, 1, 3, 4, 1, 6, 1, 2, 3,
+              12, 2, 3, 4, 13, 1, 1, 2, 3, 3, 3, 4, 2, 9, 1, 5, 1, 2, 1, 5, 
+              3, 5, 8, 1, 9, 9, 4, 2, 1, 5)
+
+#campione2 <- rgeom(100, prob = 0.6) + 1
+campione2 <- c(3, 1, 1, 1, 2, 2, 2, 1, 1, 1, 3, 1, 1, 1, 4, 2, 3, 2, 1, 4, 
+               4, 4, 1, 1, 1, 1, 3, 1, 1, 2, 1, 1, 1, 2, 1, 2, 2, 1, 1, 1, 
+               1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 6, 
+               1, 1, 2, 3, 2, 4, 2, 1, 1, 2, 1, 1, 4, 6, 1, 2, 1, 1, 1, 1, 
+               2, 2, 3, 1, 1, 2, 1, 4, 1, 1, 1, 1, 1, 1, 2, 1, 6, 1, 2, 1)
+
+intervallo <- differenzeValoriMedi(grado = 0.99, 
+                               n1 = length(campione1), n2 = length(campione2), 
+                               m1 = mean(campione1), m2 = mean(campione2))
+```
+L'intervallo ottenuto è 
+
+<center> (`r intervallo[1]`, `r intervallo[2]`) </center>
+
+Essendo gli estremi ottenuti entrambi positivi ne consegue che la media della prima popolazione è maggiore
+della media della seconda popolazione.

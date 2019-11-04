@@ -1,0 +1,164 @@
+# Distribuzione geometrica
+
+La distribuzione geometrica è una distribuzione di probabilità discreta il cui nome deriva dal fatto che
+segue una progressione geometrica, cioè una successione di numeri tali che è costante il rapporto di 
+un elemento con il precedente.
+
+Considerato un esperimento consistente nella  successione di prove indipendenti di Bernoulli di 
+parametro $p \in \{0, 1\}$ e considerato l'evento
+
+$$E_r = \{ \text{il primo successo si verifica alla prova r-esima}\}$$
+
+allora la probabilità di tale evento è
+$$P(E_r) = p(1-p)^{r-1}$$
+
+La distribuzione di una variabile aleatoria $X$ che descrive il 
+numero di prove per ottenere il primo successo in una successione di prove di Bernoulli
+è detta distribuzione geometrica di parametro $p$
+
+$$P(X = r) = P(E_r) \quad \text{per} \ r=1,2...$$
+
+e la sua funzione di probabilità per $0 < p < 1$ è
+
+$$p_X(x) = \begin{cases} p(1-p)^{x-1}, & \mbox{se } x \ge 1 \\ 0, & \mbox{altrimenti} \end{cases}$$
+
+## Probabilità teorica e frequenze del campione
+
+Il seguente codice permette di calcolare le probabilità che la variabile aleatoria
+con distribuzione geometrica di parametro $p=0.4$ assuma i valori $1,...,20$
+```{r}
+p = 0.4
+minX = 0
+maxX = 19
+x = minX:maxX
+
+probabilita.x = x + 1
+probabilita.y = dgeom(x, prob = p)
+```
+
+Invece il seguente codice permette di definire un campione di lunghezza $200$ 
+estratto da una popolazione descritta da una variabile geometrica di parametro $p=0.4$ 
+e di calcolare le frequenze relative dei valori assunti dal campione.
+```{r}
+p = 0.4
+#campione <- rgeom(100, prob = p) + 1
+campione <- c(2, 1, 1, 3, 1, 3, 4, 5, 1, 1, 1, 1, 4, 2, 2, 2, 4, 3, 3, 1, 
+              1, 1, 2, 2, 1, 1, 1, 2, 3, 6, 3, 1, 6, 1, 1, 2, 1, 4, 1, 1, 
+              4, 3, 2, 1, 4, 6, 7, 2, 1, 1, 3, 1, 1, 4, 1, 1, 4, 1, 4, 1, 
+              2, 1, 1, 1, 4, 2, 1, 2, 3, 2, 2, 1, 2, 1, 2, 1, 2, 2, 6, 5, 
+              6, 2, 6, 2, 3, 2, 2, 2, 4, 1, 1, 1, 1, 2, 3, 9, 3, 1, 2, 1)
+frequenzeRelative <- table(campione) / length(campione)
+```
+
+In figura \@ref(fig:probabilita-frequenze-geometrica) sono mostrate le probabilità della distribuzione
+geometrica e le frequenze del campione calcolate dal codice precedente.
+Come è possibile notare, per campioni numerosi, le frequenze relative tendono alla probabilità teoriche.
+```{r, echo = FALSE, probabilita-frequenze-geometrica, fig.cap='Probabilità teoriche e frequenze relative del campione', fig.align='center'}
+par ( mfrow =c(1 ,2) )
+plot(probabilita.x, probabilita.y, 
+     main = "Distribuzione geometrica p = 0.4", xlab = " ", ylab = "Probabilità", 
+     type = "h",xlim = c(minX, maxX), ylim = c(0 ,0.5))
+
+plot(frequenzeRelative, 
+     main = "Campione", xlab = " ", ylab = 'Frequenza relativa',
+     type = "h", xlim = c(minX, maxX), ylim = c(0 ,0.5))
+```
+
+
+## Funzione di distribuzione
+
+Calcolata la somma delle prime $k$ probabilità
+
+$$\sum_{r=1}^{k}p_X(r) = \sum_{r=1}^{k}p(1-p)^{r-1} = p \sum_{s = 0}^{k - 1} (1 - p)^s = p \frac{1-(1-p)^k}{1-(1-p)} = 1 - (1 - p)^k$$
+La funzione di distribuzione per una distribuzione geometrica di parametro $p$ è definita con il valore
+
+$$F_X(x) = P(X \le x) =  \begin{cases} 0, & \mbox{se } x < 1 \\ 1 - (1 - p)^k, & \mbox{se } k \le x < k + 1 \end{cases}$$
+
+Il seguente codice consente di calcolare i valori che assume la funzione di distribuzione 
+di frequenza tra 1 e 20. Il relativo grafico è mostrato in figura \@ref(fig:geometrica-distribuzione)
+
+```{r}
+distribuzione <- pgeom(x, prob = p, lower.tail = TRUE)
+```
+
+```{r, echo = FALSE, geometrica-distribuzione, fig.cap='Funzione di distribuzione', fig.align='center'}
+plot(x + 1, distribuzione,
+     xlab = "x", ylab = expression (P(X <= x)),
+     ylim = c(0 ,1) ,type = "s",
+     main = paste("Funzione di distribuzione per p =", p))
+axis(side = 1, at = seq(0, 20, by = 1))
+```
+
+
+## Quantili
+
+Il percentile $z * 100$-esimo è il più piccolo $k$ tale che
+$$P(X \le x) = 1 - (1 - p)^k > z$$
+
+Il valore di $k$ può essere calcolato algebricamente con nel seguente modo
+$$1 - (1 - p)^k > z \Leftrightarrow (1 - p)^k < 1 - z \Leftrightarrow k \ge \frac{log{(1 - z)}}{log(1 - p)}$$
+
+**Mediana**
+
+Ad esempio se vogliamo calcolare la mediana, cioè il percentile $0.5 * 100$-esimo 
+allora bisogna scegliere il più piccolo $k$ tale che
+$k \ge \frac{log(1-0.5)}{log(1-0.4) }$
+
+Il seguente codice effettua il calcolo
+```{r}
+mediana <- ceiling(log(1-0.5) / log(1-p))
+```
+
+Il risultato ottenuto è `r mediana`.
+
+**Quartili**
+
+Invece il seguente codice calcola i quartili utilizzando la funzione *qgeom*.
+I risultati ottenuti sono mostrati in tabella \@ref(tab:geometrica-quartili)
+```{r}
+quartili <- qgeom(c(0.25, 0.5, 0.75, 1), prob = p, lower.tail = TRUE) + 1
+```
+
+```{r geometrica-quartili, echo = FALSE}
+value <- quartili
+dim(value) <- c(1, 4)
+knitr::kable(head(value, length(value)),
+             col.names = c("Primo quartile", "Secondo quartile", "Terzo quartile", "Quarto quartile"),
+             caption = 'Quartili')
+```
+
+Come è possibile notare il valore della mediana (secondo quartile) assume valore pari a 2 con entrambi i metodi.
+
+## Valore atteso e varianza
+Per una variabile aleatoria descritta da una distribuzione geometrica di parametro $p$
+il valore atteso è
+$$E(X) = \frac{1}{p}$$
+mentre la varianza è
+
+$$Var(X) = \frac{1 - p}{p^2}$$
+
+Il seguente codice calcola il valore atteso e la varianza della variabile geometrica di parametro p,
+e la media campionaria e la varianza campionaria del campione simulato.
+I risultati ottenuti sono mostrati in tabella \@ref(tab:geometrica-statistiche)
+```{r}
+valore.atteso <- 1 / p
+media.campionaria <- mean(campione)
+
+varianza <- (1 - p) / p^2
+varianzaCampionaria <- var(campione)
+```
+
+```{r geometrica-statistiche, echo = FALSE}
+value <- cbind(valore.atteso, media.campionaria, varianza, varianzaCampionaria)
+knitr::kable(head(value, length(value)),
+             col.names = c("Media", "Media campionaria", "Varianza", "Varianza campionaria"),
+             caption = 'Statistiche')
+```
+
+## Assenza di memoria
+Una variabile aleatoria $X$ con distribuzione geometrica gode della proprietà di assenza di memoria
+$$P(X > r + n \ | \ X > r) = P(X > n) \quad \text{con r e n interi non negativi}$$
+
+Ciò significa che pur sapendo che nelle prime $r$ prove non c'è stato un successo,
+la probabilità che che non si verifica un successo fino alla prova $r + n$ dipende soltanto 
+dalle $n$ prove da effettuare e non dalle $r$ prove già effettuate.

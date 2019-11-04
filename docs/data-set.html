@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tesina Statistica</title>
+  <meta name="description" content="Tesina Statistica">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Tesina Statistica" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tesina Statistica" />
+  
+  
+  
+
+<meta name="author" content="Nicola Lancellotti">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="distribuzione.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tesina Statistica</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduzione</a></li>
+<li class="chapter" data-level="2" data-path="data-set.html"><a href="data-set.html"><i class="fa fa-check"></i><b>2</b> Data Set</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-set.html"><a href="data-set.html#boxplot"><i class="fa fa-check"></i><b>2.1</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distribuzione.html"><a href="distribuzione.html"><i class="fa fa-check"></i><b>3</b> Distribuzione</a><ul>
+<li class="chapter" data-level="3.1" data-path="distribuzione.html"><a href="distribuzione.html#frequenze"><i class="fa fa-check"></i><b>3.1</b> Frequenze</a></li>
+<li class="chapter" data-level="3.2" data-path="distribuzione.html"><a href="distribuzione.html#funzione-di-distribuzione-empirica-continua"><i class="fa fa-check"></i><b>3.2</b> Funzione di distribuzione empirica continua</a></li>
+<li class="chapter" data-level="3.3" data-path="distribuzione.html"><a href="distribuzione.html#istogrammi"><i class="fa fa-check"></i><b>3.3</b> Istogrammi</a></li>
+<li class="chapter" data-level="3.4" data-path="distribuzione.html"><a href="distribuzione.html#simmetria"><i class="fa fa-check"></i><b>3.4</b> Simmetria</a></li>
+<li class="chapter" data-level="3.5" data-path="distribuzione.html"><a href="distribuzione.html#curtosi-campionaria"><i class="fa fa-check"></i><b>3.5</b> Curtosi campionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html"><i class="fa fa-check"></i><b>4</b> Indici di posizione</a><ul>
+<li class="chapter" data-level="4.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#media-campionaria"><i class="fa fa-check"></i><b>4.1</b> Media campionaria</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#scarto-dalla-media-campionaria"><i class="fa fa-check"></i><b>4.1.1</b> Scarto dalla media campionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#mediana-campionaria"><i class="fa fa-check"></i><b>4.2</b> Mediana campionaria</a></li>
+<li class="chapter" data-level="4.3" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili"><i class="fa fa-check"></i><b>4.3</b> Quantili</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-2"><i class="fa fa-check"></i><b>4.3.1</b> Quantili con il tipo 2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-7"><i class="fa fa-check"></i><b>4.3.2</b> Quantili con il tipo 7</a></li>
+<li class="chapter" data-level="4.3.3" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#quantili-con-il-tipo-1"><i class="fa fa-check"></i><b>4.3.3</b> Quantili con il tipo 1</a></li>
+<li class="chapter" data-level="4.3.4" data-path="indici-di-posizione.html"><a href="indici-di-posizione.html#rappresentazione-grafica-dei-quartili"><i class="fa fa-check"></i><b>4.3.4</b> Rappresentazione grafica dei quartili</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html"><i class="fa fa-check"></i><b>5</b> Indici di dispersione</a><ul>
+<li class="chapter" data-level="5.1" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#varianza-campionaria"><i class="fa fa-check"></i><b>5.1</b> Varianza campionaria</a></li>
+<li class="chapter" data-level="5.2" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#deviazione-standard-campionaria"><i class="fa fa-check"></i><b>5.2</b> Deviazione standard campionaria</a></li>
+<li class="chapter" data-level="5.3" data-path="indici-di-dispersione.html"><a href="indici-di-dispersione.html#coefficiente-di-variazione"><i class="fa fa-check"></i><b>5.3</b> Coefficiente di variazione</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="correlazioni.html"><a href="correlazioni.html"><i class="fa fa-check"></i><b>6</b> Correlazioni</a><ul>
+<li class="chapter" data-level="6.1" data-path="correlazioni.html"><a href="correlazioni.html#diagrammi-si-dispersione"><i class="fa fa-check"></i><b>6.1</b> Diagrammi si dispersione</a></li>
+<li class="chapter" data-level="6.2" data-path="correlazioni.html"><a href="correlazioni.html#covarianza-campionaria"><i class="fa fa-check"></i><b>6.2</b> Covarianza campionaria</a></li>
+<li class="chapter" data-level="6.3" data-path="correlazioni.html"><a href="correlazioni.html#coefficiente-di-correlazione-campionario"><i class="fa fa-check"></i><b>6.3</b> Coefficiente di correlazione campionario</a></li>
+<li class="chapter" data-level="6.4" data-path="correlazioni.html"><a href="correlazioni.html#coefficiente-di-determinazione"><i class="fa fa-check"></i><b>6.4</b> Coefficiente di determinazione</a></li>
+<li class="chapter" data-level="6.5" data-path="correlazioni.html"><a href="correlazioni.html#regressione-lineare"><i class="fa fa-check"></i><b>6.5</b> Regressione lineare</a></li>
+<li class="chapter" data-level="6.6" data-path="correlazioni.html"><a href="correlazioni.html#regressione-lineare-multipla"><i class="fa fa-check"></i><b>6.6</b> Regressione lineare multipla</a></li>
+<li class="chapter" data-level="6.7" data-path="correlazioni.html"><a href="correlazioni.html#regressione-polinomiale"><i class="fa fa-check"></i><b>6.7</b> Regressione polinomiale</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html"><i class="fa fa-check"></i><b>7</b> Analisi dei cluster</a><ul>
+<li class="chapter" data-level="7.1" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#misure-di-distanza"><i class="fa fa-check"></i><b>7.1</b> Misure di distanza</a></li>
+<li class="chapter" data-level="7.2" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#misura-di-non-omogeneita"><i class="fa fa-check"></i><b>7.2</b> Misura di non omogeneità</a></li>
+<li class="chapter" data-level="7.3" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#funzioni-utili-per-lanalisi-dei-cluster"><i class="fa fa-check"></i><b>7.3</b> Funzioni utili per l’analisi dei cluster</a></li>
+<li class="chapter" data-level="7.4" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodi-gerarchici"><i class="fa fa-check"></i><b>7.4</b> Metodi gerarchici</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-completo"><i class="fa fa-check"></i><b>7.4.1</b> Metodo del legame completo</a></li>
+<li class="chapter" data-level="7.4.2" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-singolo"><i class="fa fa-check"></i><b>7.4.2</b> Metodo del legame singolo</a></li>
+<li class="chapter" data-level="7.4.3" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-legame-medio"><i class="fa fa-check"></i><b>7.4.3</b> Metodo del legame medio</a></li>
+<li class="chapter" data-level="7.4.4" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-del-centroide"><i class="fa fa-check"></i><b>7.4.4</b> Metodo del centroide</a></li>
+<li class="chapter" data-level="7.4.5" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-della-mediana"><i class="fa fa-check"></i><b>7.4.5</b> Metodo della mediana</a></li>
+<li class="chapter" data-level="7.4.6" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#analisi-metodi-gerarchici"><i class="fa fa-check"></i><b>7.4.6</b> Analisi metodi gerarchici</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="analisi-dei-cluster.html"><a href="analisi-dei-cluster.html#metodo-non-gerarchico"><i class="fa fa-check"></i><b>7.5</b> Metodo non gerarchico</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html"><i class="fa fa-check"></i><b>8</b> Distribuzione geometrica</a><ul>
+<li class="chapter" data-level="8.1" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#probabilita-teorica-e-frequenze-del-campione"><i class="fa fa-check"></i><b>8.1</b> Probabilità teorica e frequenze del campione</a></li>
+<li class="chapter" data-level="8.2" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#funzione-di-distribuzione"><i class="fa fa-check"></i><b>8.2</b> Funzione di distribuzione</a></li>
+<li class="chapter" data-level="8.3" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#quantili-1"><i class="fa fa-check"></i><b>8.3</b> Quantili</a></li>
+<li class="chapter" data-level="8.4" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#valore-atteso-e-varianza"><i class="fa fa-check"></i><b>8.4</b> Valore atteso e varianza</a></li>
+<li class="chapter" data-level="8.5" data-path="distribuzione-geometrica.html"><a href="distribuzione-geometrica.html#assenza-di-memoria"><i class="fa fa-check"></i><b>8.5</b> Assenza di memoria</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="stima-puntuale.html"><a href="stima-puntuale.html"><i class="fa fa-check"></i><b>9</b> Stima puntuale</a><ul>
+<li class="chapter" data-level="9.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#metodo-dei-momenti"><i class="fa fa-check"></i><b>9.1</b> Metodo dei momenti</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#stima-per-la-popolazione-geometrica"><i class="fa fa-check"></i><b>9.1.1</b> Stima per la popolazione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="stima-puntuale.html"><a href="stima-puntuale.html#metodo-della-massima-verosimiglianza"><i class="fa fa-check"></i><b>9.2</b> Metodo della massima verosimiglianza</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#stima-per-la-popolazione-geometrica-1"><i class="fa fa-check"></i><b>9.2.1</b> Stima per la popolazione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="stima-puntuale.html"><a href="stima-puntuale.html#proprieta-degli-stimatori"><i class="fa fa-check"></i><b>9.3</b> Proprietà degli stimatori</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="stima-puntuale.html"><a href="stima-puntuale.html#analisi-dello-stimatore-per-la-distribuzione-geometrica"><i class="fa fa-check"></i><b>9.3.1</b> Analisi dello stimatore per la distribuzione geometrica</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html"><i class="fa fa-check"></i><b>10</b> Intervalli di fiducia approssimati</a><ul>
+<li class="chapter" data-level="10.1" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html#intervalli-di-fiducia-approssimati-per-la-popolazione-geometrica"><i class="fa fa-check"></i><b>10.1</b> Intervalli di fiducia approssimati per la popolazione geometrica</a></li>
+<li class="chapter" data-level="10.2" data-path="intervalli-di-fiducia-approssimati.html"><a href="intervalli-di-fiducia-approssimati.html#differenza-tra-valori-medi"><i class="fa fa-check"></i><b>10.2</b> Differenza tra valori medi</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html"><i class="fa fa-check"></i><b>11</b> Verifica delle ipotesi</a><ul>
+<li class="chapter" data-level="11.1" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-bilaterale-approssimato"><i class="fa fa-check"></i><b>11.1</b> Test bilaterale approssimato</a></li>
+<li class="chapter" data-level="11.2" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-unilaterale-sinistro-approssimato"><i class="fa fa-check"></i><b>11.2</b> Test unilaterale sinistro approssimato</a></li>
+<li class="chapter" data-level="11.3" data-path="verifica-delle-ipotesi.html"><a href="verifica-delle-ipotesi.html#test-unilaterale-destro-approssimato"><i class="fa fa-check"></i><b>11.3</b> Test unilaterale destro approssimato</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="criterio-del-chi-quadrato.html"><a href="criterio-del-chi-quadrato.html"><i class="fa fa-check"></i><b>12</b> Criterio del chi-quadrato</a><ul>
+<li class="chapter" data-level="12.1" data-path="criterio-del-chi-quadrato.html"><a href="criterio-del-chi-quadrato.html#test-per-la-distribuzione-geometrica"><i class="fa fa-check"></i><b>12.1</b> Test per la distribuzione geometrica</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referenze.html"><a href="referenze.html"><i class="fa fa-check"></i>Referenze</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tesina Statistica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-set" class="section level1">
+<h1><span class="header-section-number">2</span> Data Set</h1>
+<p>Di seguito il codice che consente di creare un data frame in R con i valori in percentuale ottenuti dal sondaggio. Tali percentuali rappresentano il grado di soddisfazione per le caratteristiche di interesse. Inoltre sono state definiti alcuni oggetti che saranno utilizzati successivamente.</p>
+<p>Per una migliore visualizzazione i valori sono mostrati anche nella tabella <a href="data-set.html#tab:dataframe">2.1</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="kw">data.frame</span>(
+  <span class="dt">economica =</span> <span class="kw">c</span>(<span class="fl">4.8</span>, <span class="fl">5.1</span>, <span class="fl">3.9</span>, <span class="fl">4.3</span>, <span class="fl">10.8</span>, <span class="fl">4.7</span>, <span class="fl">6.4</span>, <span class="fl">4.1</span>, <span class="dv">3</span>, <span class="fl">4.2</span>, 
+                <span class="fl">3.4</span>, <span class="fl">2.9</span>, <span class="fl">2.8</span>, <span class="fl">2.2</span>, <span class="fl">1.9</span>, <span class="fl">2.6</span>, <span class="fl">2.2</span>, <span class="fl">1.7</span>, <span class="fl">1.9</span>, <span class="fl">1.9</span>),
+  <span class="dt">salute =</span> <span class="kw">c</span>(<span class="fl">17.6</span>, <span class="fl">19.5</span>, <span class="fl">18.2</span>, <span class="fl">18.4</span>, <span class="fl">28.7</span>, <span class="fl">18.7</span>, <span class="fl">17.3</span>, <span class="fl">19.2</span>, <span class="fl">17.1</span>, <span class="dv">16</span>, 
+             <span class="fl">15.3</span>, <span class="fl">14.6</span>, <span class="fl">18.3</span>, <span class="fl">15.3</span>, <span class="dv">13</span>, <span class="dv">11</span>, <span class="fl">12.1</span>, <span class="fl">10.2</span>, <span class="fl">16.2</span>, <span class="dv">12</span>),
+  <span class="dt">famiglia =</span> <span class="kw">c</span>(<span class="fl">36.2</span>, <span class="fl">35.3</span>, <span class="fl">39.5</span>, <span class="fl">35.3</span>, <span class="fl">46.4</span>, <span class="fl">38.5</span>, <span class="fl">37.3</span>, <span class="fl">38.7</span>, <span class="fl">35.6</span>, <span class="fl">35.7</span>, 
+               <span class="fl">33.7</span>, <span class="fl">31.1</span>, <span class="fl">33.9</span>, <span class="fl">30.6</span>, <span class="fl">24.3</span>, <span class="fl">22.2</span>, <span class="fl">30.5</span>, <span class="dv">28</span>, <span class="fl">30.5</span>, <span class="fl">30.4</span>),
+  <span class="dt">amici =</span> <span class="kw">c</span>(<span class="fl">24.5</span>, <span class="fl">25.5</span>, <span class="fl">26.5</span>, <span class="fl">25.5</span>, <span class="fl">35.2</span>, <span class="fl">25.1</span>, <span class="fl">26.8</span>, <span class="fl">28.4</span>, <span class="fl">25.4</span>, <span class="dv">26</span>, 
+            <span class="fl">23.2</span>, <span class="fl">22.8</span>, <span class="fl">23.8</span>, <span class="fl">19.7</span>, <span class="fl">16.5</span>, <span class="fl">16.2</span>, <span class="fl">21.6</span>, <span class="fl">17.8</span>, <span class="fl">20.1</span>, <span class="fl">21.6</span>), 
+  <span class="dt">tempoLibero =</span> <span class="kw">c</span>(<span class="fl">15.4</span>, <span class="dv">15</span>, <span class="fl">16.4</span>, <span class="dv">16</span>, <span class="fl">23.8</span>, <span class="fl">15.4</span>, <span class="fl">16.6</span>, <span class="fl">15.5</span>, <span class="fl">15.5</span>, <span class="fl">17.3</span>, 
+                  <span class="fl">13.9</span>, <span class="dv">13</span>, <span class="fl">11.9</span>, <span class="fl">12.1</span>, <span class="fl">9.3</span>, <span class="fl">9.3</span>, <span class="fl">10.6</span>, <span class="fl">9.2</span>, <span class="fl">11.6</span>, <span class="fl">10.9</span>)
+)
+
+<span class="kw">rownames</span>(df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Piemonte&quot;</span>, <span class="st">&quot;Valle d&#39;Aosta&quot;</span>, <span class="st">&quot;Liguria&quot;</span>, <span class="st">&quot;Lombardia&quot;</span>, 
+                  <span class="st">&quot;Trentino Alto Adige&quot;</span>, <span class="st">&quot;Veneto&quot;</span>, <span class="st">&quot;Friuli-Venezia Giulia&quot;</span>,
+                  <span class="st">&quot;Emilia-Romagna&quot;</span>, <span class="st">&quot;Toscana&quot;</span>, <span class="st">&quot;Umbria&quot;</span>, <span class="st">&quot;Marche&quot;</span>, <span class="st">&quot;Lazio&quot;</span>,
+                  <span class="st">&quot;Abruzzo&quot;</span>, <span class="st">&quot;Molise&quot;</span>, <span class="st">&quot;Campania&quot;</span>, <span class="st">&quot;Puglia&quot;</span>, <span class="st">&quot;Basilicata&quot;</span>,
+                  <span class="st">&quot;Calabria&quot;</span>, <span class="st">&quot;Sicilia&quot;</span>, <span class="st">&quot;Sardegna&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">column.names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Economica&quot;</span>, <span class="st">&quot;Salute&quot;</span>, <span class="st">&quot;Famiglia&quot;</span>, <span class="st">&quot;Amici&quot;</span>, <span class="st">&quot;Tempo libero&quot;</span>)
+
+rowCount =<span class="st"> </span><span class="kw">dim</span>(df)[<span class="dv">1</span>]
+colCount =<span class="st"> </span><span class="kw">dim</span>(df)[<span class="dv">2</span>]</code></pre></div>
+<table>
+<caption><span id="tab:dataframe">Tabella 2.1: </span>Data Set</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Economica</th>
+<th align="right">Salute</th>
+<th align="right">Famiglia</th>
+<th align="right">Amici</th>
+<th align="right">Tempo libero</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Piemonte</td>
+<td align="right">4.8</td>
+<td align="right">17.6</td>
+<td align="right">36.2</td>
+<td align="right">24.5</td>
+<td align="right">15.4</td>
+</tr>
+<tr class="even">
+<td>Valle d’Aosta</td>
+<td align="right">5.1</td>
+<td align="right">19.5</td>
+<td align="right">35.3</td>
+<td align="right">25.5</td>
+<td align="right">15.0</td>
+</tr>
+<tr class="odd">
+<td>Liguria</td>
+<td align="right">3.9</td>
+<td align="right">18.2</td>
+<td align="right">39.5</td>
+<td align="right">26.5</td>
+<td align="right">16.4</td>
+</tr>
+<tr class="even">
+<td>Lombardia</td>
+<td align="right">4.3</td>
+<td align="right">18.4</td>
+<td align="right">35.3</td>
+<td align="right">25.5</td>
+<td align="right">16.0</td>
+</tr>
+<tr class="odd">
+<td>Trentino Alto Adige</td>
+<td align="right">10.8</td>
+<td align="right">28.7</td>
+<td align="right">46.4</td>
+<td align="right">35.2</td>
+<td align="right">23.8</td>
+</tr>
+<tr class="even">
+<td>Veneto</td>
+<td align="right">4.7</td>
+<td align="right">18.7</td>
+<td align="right">38.5</td>
+<td align="right">25.1</td>
+<td align="right">15.4</td>
+</tr>
+<tr class="odd">
+<td>Friuli-Venezia Giulia</td>
+<td align="right">6.4</td>
+<td align="right">17.3</td>
+<td align="right">37.3</td>
+<td align="right">26.8</td>
+<td align="right">16.6</td>
+</tr>
+<tr class="even">
+<td>Emilia-Romagna</td>
+<td align="right">4.1</td>
+<td align="right">19.2</td>
+<td align="right">38.7</td>
+<td align="right">28.4</td>
+<td align="right">15.5</td>
+</tr>
+<tr class="odd">
+<td>Toscana</td>
+<td align="right">3.0</td>
+<td align="right">17.1</td>
+<td align="right">35.6</td>
+<td align="right">25.4</td>
+<td align="right">15.5</td>
+</tr>
+<tr class="even">
+<td>Umbria</td>
+<td align="right">4.2</td>
+<td align="right">16.0</td>
+<td align="right">35.7</td>
+<td align="right">26.0</td>
+<td align="right">17.3</td>
+</tr>
+<tr class="odd">
+<td>Marche</td>
+<td align="right">3.4</td>
+<td align="right">15.3</td>
+<td align="right">33.7</td>
+<td align="right">23.2</td>
+<td align="right">13.9</td>
+</tr>
+<tr class="even">
+<td>Lazio</td>
+<td align="right">2.9</td>
+<td align="right">14.6</td>
+<td align="right">31.1</td>
+<td align="right">22.8</td>
+<td align="right">13.0</td>
+</tr>
+<tr class="odd">
+<td>Abruzzo</td>
+<td align="right">2.8</td>
+<td align="right">18.3</td>
+<td align="right">33.9</td>
+<td align="right">23.8</td>
+<td align="right">11.9</td>
+</tr>
+<tr class="even">
+<td>Molise</td>
+<td align="right">2.2</td>
+<td align="right">15.3</td>
+<td align="right">30.6</td>
+<td align="right">19.7</td>
+<td align="right">12.1</td>
+</tr>
+<tr class="odd">
+<td>Campania</td>
+<td align="right">1.9</td>
+<td align="right">13.0</td>
+<td align="right">24.3</td>
+<td align="right">16.5</td>
+<td align="right">9.3</td>
+</tr>
+<tr class="even">
+<td>Puglia</td>
+<td align="right">2.6</td>
+<td align="right">11.0</td>
+<td align="right">22.2</td>
+<td align="right">16.2</td>
+<td align="right">9.3</td>
+</tr>
+<tr class="odd">
+<td>Basilicata</td>
+<td align="right">2.2</td>
+<td align="right">12.1</td>
+<td align="right">30.5</td>
+<td align="right">21.6</td>
+<td align="right">10.6</td>
+</tr>
+<tr class="even">
+<td>Calabria</td>
+<td align="right">1.7</td>
+<td align="right">10.2</td>
+<td align="right">28.0</td>
+<td align="right">17.8</td>
+<td align="right">9.2</td>
+</tr>
+<tr class="odd">
+<td>Sicilia</td>
+<td align="right">1.9</td>
+<td align="right">16.2</td>
+<td align="right">30.5</td>
+<td align="right">20.1</td>
+<td align="right">11.6</td>
+</tr>
+<tr class="even">
+<td>Sardegna</td>
+<td align="right">1.9</td>
+<td align="right">12.0</td>
+<td align="right">30.4</td>
+<td align="right">21.6</td>
+<td align="right">10.9</td>
+</tr>
+</tbody>
+</table>
+<div id="boxplot" class="section level2">
+<h2><span class="header-section-number">2.1</span> Boxplot</h2>
+<p>Un boxplot, detto anche diagramma a scatola con baffi, è una rappresentazione grafica che permette di descrivere la distribuzione di un campione.</p>
+<p>É costituito da una scatola i cui estremi sono il primo e il terzo quartile, divisa al suo interno dal secondo quartile detto anche mediana. In basso e in alto, o a sinistra e destra a seconda della rappresentazione verticale o orizzontale, sono presenti altri due segmenti detti baffi calcolati nel seguente modo:</p>
+<ul>
+<li><p>il baffo inferiore è il valore più piccolo tra le osservazioni maggiore o uguale a <span class="math inline">\(Q_1 − 1.5(Q_3 − Q_1)\)</span></p></li>
+<li><p>il baffo superiore è il valore più grande tra le osservazione minore o uguale a <span class="math inline">\(Q_3 + 1.5(Q_3 − Q_1)\)</span></p></li>
+</ul>
+<p>Eventuali valori non appartenenti all’intervallo definito tra il baffo inferiore e superiore sono detti valori anomali.</p>
+<p>Il seguente codice permette di mostrare i boxplot per le caratteristiche del dataset. I grafici sono mostrati nella figura <a href="data-set.html#fig:boxplot-singoli">2.1</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>colCount) {
+  <span class="kw">boxplot</span>(df[i], <span class="dt">horizontal =</span> <span class="ot">TRUE</span>, <span class="dt">col =</span> i <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">main =</span> column.names[i])
+}</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:boxplot-singoli"></span>
+<img src="statistics-project_files/figure-html/boxplot-singoli-1.png" alt="Boxplot" width="672" />
+<p class="caption">
+Figura 2.1: Boxplot
+</p>
+</div>
+<p>Invece il seguente codice permette di mostrare tutti i boxplot nello stesso grafico. Il grafico è mostrato nella figura <a href="data-set.html#fig:boxplot-multiplo">2.2</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">boxplot</span>(df, <span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">names =</span> column.names)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:boxplot-multiplo"></span>
+<img src="statistics-project_files/figure-html/boxplot-multiplo-1.png" alt="Boxplot" width="672" />
+<p class="caption">
+Figura 2.2: Boxplot
+</p>
+</div>
+<p>Infine il seguente codice permette di calcolare i baffi i cui valori sono mostrati nella tabella <a href="data-set.html#tab:baffi">2.2</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">calcolaBaffi &lt;-<span class="st"> </span><span class="cf">function</span>(values) {
+  q &lt;-<span class="st"> </span><span class="kw">quantile</span>(values)
+  inferiore &lt;-<span class="st"> </span>q[[<span class="dv">2</span>]] <span class="op">-</span><span class="st"> </span><span class="fl">1.5</span> <span class="op">*</span><span class="st"> </span>(q[[<span class="dv">4</span>]] <span class="op">-</span><span class="st"> </span>q[[<span class="dv">2</span>]])
+  superiore &lt;-<span class="st"> </span>q[[<span class="dv">4</span>]] <span class="op">+</span><span class="st"> </span><span class="fl">1.5</span> <span class="op">*</span><span class="st"> </span>(q[[<span class="dv">4</span>]] <span class="op">-</span><span class="st"> </span>q[[<span class="dv">2</span>]])
+  baffoInf &lt;-<span class="st"> </span><span class="kw">min</span>(values[values <span class="op">&gt;=</span><span class="st"> </span>inferiore])
+  baffoSup &lt;-<span class="st"> </span><span class="kw">max</span>(values[values <span class="op">&lt;=</span><span class="st"> </span>superiore])
+  <span class="kw">c</span>(baffoInf, baffoSup)  
+}
+baffi &lt;-<span class="st"> </span><span class="kw">sapply</span>(df, calcolaBaffi)
+<span class="kw">row.names</span>(baffi) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Inferiore&quot;</span>, <span class="st">&quot;Superiore&quot;</span>)</code></pre></div>
+<table>
+<caption><span id="tab:baffi">Tabella 2.2: </span>Baffi</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Economica</th>
+<th align="right">Salute</th>
+<th align="right">Famiglia</th>
+<th align="right">Amici</th>
+<th align="right">Tempo libero</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Inferiore</td>
+<td align="right">1.7</td>
+<td align="right">10.2</td>
+<td align="right">22.2</td>
+<td align="right">16.2</td>
+<td align="right">9.2</td>
+</tr>
+<tr class="even">
+<td>Superiore</td>
+<td align="right">6.4</td>
+<td align="right">19.5</td>
+<td align="right">39.5</td>
+<td align="right">28.4</td>
+<td align="right">17.3</td>
+</tr>
+</tbody>
+</table>
+<p>Dall’analisi visiva dei baffi si può trarre la conclusione che in ogni caratteristica è presente un valore anomalo e per tutte le caratteristiche l’individuo nel campione che presenta il valore anomale è il “Trentino Alto Adige”. Inoltre si può osservare che gli italiani traggono in media il massimo della soddisfazione nei rapporti familiari seguiti dai rapporti con gli amici, la salute, il tempo libero e infine dalla situazione economica.</p>
+<p>Si nota inoltre che la mediana è più vicina al terzo quartile e che il baffo sinistro è più grande del destro per tutte le caratteristiche eccetto per la soddisfazione economica.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distribuzione.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["statistics-project.pdf", "statistics-project.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

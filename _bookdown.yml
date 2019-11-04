@@ -1,0 +1,32 @@
+book_filename: "statistics-project"
+output_dir: "docs"
+delete_merged_file: true
+language:
+  label:
+    fig: 'Figura '
+    tab: 'Tabella '
+  ui:
+    chapter_name: ""
+rmd_files: [
+  "index.Rmd", 
+  
+  "dataSet.Rmd", 
+  "frequenze.Rmd", 
+  "misurePosizione.Rmd",
+  "misureDispersione.Rmd",
+  "correlazione.Rmd",
+  "regressioneLineareSemplice.Rmd",
+  "regressioneLinerareMultipla.Rmd",
+  "regressioneNonLSemplice.Rmd",
+  "cluster.Rmd",
+  
+  "varAleatoria.Rmd",
+  "stimaPuntuale.Rmd",
+  "intervalliFiducia.Rmd",
+  "verificaIpotesi.Rmd",
+  "testChiQuadrato.Rmd",
+  
+  "references.Rmd",
+]
+
+

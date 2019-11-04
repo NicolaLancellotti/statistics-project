@@ -1,0 +1,93 @@
+```{r chunk, echo = FALSE}
+```
+
+```{r chunk2, echo = FALSE}
+```
+
+## Regressione lineare multipla
+
+In questo paragrafo si desidera analizzare quanto la soddisfazione economica e la soddisfazione per la salute
+influiscono sulla soddisfazione nel tempo libero.
+La correlazione tra più variabili viene analizzata per mezzo del modello di regressione lineare multivariato.
+Il quale è descritto dalla retta
+$$Y = \alpha = \beta_1 X_1 +\dots + \beta_p X_p$$
+dove $\alpha$ è l'intercetta e i $\beta_i$ per $i=1,..,p$ sono i regressori.
+L'intercetta e i regressori sono calcolati con il metodo dei minimi quadrati.
+
+Il seguente codice calcola il modello lineare multivariato per le variabili indipendenti associate
+alla soddisfazione economica e alla soddisfazione per la salute e la variabile dipendente
+associata alla soddisfazione nel tempo libero.
+I parametri e il coefficiente di determinazione per tale modello
+sono mostrati nella tabella \@ref(tab:modello-lineare-multivariato-dati)
+```{r}
+y <- df$tempoLibero
+
+x1 <- df$economica
+x2 <- df$salute
+modello <- lm(y~x1+x2)
+
+alfa <- modello$coefficients[[1]]
+beta1 <- modello$coefficients[[2]]
+beta2 <- modello$coefficients[[3]]
+coeffDeterminazione <- summary(modello)$r.squared
+```
+Poiché entrambi i regressori sono positivi ne consegue che sia la soddisfazione economica sia quella della salute
+hanno un effetto positivo sulla soddisfazione nel tempo libero.
+
+Inoltre poiché il valore del coefficiente di determinazione assume valore `r coeffDeterminazione` ne consegue
+che il modello di regressione lineare multipla spiega in modo soddisfacente i valori.
+
+```{r modello-lineare-multivariato-dati, echo = FALSE}
+value <- matrix(c(alfa, beta1, beta2, coeffDeterminazione), nrow = 1)
+knitr::kable(head(value, length(value)),
+             col.names = c('α','β1', 'β2', 'Coef. Determinazione'),
+             caption = 'Dati modello lineare')
+```
+
+Il seguente codice permette di calcolare i valori stimati, i residui, e i residui standardizzati.
+I risultati sono mostrati nella tabella \@ref(tab:modello-lineare-multivariato-residui).\
+Inoltre vengono calcolate alcune statistiche sui residui: la media campionaria, la varianza campionaria e la deviazione standard campionaria. I risultati sono mostrati nella tabella \@ref(tab:modello-lineare-multivariato-statistiche).
+
+```{r}
+osservati <- y
+stime <- fitted(modello)
+residui <-resid(modello)
+residui.standard <- residui / sd(residui)
+
+mediaResidui <- mean(residui)
+varianzaResidui <- var(residui)
+deviazioneStandardResidui <- sd(residui)
+```
+
+
+```{r modello-lineare-multivariato-residui, echo = FALSE}
+value <- matrix(c(y, stime, residui, residui.standard), 
+                 ncol = 4)
+colnames(value) = c("Osservati", "Stimati", "Residui", 
+                     "Residui standardizzati")
+knitr::kable(head(value, length(value)),
+             #col.names = c('Intercetta', 'Coef. Angolare', 'Coef. Determinazione'),
+             caption = 'Residui')
+```
+
+
+
+
+```{r modello-lineare-multivariato-statistiche, echo = FALSE}
+value <- matrix(c(mediaResidui, varianzaResidui, deviazioneStandardResidui), nrow = 1)
+knitr::kable(head(value, length(value)),
+             col.names = c('Media', 'Varianza', 'Deviazione Standard'),
+             caption = 'Statistiche Residui')
+```
+
+Infine una visualizzazione grafica dei residui 
+rispetto ai valori stimati è mostrata in figura
+\@ref(fig:modello-lineare-multivariato-diagramma-residui-standard).
+```{r modello-lineare-multivariato-diagramma-residui-standard, fig.cap='Diagramma di dispersione', fig.align='center', echo = FALSE}
+plot(stime, residui.standard, 
+     main = "Diagramma dei residui standardizzati", 
+     xlab = "Valori stimati", ylab = "Residui standard",
+     pch = 1, col = "red")
+abline(h = 0, col = "blue", lty = 2)
+```
+
